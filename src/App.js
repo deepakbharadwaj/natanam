@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import About from './components/About';
-import Founder from './components/Founder';
-import Classes from './components/Classes';
-import Costumes from './components/Costumes';
-import Jewellery from './components/Jewellery';
-import Examinations from './components/Examinations';
-import Festivals from './components/Festivals';
-import Events from './components/Events';
-import Gallery from './components/Gallery';
-import Upcomings from './components/Upcomings';
-import WhatsAppButton from './components/WhatsAppButton';
-import Contact from './components/Contact';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import About from "./components/About";
+import Founder from "./components/Founder";
+import Classes from "./components/Classes";
+import Costumes from "./components/Costumes";
+import Jewellery from "./components/Jewellery";
+import Examinations from "./components/Examinations";
+import Festivals from "./components/Festivals";
+import Events from "./components/Events";
+import Gallery from "./components/Gallery";
+import Upcomings from "./components/Upcomings";
+import WhatsAppButton from "./components/WhatsAppButton";
+import Contact from "./components/Contact";
+import "./App.css";
 
 function App() {
-  const [currentSection, setCurrentSection] = useState('home');
+  const [currentSection, setCurrentSection] = useState("home");
 
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, []);
 
