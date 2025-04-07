@@ -1,9 +1,11 @@
 .navbar {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  padding: 1rem 2rem;
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  padding: 0.5rem 2rem;
   position: fixed;
   width: 100%;
+  height: 80px; /* Set explicit height */
   top: 0;
   left: 0;
   z-index: 1000;
@@ -11,8 +13,8 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
-
 
 .navbar-brand h1 {
   background: linear-gradient(45deg, #c41e3a, #ff4d6d);
@@ -24,6 +26,7 @@
   font-weight: 700;
   letter-spacing: 1px;
   animation: titleGlow 2s ease-in-out infinite alternate;
+  margin: 0; /* Remove default margin */
 }
 
 .navbar-menu {
@@ -143,18 +146,23 @@
 .navbar-menu button:nth-child(7) { animation-delay: 0.7s; }
 
 @media (max-width: 1024px) {
+  .navbar {
+    padding: 0.5rem 1.5rem;
+  }
+  
   .navbar-burger {
     display: flex;
   }
 
   .navbar-menu {
     position: fixed;
-    top: 80px;
+    top: 80px; /* Match navbar height */
     left: 0;
     width: 100%;
     height: calc(100vh - 80px);
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 2rem;
     flex-direction: column;
     gap: 1.5rem;
@@ -162,6 +170,8 @@
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+    z-index: 999;
   }
 
   .navbar-menu.active {
@@ -182,18 +192,67 @@
   }
 }
 
-@media (max-width: 480px) {
-  .navbar-brand h1 {
+@media (max-width: 768px) {
+  .navbar {
+    height: 70px;
+  }
+
+  .brand-text h1 {
     font-size: 1.5rem;
   }
 
+  .brand-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .nav-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .main-content {
+    margin-top: 70px;
+    height: calc(100vh - 70px);
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+    height: 60px;
+  }
+
+  .brand-container {
+    max-width: 70%;
+  }
+
+  .navbar-brand h1 {
+    font-size: 1.3rem;
+  }
+
+  .navbar-brand h2 {
+    font-size: 1rem;
+  }
+  
+  .brand-tagline {
+    font-size: 0.75rem;
+  }
+
+  .nav-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
   .navbar-menu {
+    top: 60px;
+    height: calc(100vh - 60px);
     padding: 1.5rem;
   }
 
   .navbar-menu button {
     font-size: 0.95rem;
-    margin-top:2px;
+    margin-top: 2px;
     padding: 0.8rem;
   }
 }

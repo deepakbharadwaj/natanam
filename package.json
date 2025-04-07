@@ -13,6 +13,7 @@
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
     "animate.css": "^4.1.1",
+    "compression": "^1.8.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
@@ -38,7 +39,8 @@
     "eject": "react-scripts eject",
     "optimize-assets": "node optimize-assets.js",
     "analyze": "ANALYZE=true craco build",
-    "optimize-images": "node scripts/optimize-images.js"
+    "optimize-images": "node scripts/optimize-images.js",
+    "serve": "node serve.js"
   },
   "eslintConfig": {
     "extends": [

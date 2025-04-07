@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import '../styles/Navbar.css';
-import logo from '../assets/bharatanatyam-logo.png';
+import React, { useState } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import "../styles/Navbar.css";
+import logo from "../assets/bharatanatyam-logo.png";
 
 const Navbar = ({ setCurrentSection }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +11,7 @@ const Navbar = ({ setCurrentSection }) => {
   const handleNavClick = (section) => {
     setIsOpen(false);
     setCurrentSection(section);
-    navigate(`/${section === 'home' ? '' : section}`);
+    navigate(`/${section === "home" ? "" : section}`);
   };
 
   return (
@@ -26,23 +26,75 @@ const Navbar = ({ setCurrentSection }) => {
           </div>
         </div>
       </div>
-      <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
-        <a href="/"><button onClick={() => handleNavClick('home')} className={location.pathname === '/' ? 'active' : ''}>Home</button></a>
-        <a href="/about"><button onClick={() => handleNavClick('about')} className={location.pathname === '/about' ? 'active' : ''}>About</button></a>
-        <a href="/founder"><button onClick={() => handleNavClick('founder')} className={location.pathname === '/founder' ? 'active' : ''}>Founder</button></a>
-        <a href="/classes"><button onClick={() => handleNavClick('classes')} className={location.pathname === '/classes' ? 'active' : ''}>Classes</button></a>
-        <a href="/costumes"><button onClick={() => handleNavClick('costumes')} className={location.pathname === '/costumes' ? 'active' : ''}>Costumes</button></a>
-        <a href="/examinations"><button onClick={() => handleNavClick('examinations')} className={location.pathname === '/examinations' ? 'active' : ''}>Examinations</button></a>
-        <a href="/festivals"><button onClick={() => handleNavClick('festivals')} className={location.pathname === '/festivals' ? 'active' : ''}>Festivals</button></a>
-        <a href="/events"><button onClick={() => handleNavClick('events')} className={location.pathname === '/events'? 'active' : ''}>Events</button></a>
-        <a href="/gallery"><button onClick={() => handleNavClick('gallery')} className={location.pathname === '/gallery' ? 'active' : ''}>Gallery</button></a>
-        <a href="/upcomings"><button onClick={() => handleNavClick('upcomings')} className={location.pathname === '/upcomings'? 'active' : ''}>Upcomings</button></a>
-        <a href="/contact"><button onClick={() => handleNavClick('contact')} className={location.pathname === '/contact' ? 'active' : ''}>Contact</button></a>
+      <div className={`navbar-menu ${isOpen ? "active" : ""}`}>
+        <button
+          onClick={() => handleNavClick("home")}
+          className={location.pathname === "/" ? "active" : ""}
+        >
+          Home
+        </button>
+        <button
+          onClick={() => handleNavClick("about")}
+          className={location.pathname === "/about" ? "active" : ""}
+        >
+          About
+        </button>
+        <button
+          onClick={() => handleNavClick("founder")}
+          className={location.pathname === "/founder" ? "active" : ""}
+        >
+          Founder
+        </button>
+        <button
+          onClick={() => handleNavClick("classes")}
+          className={location.pathname === "/classes" ? "active" : ""}
+        >
+          Classes
+        </button>
+        <button
+          onClick={() => handleNavClick("costumes")}
+          className={location.pathname === "/costumes" ? "active" : ""}
+        >
+          Costumes
+        </button>
+        <button
+          onClick={() => handleNavClick("examinations")}
+          className={location.pathname === "/examinations" ? "active" : ""}
+        >
+          Examinations
+        </button>
+        <button
+          onClick={() => handleNavClick("festivals")}
+          className={location.pathname === "/festivals" ? "active" : ""}
+        >
+          Festivals
+        </button>
+        <button
+          onClick={() => handleNavClick("events")}
+          className={location.pathname === "/events" ? "active" : ""}
+        >
+          Events
+        </button>
+        <button
+          onClick={() => handleNavClick("gallery")}
+          className={location.pathname === "/gallery" ? "active" : ""}
+        >
+          Gallery
+        </button>
+        <button
+          onClick={() => handleNavClick("upcomings")}
+          className={location.pathname === "/upcomings" ? "active" : ""}
+        >
+          Upcomings
+        </button>
+        <button
+          onClick={() => handleNavClick("contact")}
+          className={location.pathname === "/contact" ? "active" : ""}
+        >
+          Contact
+        </button>
       </div>
-      <div 
-        className={`navbar-burger ${isOpen ? 'active' : ''}`} 
-        onClick={() => setIsOpen(!isOpen)}
-      >
+      <div className={`navbar-burger ${isOpen ? "active" : ""}`} onClick={() => setIsOpen(!isOpen)}>
         <span></span>
         <span></span>
         <span></span>
