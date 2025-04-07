@@ -1,6 +1,6 @@
-import React from 'react';
-import update1 from '../assets/updates1.png';
-import '../styles/Upcomings.css';
+import React from "react";
+import update1 from "../assets/updates1.webp";
+import "../styles/Upcomings.css";
 
 const News = () => {
   return (

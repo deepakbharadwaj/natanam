@@ -1,17 +1,17 @@
 // Classes.js
-import React, { useState } from 'react';
-import '../styles/Classes.css';
-import stickerSolo from '../assets/sticker-solo.png';
-import stickerGroup from '../assets/sticker-group.png';
-import stickerArangetram from '../assets/sticker-arangetram.png'
+import React, { useState } from "react";
+import "../styles/Classes.css";
+import stickerSolo from "../assets/sticker-solo.webp";
+import stickerGroup from "../assets/sticker-group.webp";
+import stickerArangetram from "../assets/sticker-arangetram.webp";
 
 const Classes = () => {
-  const [mode, setMode] = useState('offline');
+  const [mode, setMode] = useState("offline");
 
   const handleEnroll = () => {
     window.open(
-      'https://docs.google.com/forms/d/e/1FAIpQLSdndZyB4v3spO8G3j71OurUaauuzqWtLeeDyHM6t5upixnLKg/viewform?usp=dialog',
-      '_blank'
+      "https://docs.google.com/forms/d/e/1FAIpQLSdndZyB4v3spO8G3j71OurUaauuzqWtLeeDyHM6t5upixnLKg/viewform?usp=dialog",
+      "_blank"
     );
   };
 
@@ -22,29 +22,25 @@ const Classes = () => {
 
         <div className="mode-selector">
           <button
-            className={`mode-button ${
-              mode === 'offline' ? 'active' : ''
-            }`}
-            onClick={() => setMode('offline')}
+            className={`mode-button ${mode === "offline" ? "active" : ""}`}
+            onClick={() => setMode("offline")}
           >
             Offline Classes
           </button>
           <button
-            className={`mode-button ${
-              mode === 'online' ? 'active' : ''
-            }`}
-            onClick={() => setMode('online')}
+            className={`mode-button ${mode === "online" ? "active" : ""}`}
+            onClick={() => setMode("online")}
           >
             Online Classes
           </button>
         </div>
 
         <div className="categories-container">
-          {(mode === 'offline' || mode === 'online') && (
+          {(mode === "offline" || mode === "online") && (
             <div className="class-category">
               <h3 className="category-title">Solo Classes</h3>
               <div className="class-card premium">
-              <h3>SOLO CLASSES</h3>
+                <h3>SOLO CLASSES</h3>
                 <div className="sticker-container">
                   <img src={stickerSolo} alt="Solo Dance" className="sticker-image" />
                 </div>
@@ -52,18 +48,13 @@ const Classes = () => {
                   <p className="registration">Registration Fee: ₹500</p>
                   <p>Monthly Fee: ₹5,000</p>
                   <p>(8 classes per month)</p>
-                  <small>
-                    *Individual attention & personalized training
-                  </small>
+                  <small>*Individual attention & personalized training</small>
                 </div>
               </div>
             </div>
           )}
 
-          
-
-
-          {mode === 'offline' && (
+          {mode === "offline" && (
             <>
               <div className="class-category">
                 <h3 className="category-title">Group Classes</h3>
@@ -72,14 +63,12 @@ const Classes = () => {
                   <div className="sticker-container">
                     <img src={stickerGroup} alt="Group Dance" className="sticker-image" />
                   </div>
-                  
+
                   <div className="fee-details">
                     <p className="registration">Registration Fee: ₹500</p>
                     <p>Monthly Fee: ₹1,500</p>
                     <p>(8 classes per month)</p>
-                    <small>
-                      *Non-refundable, payable at the time of enrollment
-                    </small>
+                    <small>*Non-refundable, payable at the time of enrollment</small>
                   </div>
                 </div>
               </div>
@@ -90,13 +79,11 @@ const Classes = () => {
                   <h3>ARANGETRAM</h3>
                   <div className="sticker-container">
                     <img src={stickerArangetram} alt="Arangetram" className="sticker-image" />
-                    </div>
+                  </div>
                   <div className="fee-details">
                     <p className="registration">Per hour : ₹600 </p>
                     <p>Project Duration: 6-8 months</p>
-                    <small>
-                      *Tailored training for your Arangetram performance
-                    </small>
+                    <small>*Tailored training for your Arangetram performance</small>
                   </div>
                 </div>
               </div>
@@ -104,7 +91,7 @@ const Classes = () => {
           )}
         </div>
 
-        {mode === 'online' && (
+        {mode === "online" && (
           <p className="group-notice">
             ✨ Group classes will commence when a suitable batch is formed ✨
           </p>
@@ -117,6 +104,5 @@ const Classes = () => {
     </div>
   );
 };
-
 
 export default Classes;

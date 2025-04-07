@@ -1,47 +1,45 @@
-import React from 'react';
-import '../styles/Founder.css';
-import founderImage from '../assets/About1.png';  // Add this line
-
-
+import React from "react";
+import "../styles/Founder.css";
+import founderImage from "../assets/About1.webp"; // Add this line
 
 const Founder = () => {
   const milestones = [
     {
-      year: "1994", 
+      year: "1994",
       achievement: "Inception of Natanam School of Bharatanatyam",
       description: "Started with a vision to preserve and promote Bharatanatyam",
-      icon: "🏫"
+      icon: "🏫",
     },
     {
       year: "2013",
       achievement: " Affiliation with Bangiya Sangit Parishad",
       description: "International recognition for exams in the field of Indian Dance & Music",
-      icon: "🌏"
+      icon: "🌏",
     },
     {
       year: "2014",
       achievement: "Inception of Natanam Foundation",
       description: " Expanding the horizons of Indian Classical Arts",
-      icon: "🏢"
+      icon: "🏢",
     },
     {
       year: "2022",
       achievement: "Launch of Aaharya Costumes and Dance Needs",
       description: "Premium rental for Classical & Semi - Classical Costumes and Accessories",
-      icon: "💃"
+      icon: "💃",
     },
     {
       year: "2020",
       achievement: "Digital Innovation in Indian Classical Arts",
       description: "Online Digital Productions, Courses and Workshops",
-      icon: "💻"
+      icon: "💻",
     },
     {
       year: "2023",
       achievement: "Excellence in Dance",
       description: "Recognized as leading Bharatanatyam institution",
-      icon: "🏆"
-    }
+      icon: "🏆",
+    },
   ];
 
   return (
@@ -70,23 +68,43 @@ const Founder = () => {
             <p className="founder-title">Artistic Director & Bharatanatyam Guru</p>
             <div className="founder-quote">
               <blockquote>
-                "Dance is the hidden language of the soul, and through Bharatanatyam, we discover its most beautiful expressions."
+                "Dance is the hidden language of the soul, and through Bharatanatyam, we discover
+                its most beautiful expressions."
               </blockquote>
             </div>
             <div className="founder-bio">
-            <p>
-            Vidya Murali, fondly known among her students, is a distinguished Bharatanatyam danseuse, teacher, and organizer, embodying the role of a nurturing mentor. She embarked on her journey in dance at the age of 10, captivated by the elegance of Bharatanatyam. Her passion led her to pursue formal training in the art form throughout her Bachelor’s and Master’s degrees at Bangalore University. </p>
+              <p>
+                Vidya Murali, fondly known among her students, is a distinguished Bharatanatyam
+                danseuse, teacher, and organizer, embodying the role of a nurturing mentor. She
+                embarked on her journey in dance at the age of 10, captivated by the elegance of
+                Bharatanatyam. Her passion led her to pursue formal training in the art form
+                throughout her Bachelor’s and Master’s degrees at Bangalore University.{" "}
+              </p>
 
-<p> Vidya has showcased her talent in numerous dance dramas under the direction of her esteemed Guru, Dr. D. Sarvothama Kamath of Bangalore University. She has also performed under the guidance of Acharya Ranjani Ganesan Ramesh of Kalakshetra, contributing to renowned productions such as *Dashavatara* and *Navarasa Shiva Shakti.</p>
+              <p>
+                {" "}
+                Vidya has showcased her talent in numerous dance dramas under the direction of her
+                esteemed Guru, Dr. D. Sarvothama Kamath of Bangalore University. She has also
+                performed under the guidance of Acharya Ranjani Ganesan Ramesh of Kalakshetra,
+                contributing to renowned productions such as *Dashavatara* and *Navarasa Shiva
+                Shakti.
+              </p>
 
-<p> Beyond her performances, Vidya is an accomplished choreographer, having conceptualized and presented several notable pieces, including *Ganesha Vandanam, Hari Hara, Shanmukha, Kalinga Mardhanam,* and *Krishnam Vande Jagadgurum.</p>
-</div>
+              <p>
+                {" "}
+                Beyond her performances, Vidya is an accomplished choreographer, having
+                conceptualized and presented several notable pieces, including *Ganesha Vandanam,
+                Hari Hara, Shanmukha, Kalinga Mardhanam,* and *Krishnam Vande Jagadgurum.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       <div className="journey-section">
-        <h2><b>Our Journey</b></h2>
+        <h2>
+          <b>Our Journey</b>
+        </h2>
         <div className="milestone-grid">
           {milestones.map((milestone, index) => (
             <div className="milestone-card" key={index}>

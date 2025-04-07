@@ -1,68 +1,68 @@
-import React, { useState } from 'react';
-import '../styles/Events.css';
+import React, { useState } from "react";
+import "../styles/Events.css";
 
 // Import all images
-import navarasa1 from '../assets/navarasa1.jpg';
-import navarasa2 from '../assets/navarasa2.jpg';
-import navarasa3 from '../assets/navarasa3.jpg';
-import navarasa4 from '../assets/navarasa4.jpg';
-import navarasa5 from '../assets/navarasa5.jpg';
-import navarasa6 from '../assets/navarasa6.jpg';
-import navarasa7 from '../assets/navarasa7.jpg';
+import navarasa1 from "../assets/navarasa1.webp";
+import navarasa2 from "../assets/navarasa2.webp";
+import navarasa3 from "../assets/navarasa3.webp";
+import navarasa4 from "../assets/navarasa4.webp";
+import navarasa5 from "../assets/navarasa5.webp";
+import navarasa6 from "../assets/navarasa6.webp";
+import navarasa7 from "../assets/navarasa7.webp";
 
-import rangotsavam2023_1 from '../assets/rangotsavam2023_1.png';
-import rangotsavam2023_2 from '../assets/rangotsavam2023_2.png';
-import rangotsavam2023_3 from '../assets/rangotsavam2023_3.png';
-import rangotsavam2023_4 from '../assets/rangotsavam2023_4.png';
-import rangotsavam2023_5 from '../assets/rangotsavam2023_5.png';
-import rangotsavam2023_6 from '../assets/rangotsavam2023_6.png';
-import rangotsavam2023_7 from '../assets/rangotsavam2023_7.png';
+import rangotsavam2023_1 from "../assets/rangotsavam2023_1.webp";
+import rangotsavam2023_2 from "../assets/rangotsavam2023_2.webp";
+import rangotsavam2023_3 from "../assets/rangotsavam2023_3.webp";
+import rangotsavam2023_4 from "../assets/rangotsavam2023_4.webp";
+import rangotsavam2023_5 from "../assets/rangotsavam2023_5.webp";
+import rangotsavam2023_6 from "../assets/rangotsavam2023_6.webp";
+import rangotsavam2023_7 from "../assets/rangotsavam2023_7.webp";
 
-import rangotsavam2024_1 from '../assets/rangotsavam2024_1.png';
-import rangotsavam2024_2 from '../assets/rangotsavam2024_2.png';
-import rangotsavam2024_3 from '../assets/rangotsavam2024_3.png';
-import rangotsavam2024_4 from '../assets/rangotsavam2024_4.png';
-import rangotsavam2024_5 from '../assets/rangotsavam2024_5.png';
-import rangotsavam2024_6 from '../assets/rangotsavam2024_6.png';
-import rangotsavam2024_7 from '../assets/rangotsavam2024_7.png';
-import rangotsavam2024_8 from '../assets/rangotsavam2024_8.png';
-import rangotsavam2024_9 from '../assets/rangotsavam2024_9.png';
+import rangotsavam2024_1 from "../assets/rangotsavam2024_1.webp";
+import rangotsavam2024_2 from "../assets/rangotsavam2024_2.webp";
+import rangotsavam2024_3 from "../assets/rangotsavam2024_3.webp";
+import rangotsavam2024_4 from "../assets/rangotsavam2024_4.webp";
+import rangotsavam2024_5 from "../assets/rangotsavam2024_5.webp";
+import rangotsavam2024_6 from "../assets/rangotsavam2024_6.webp";
+import rangotsavam2024_7 from "../assets/rangotsavam2024_7.webp";
+import rangotsavam2024_8 from "../assets/rangotsavam2024_8.webp";
+import rangotsavam2024_9 from "../assets/rangotsavam2024_9.webp";
 
-import al4s_1 from '../assets/al4s_1.png';
+import al4s_1 from "../assets/al4s_1.webp";
 
-import digital2023_1 from '../assets/digital2023_1.png';
-import digital2023_2 from '../assets/digital2023_2.png';
-import digital2023_3 from '../assets/digital2023_3.png';
-import digital2023_4 from '../assets/digital2023_4.png';
-import digital2024_1 from '../assets/digital2024_1.png';
-import digital2024_2 from '../assets/digital2024_2.png';
-import digital2024_3 from '../assets/digital2024_3.png';
-import digital2024_4 from '../assets/digital2024_4.png';
-import digital2024_5 from '../assets/digital2024_5.png';
-import digital2024_6 from '../assets/digital2024_6.png';
+import digital2023_1 from "../assets/digital2023_1.webp";
+import digital2023_2 from "../assets/digital2023_2.webp";
+import digital2023_3 from "../assets/digital2023_3.webp";
+import digital2023_4 from "../assets/digital2023_4.webp";
+import digital2024_1 from "../assets/digital2024_1.webp";
+import digital2024_2 from "../assets/digital2024_2.webp";
+import digital2024_3 from "../assets/digital2024_3.webp";
+import digital2024_4 from "../assets/digital2024_4.webp";
+import digital2024_5 from "../assets/digital2024_5.webp";
+import digital2024_6 from "../assets/digital2024_6.webp";
 
-import krishnajanmastami1 from '../assets/krishnajanmastami1.png';
-import krishnajanmastami2 from '../assets/krishnajanmastami2.png';
-import krishnajanmastami3 from '../assets/krishnajanmastami3.png';
-import krishnajanmastami4 from '../assets/krishnajanmastami4.png';
-import krishnajanmastami5 from '../assets/krishnajanmastami5.png';
+import krishnajanmastami1 from "../assets/krishnajanmastami1.webp";
+import krishnajanmastami2 from "../assets/krishnajanmastami2.webp";
+import krishnajanmastami3 from "../assets/krishnajanmastami3.webp";
+import krishnajanmastami4 from "../assets/krishnajanmastami4.webp";
+import krishnajanmastami5 from "../assets/krishnajanmastami5.webp";
 
-import republicday1 from '../assets/republicday1.png';
-import republicday2 from '../assets/republicday2.png';
-import republicday3 from '../assets/republicday3.png';
-import republicday4 from '../assets/republicday4.png';
-import republicday5 from '../assets/republicday5.png';
+import republicday1 from "../assets/republicday1.webp";
+import republicday2 from "../assets/republicday2.webp";
+import republicday3 from "../assets/republicday3.webp";
+import republicday4 from "../assets/republicday4.webp";
+import republicday5 from "../assets/republicday5.webp";
 
-import solo1 from '../assets/solo1.png';
-import solo2 from '../assets/solo2.png';
-import solo3 from '../assets/solo3.png';
-import solo4 from '../assets/solo4.png';
-import solo5 from '../assets/solo5.png';
-import solo6 from '../assets/solo6.png';
-import solo7 from '../assets/solo7.png';
+import solo1 from "../assets/solo1.webp";
+import solo2 from "../assets/solo2.webp";
+import solo3 from "../assets/solo3.webp";
+import solo4 from "../assets/solo4.webp";
+import solo5 from "../assets/solo5.webp";
+import solo6 from "../assets/solo6.webp";
+import solo7 from "../assets/solo7.webp";
 
-import vadakkum2023_1 from '../assets/vadakkum2023_1.png';
-import yuvadasara_1 from '../assets/yuvadasara_1.png';
+import vadakkum2023_1 from "../assets/vadakkum2023_1.webp";
+import yuvadasara_1 from "../assets/yuvadasara_1.webp";
 
 // Image arrays
 const navarasaImages = [
@@ -95,12 +95,7 @@ const rangotsavam2024Images = [
   rangotsavam2024_9,
 ];
 const al4sImages = [al4s_1];
-const digitalImages2023 = [
-  digital2023_1,
-  digital2023_2,
-  digital2023_3,
-  digital2023_4,
-];
+const digitalImages2023 = [digital2023_1, digital2023_2, digital2023_3, digital2023_4];
 const digitalImages2024 = [
   digital2024_1,
   digital2024_2,
@@ -116,13 +111,7 @@ const krishnajanmastamiImages = [
   krishnajanmastami4,
   krishnajanmastami5,
 ];
-const republicdayImages = [
-  republicday1,
-  republicday2,
-  republicday3,
-  republicday4,
-  republicday5,
-];
+const republicdayImages = [republicday1, republicday2, republicday3, republicday4, republicday5];
 const soloImages = [solo1, solo2, solo3, solo4, solo5, solo6, solo7];
 const vadakkum2023Images = [vadakkum2023_1];
 const yuvadasaraImages = [yuvadasara_1];
@@ -141,11 +130,7 @@ const EventCard = ({ event }) => {
                 zIndex: event.images.length - imgIndex,
               }}
             >
-              <img
-                src={img}
-                alt={`${event.title} ${imgIndex + 1}`}
-                className="event-image"
-              />
+              <img src={img} alt={`${event.title} ${imgIndex + 1}`} className="event-image" />
             </div>
           ))}
         </div>
@@ -180,7 +165,7 @@ const HorizontalEventCard = ({ event }) => {
               style={{
                 animationDelay: `${imgIndex * baseAnimationDuration}s`,
                 animationDuration: `${animationDuration}s`,
-                animationIterationCount: 'infinite'
+                animationIterationCount: "infinite",
               }}
             />
           ))}
@@ -199,7 +184,6 @@ const HorizontalEventCard = ({ event }) => {
   );
 };
 
-
 const SlidingEventCard = ({ event }) => {
   return (
     <div className="sliding-event-card">
@@ -212,7 +196,7 @@ const SlidingEventCard = ({ event }) => {
                 src={img}
                 alt={`${event.title} ${index + 1}`}
                 className="sliding-image"
-                style={{ marginRight: '20px' }} // Add space between images
+                style={{ marginRight: "20px" }} // Add space between images
               />
             ))}
           </div>
@@ -232,89 +216,85 @@ const SlidingEventCard = ({ event }) => {
 };
 
 const Events = () => {
-  const [activeYear, setActiveYear] = useState('2024');
+  const [activeYear, setActiveYear] = useState("2024");
 
   const years = {
-    '2024': {
+    2024: {
       majorPerformances: [
         {
-          title: 'Republic Day Celebration – Kartavya Path, New Delhi',
-          date: 'January 26, 2024',
+          title: "Republic Day Celebration – Kartavya Path, New Delhi",
+          date: "January 26, 2024",
           description:
-            'Team Natanam, led by Krupa, performed with 1500 dancers representing Naari Shakthi before the Honorable President and Prime Minister.',
+            "Team Natanam, led by Krupa, performed with 1500 dancers representing Naari Shakthi before the Honorable President and Prime Minister.",
           images: republicdayImages,
         },
         {
-          title: 'Krishna Janmashtami Celebrations',
-          date: 'August 26, 2024',
-          description:
-            'Hosted at Lotus Convention Centre with student performances.',
+          title: "Krishna Janmashtami Celebrations",
+          date: "August 26, 2024",
+          description: "Hosted at Lotus Convention Centre with student performances.",
           images: krishnajanmastamiImages,
         },
         {
-          title: 'Yuva Dasara Competition',
-          description: 'Team Natanam secured third place at this prestigious event.',
+          title: "Yuva Dasara Competition",
+          description: "Team Natanam secured third place at this prestigious event.",
           images: yuvadasaraImages,
         },
         {
-          title: 'Rangotsavam 2024',
-          date: 'November 17, 2024',
-          description:
-            'The grand annual day celebration at Krishnadevaraya Auditorium.',
+          title: "Rangotsavam 2024",
+          date: "November 17, 2024",
+          description: "The grand annual day celebration at Krishnadevaraya Auditorium.",
           images: rangotsavam2024Images,
         },
       ],
       digitalProductions: [
         {
-          title: 'Digital Productions 2024',
+          title: "Digital Productions 2024",
           description:
-            'Creative digital dance works including Veera Raja Veera and Sambho Mahadeva',
+            "Creative digital dance works including Veera Raja Veera and Sambho Mahadeva",
           images: digitalImages2024,
         },
       ],
     },
-    '2023': {
+    2023: {
       majorPerformances: [
         {
-          title: 'AL4S Charitable Trust Event',
-          date: 'January 8, 2023',
-          description: 'Team Natanam performed at Chowdiah Memorial, Bangalore.',
+          title: "AL4S Charitable Trust Event",
+          date: "January 8, 2023",
+          description: "Team Natanam performed at Chowdiah Memorial, Bangalore.",
           images: al4sImages,
         },
         {
-          title: 'Vadakkumnathan Temple Performance',
-          date: 'February 7, 2023',
-          description:
-            'Team Natanam performed at this prestigious temple in Thrissur, Kerala.',
+          title: "Vadakkumnathan Temple Performance",
+          date: "February 7, 2023",
+          description: "Team Natanam performed at this prestigious temple in Thrissur, Kerala.",
           images: vadakkum2023Images,
         },
         {
-          title: 'Rangotsavam 2023',
-          date: 'November 2023',
-          description:
-            'The annual showcase of students at Krishnadevaraya Auditorium, Bangalore.',
+          title: "Rangotsavam 2023",
+          date: "November 2023",
+          description: "The annual showcase of students at Krishnadevaraya Auditorium, Bangalore.",
           images: rangotsavam2023Images,
         },
       ],
       workshopsTraining: [
         {
-          title: 'Navarasa Sadhana Workshop',
-          date: 'April 2023',
-          description: 'Intensive workshop on Navarasas by Guru G Venu (Natanakairali).',
+          title: "Navarasa Sadhana Workshop",
+          date: "April 2023",
+          description: "Intensive workshop on Navarasas by Guru G Venu (Natanakairali).",
           images: navarasaImages,
         },
       ],
       soloCollaborative: [
         {
-          title: 'Recitals across India',
+          title: "Recitals across India",
           description: "Krupa's solo performances across prestigious event.",
           images: soloImages,
         },
       ],
       digitalProductions: [
         {
-          title: 'Digital Works 2023',
-          description: 'Creative digital dance productions from 2023',
+          title: "Digital Works 2023",
+          description: "Creative digital dance productions from 2023",
           images: digitalImages2023,
         },
       ],
@@ -329,7 +309,7 @@ const Events = () => {
           {Object.keys(years).map((year) => (
             <button
               key={year}
-              className={`year-btn ${activeYear === year ? 'active' : ''}`}
+              className={`year-btn ${activeYear === year ? "active" : ""}`}
               onClick={() => setActiveYear(year)}
             >
               {year}
@@ -363,7 +343,7 @@ const Events = () => {
           </section>
         )}
 
-        {activeYear === '2023' && years[activeYear].workshopsTraining && (
+        {activeYear === "2023" && years[activeYear].workshopsTraining && (
           <section className="workshops-training full-width-section">
             <h2>Workshops & Training</h2>
             <div className="sliding-events-container">
@@ -374,7 +354,7 @@ const Events = () => {
           </section>
         )}
 
-        {activeYear === '2023' && years[activeYear].soloCollaborative && (
+        {activeYear === "2023" && years[activeYear].soloCollaborative && (
           <section className="solo-collaborative full-width-section">
             <h2>Solo Performances</h2>
             <div className="sliding-events-container">

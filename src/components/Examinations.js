@@ -1,10 +1,10 @@
-import React from 'react';
-import '../styles/Examinations.css';
-import highlight1 from '../assets/highlight.png';
-import highlight2 from '../assets/highlight2.png';
-import highlight3 from '../assets/highlight3.png';
-import highlight4 from '../assets/highlight4.png';
-import examBook from '../assets/exambook.pdf';
+import React from "react";
+import "../styles/Examinations.css";
+import highlight1 from "../assets/highlight.webp";
+import highlight2 from "../assets/highlight2.webp";
+import highlight3 from "../assets/highlight3.webp";
+import highlight4 from "../assets/highlight4.webp";
+import examBook from "../assets/exambook.pdf";
 
 const Examinations = () => {
   return (
@@ -26,11 +26,20 @@ const Examinations = () => {
         <div className="highlights-header">
           <h2>Highlights of these examinations</h2>
           <ul className="highlights-list">
-            <li><span className="highlight-icon">✓</span> University certification</li>
-            <li><span className="highlight-icon">✓</span> Beginners, Intermediate and Advanced Levels</li>
+            <li>
+              <span className="highlight-icon">✓</span> University certification
+            </li>
+            <li>
+              <span className="highlight-icon">✓</span> Beginners, Intermediate and Advanced Levels
+            </li>
             <li className="special-highlight">
               <span className="star-icon">★</span>
-              <a href={examBook} target="_blank" rel="noopener noreferrer" className="study-material-link">
+              <a
+                href={examBook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="study-material-link"
+              >
                 Study Material provided
               </a>
               <span className="star-icon">★</span>
@@ -42,17 +51,25 @@ const Examinations = () => {
           <div className="highlight-card">
             <div className="card-number">1</div>
             <img src={highlight1} alt="Highlight 1" />
-            <p>For 15 or more students appearing for exams, the judges will come to your institution and conduct the exams</p>
+            <p>
+              For 15 or more students appearing for exams, the judges will come to your institution
+              and conduct the exams
+            </p>
           </div>
           <div className="highlight-card">
             <div className="card-number">2</div>
             <img src={highlight2} alt="Highlight 2" />
-            <p>The students will take up exams with a syllabus and style based on what has been taught in their own dance school</p>
+            <p>
+              The students will take up exams with a syllabus and style based on what has been
+              taught in their own dance school
+            </p>
           </div>
           <div className="highlight-card">
             <div className="card-number">3</div>
             <img src={highlight3} alt="Highlight 3" />
-            <p>Students will be grouped into small batches of 5 and individual attention is provided</p>
+            <p>
+              Students will be grouped into small batches of 5 and individual attention is provided
+            </p>
           </div>
           <div className="highlight-card">
             <div className="card-number">4</div>
@@ -66,14 +83,16 @@ const Examinations = () => {
         <div className="contact-box">
           <h3>Contact S Vidya Murali</h3>
           <div className="contact-details">
-            <p>✉️ <a href="mailto:natanamschool@gmail.com">natanamschool@gmail.com</a></p>
+            <p>
+              ✉️ <a href="mailto:natanamschool@gmail.com">natanamschool@gmail.com</a>
+            </p>
           </div>
-          
+
           <div className="register-cta">
             <p className="exam-year">Exam sessions open for the year 2025-26</p>
             <p className="spacing-gap">&nbsp;</p>
             <p className="spacing-gap">&nbsp;</p>
-            <a 
+            <a
               href="https://wa.me/919449764782?text=Hi,%20I'm%20interested%20in%20registering%20for%20the%20dance%20examinations"
               target="_blank"
               rel="noopener noreferrer"
@@ -82,7 +101,6 @@ const Examinations = () => {
               Contact Now!
             </a>
           </div>
-
         </div>
       </div>
     </div>

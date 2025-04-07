@@ -6,7 +6,7 @@
   .founder-hero {
     height: 45vh;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('../assets/About3.png');
+                url('../assets/About3.webp');
     background-size: cover;
     background-position: center 95%;
     background-attachment: fixed;

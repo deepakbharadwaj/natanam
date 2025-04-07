@@ -1,14 +1,14 @@
-import React, { useEffect, useRef } from 'react';
-import { useInView } from 'react-intersection-observer';
-import CountUp from 'react-countup';
-import '../styles/About.css';
-import aboutImage from '../assets/about-image.png';
-import danceVideo from '../assets/bharatanatyam-video.mp4';
+import React, { useEffect, useRef } from "react";
+import { useInView } from "react-intersection-observer";
+import CountUp from "react-countup";
+import "../styles/About.css";
+import aboutImage from "../assets/about-image.webp";
+import danceVideo from "../assets/bharatanatyam-video.webp";
 
 const About = () => {
   const [ref, inView] = useInView({
     threshold: 0.5,
-    triggerOnce: true
+    triggerOnce: true,
   });
   const videoRef = useRef(null);
 
@@ -22,9 +22,9 @@ const About = () => {
   return (
     <div className="about">
       <div className="video-section">
-        <video 
+        <video
           ref={videoRef}
-          autoPlay 
+          autoPlay
           //muted={false}
           loop
           playsInline
@@ -37,16 +37,22 @@ const About = () => {
         <div className="about-text">
           <h2>About Natanam Foundation</h2>
           <p>
-          Natanam Foundation, Bangalore, established in 1994 with the blessings and guidance of Guru Dr. D Sarvotthama Kamath, has been a nurturing ground for countless students under the artistic direction of Vid. S Vidya Murali. Affiliated with the Bangiya Sangeet Parishad, Kolkata, the foundation offers annual exams to students from its associated centers.
-
+            Natanam Foundation, Bangalore, established in 1994 with the blessings and guidance of
+            Guru Dr. D Sarvotthama Kamath, has been a nurturing ground for countless students under
+            the artistic direction of Vid. S Vidya Murali. Affiliated with the Bangiya Sangeet
+            Parishad, Kolkata, the foundation offers annual exams to students from its associated
+            centers.
           </p>
           <p>
-          Team Natanam, the foundation’s dynamic performing wing, is led by Krupa Ramachandran, whose pursuit of precision and visual geometry inspires her fellow dancers. The team has toured across India, captivating audiences at prestigious festivals and events with their spellbinding performances.
-
+            Team Natanam, the foundation’s dynamic performing wing, is led by Krupa Ramachandran,
+            whose pursuit of precision and visual geometry inspires her fellow dancers. The team has
+            toured across India, captivating audiences at prestigious festivals and events with
+            their spellbinding performances.
           </p>
           <p>
-
-In addition to its artistic endeavors, Natanam Foundation also runs Aharya Costumes and Dance Needs, a dedicated costume rental wing that caters to the needs of dancers, offering a range of exquisitely designed Bharatanatyam and semi-classical costumes.
+            In addition to its artistic endeavors, Natanam Foundation also runs Aharya Costumes and
+            Dance Needs, a dedicated costume rental wing that caters to the needs of dancers,
+            offering a range of exquisitely designed Bharatanatyam and semi-classical costumes.
           </p>
         </div>
         <div className="about-image">
@@ -97,5 +103,3 @@ In addition to its artistic endeavors, Natanam Foundation also runs Aharya Costu
 };
 
 export default About;
-
-

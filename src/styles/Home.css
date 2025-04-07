@@ -1,7 +1,7 @@
 .home-container {
   height: calc(100vh - 80px);
   width: 100%;
-  background-image: url('../assets/bharatanatyam-bg.jpg');
+  background-image: url('../assets/bharatanatyam-bg.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

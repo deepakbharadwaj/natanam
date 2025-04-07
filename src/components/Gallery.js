@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Gallery.css";
-import gallery1 from "../assets/gallery1.png";
-import gallery2 from "../assets/gallery2.png";
-import gallery3 from "../assets/gallery3.png";
-import gallery4 from "../assets/gallery4.png";
-import gallery5 from "../assets/gallery5.png";
-import gallery6 from "../assets/gallery6.png";
-import gallery7 from "../assets/gallery7.png";
-import gallery8 from "../assets/gallery8.png";
-import gallery9 from "../assets/gallery9.png";
-import gallery10 from "../assets/gallery10.png";
-import gallery11 from "../assets/gallery11.png";
-import gallery12 from "../assets/gallery12.png";
-import gallery13 from "../assets/gallery13.png";
-import gallery14 from "../assets/gallery14.png";
-import gallery15 from "../assets/gallery15.png";
-import gallery16 from "../assets/gallery16.png";
+import gallery1 from "../assets/gallery1.webp";
+import gallery2 from "../assets/gallery2.webp";
+import gallery3 from "../assets/gallery3.webp";
+import gallery4 from "../assets/gallery4.webp";
+import gallery5 from "../assets/gallery5.webp";
+import gallery6 from "../assets/gallery6.webp";
+import gallery7 from "../assets/gallery7.webp";
+import gallery8 from "../assets/gallery8.webp";
+import gallery9 from "../assets/gallery9.webp";
+import gallery10 from "../assets/gallery10.webp";
+import gallery11 from "../assets/gallery11.webp";
+import gallery12 from "../assets/gallery12.webp";
+import gallery13 from "../assets/gallery13.webp";
+import gallery14 from "../assets/gallery14.webp";
+import gallery15 from "../assets/gallery15.webp";
+import gallery16 from "../assets/gallery16.webp";
 
 const LazyImage = ({ src, alt }) => {
   const [isLoaded, setIsLoaded] = useState(false);

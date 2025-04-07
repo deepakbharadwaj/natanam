@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import "../styles/Navbar.css";
-import logo from "../assets/bharatanatyam-logo.png";
+import logo from "../assets/bharatanatyam-logo.webp";
 
 const Navbar = ({ setCurrentSection }) => {
   const [isOpen, setIsOpen] = useState(false);

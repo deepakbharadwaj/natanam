@@ -1,51 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import '../styles/Costumes.css';
+import React, { useState, useEffect } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import "../styles/Costumes.css";
 // Import costume images
-import costume1 from '../assets/costume1.png';
-import costume2 from '../assets/costume2.png';
-import costume3 from '../assets/costume3.png';
-import costume4 from '../assets/costume4.png';
-import costume5 from '../assets/costume5.png';
-import costume6 from '../assets/costume6.png';
-import costume7 from '../assets/costume7.png';
-import costume8 from '../assets/costume8.png';
-import costume9 from '../assets/costume9.png';
-import costume10 from '../assets/costume10.png';
-import costume11 from '../assets/costume11.png';
-import costume12 from '../assets/costume12.png';
-import costume13 from '../assets/costume13.png';
-import costume14 from '../assets/costume14.png';
-import costume15 from '../assets/costume15.png';
-import costume16 from '../assets/costume16.png';
-import costume17 from '../assets/costume17.png';
-import costume18 from '../assets/costume18.png';
-import costume19 from '../assets/costume19.png';
-import costume20 from '../assets/costume20.png';
-import costume21 from '../assets/costume21.png';
-import costume22 from '../assets/costume22.png';
-import costume23 from '../assets/costume23.png';
-
-
+import costume1 from "../assets/costume1.webp";
+import costume2 from "../assets/costume2.webp";
+import costume3 from "../assets/costume3.webp";
+import costume4 from "../assets/costume4.webp";
+import costume5 from "../assets/costume5.webp";
+import costume6 from "../assets/costume6.webp";
+import costume7 from "../assets/costume7.webp";
+import costume8 from "../assets/costume8.webp";
+import costume9 from "../assets/costume9.webp";
+import costume10 from "../assets/costume10.webp";
+import costume11 from "../assets/costume11.webp";
+import costume12 from "../assets/costume12.webp";
+import costume13 from "../assets/costume13.webp";
+import costume14 from "../assets/costume14.webp";
+import costume15 from "../assets/costume15.webp";
+import costume16 from "../assets/costume16.webp";
+import costume17 from "../assets/costume17.webp";
+import costume18 from "../assets/costume18.webp";
+import costume19 from "../assets/costume19.webp";
+import costume20 from "../assets/costume20.webp";
+import costume21 from "../assets/costume21.webp";
+import costume22 from "../assets/costume22.webp";
+import costume23 from "../assets/costume23.webp";
 
 const scrollToCategory = (category) => {
   const element = document.getElementById(category);
   if (element) {
-    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 };
 
 const Costumes = () => {
-  const [selectedType, setSelectedType] = useState('rent');
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedType, setSelectedType] = useState("rent");
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [filteredCostumes, setFilteredCostumes] = useState([]);
 
-  {/*const quickLinks = [
+  {
+    /*const quickLinks = [
     { id: 1, name: 'Traditional', image: 'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=500' },
     { id: 2, name: 'Practice', image: 'https://images.unsplash.com/photo-1596944946054-85b4b97c6a5f?w=500' },
     { id: 3, name: 'Performance', image: 'https://images.unsplash.com/photo-1596944924487-3c7f13d0374d?w=500' },
     { id: 4, name: 'Silk Saree', image: 'https://images.unsplash.com/photo-1596944924456-139d3f4a9a51?w=500' }
-  ];*/}
+  ];*/
+  }
 
   const costumes = {
     rent: [
@@ -61,13 +61,12 @@ const Costumes = () => {
         //sizes: ["4Y", "6Y", "8Y", "10Y"],
         available: 2,
         price: "₹400/day",
-        
       },
       {
         id: 2,
         name: "Kids performance costume",
         image: costume8,
-       // category: "practice",
+        // category: "practice",
         ageGroup: "6-10",
         material: "Semi Kanchi Silks",
         available: 2,
@@ -83,17 +82,16 @@ const Costumes = () => {
         available: 2,
         price: "₹400/day",
       },
-     {
+      {
         id: 4,
         name: "Kids performance costume",
-        image:costume14,
+        image: costume14,
         category: "traditional",
         ageGroup: "6-10",
         material: "Pure Silk",
         sizes: ["28", "30", "32"],
         available: 12,
         price: "₹400/day",
-        
       },
       {
         id: 5,
@@ -104,7 +102,6 @@ const Costumes = () => {
         material: "Pure Silk",
         available: 1,
         price: "₹500/day",
-        
       },
       {
         id: 6,
@@ -115,7 +112,6 @@ const Costumes = () => {
         material: "Semi Kanchi",
         available: 2,
         price: "₹400/day",
-        
       },
       {
         id: 7,
@@ -126,9 +122,9 @@ const Costumes = () => {
         material: "China Silk",
         available: 2,
         price: "₹400/day",
-        
       },
-      {/*
+      {
+        /*
         id: 5,
         name: "Kids Bharatanatyam Basic",
         category: "practice",
@@ -138,15 +134,16 @@ const Costumes = () => {
         sizes: ["4Y", "6Y", "8Y", "10Y"],
         available: 6,
         price: "₹1,500/day",
-        image: "costume11.jpg"
+        image: "costume11.webp"
       },
-      */},
-  
+      */
+      },
+
       // Age Group 11-20
       {
         id: 8,
         name: "Bharatanatyam/Kuchupudi Costume ",
-        image : costume10,
+        image: costume10,
         category: "traditional",
         ageGroup: "11-35",
         material: "Semi Silk",
@@ -222,7 +219,7 @@ const Costumes = () => {
         material: "Net top with georgette attachments",
         colors: ["Purple", "Pink"],
         sizes: ["XS", "S", "M", "L"],
-        available: 10+1,
+        available: 10 + 1,
         price: "₹500/day",
       },
       {
@@ -295,21 +292,20 @@ const Costumes = () => {
         available: 2,
         price: "₹600/day",
       },
-    
-       
-  
+
       // Age Group 20+
       {
         id: 22,
         name: "Assorted Skirt costume",
-        image:costume13,
+        image: costume13,
         category: "performance",
         ageGroup: "35+",
         material: "Semi Silk",
         available: 5,
         price: "₹600/day",
       },
-      {/*
+      {
+        /*
         id: 15,
         name: "Traditional Silk Set",
         image:costume2,
@@ -331,7 +327,7 @@ const Costumes = () => {
         sizes: ["S", "M", "L"],
         available: 6,
         price: "₹1,500/day",
-        image: "costume19.jpg"
+        image: "costume19.webp"
       },
       {
         id: 17,
@@ -343,7 +339,7 @@ const Costumes = () => {
         sizes: ["S", "M", "L"],
         available: 2,
         price: "₹5,000/day",
-        image: "costume20.jpg"
+        image: "costume20.webp"
       },
       {
         id: 18,
@@ -355,8 +351,9 @@ const Costumes = () => {
         sizes: ["M", "L", "XL"],
         available: 3,
         price: "₹3,800/day",
-        image: "costume21.jpg"
-      */}
+        image: "costume21.webp"
+      */
+      },
     ],
     purchase: [
       {
@@ -370,13 +367,12 @@ const Costumes = () => {
         //sizes: ["4Y", "6Y", "8Y", "10Y"],
         available: 2,
         price: "₹400/day",
-        
       },
       {
         id: 2,
         name: "Kids performance costume",
         image: costume8,
-       // category: "practice",
+        // category: "practice",
         ageGroup: "6-10",
         material: "Semi Kanchi Silks",
         available: 2,
@@ -392,17 +388,16 @@ const Costumes = () => {
         available: 2,
         price: "₹400/day",
       },
-     {
+      {
         id: 4,
         name: "Kids performance costume",
-        image:costume14,
+        image: costume14,
         category: "traditional",
         ageGroup: "6-10",
         material: "Pure Silk",
         sizes: ["28", "30", "32"],
         available: 12,
         price: "₹400/day",
-        
       },
       {
         id: 5,
@@ -413,7 +408,6 @@ const Costumes = () => {
         material: "Pure Silk",
         available: 1,
         price: "₹500/day",
-        
       },
       {
         id: 6,
@@ -424,7 +418,6 @@ const Costumes = () => {
         material: "Semi Kanchi",
         available: 2,
         price: "₹400/day",
-        
       },
       {
         id: 7,
@@ -435,9 +428,9 @@ const Costumes = () => {
         material: "China Silk",
         available: 2,
         price: "₹400/day",
-        
       },
-      {/*
+      {
+        /*
         id: 5,
         name: "Kids Bharatanatyam Basic",
         category: "practice",
@@ -447,15 +440,16 @@ const Costumes = () => {
         sizes: ["4Y", "6Y", "8Y", "10Y"],
         available: 6,
         price: "₹1,500/day",
-        image: "costume11.jpg"
+        image: "costume11.webp"
       },
-      */},
-  
+      */
+      },
+
       // Age Group 11-20
       {
         id: 8,
         name: "Bharatanatyam/Kuchupudi Costume ",
-        image : costume10,
+        image: costume10,
         category: "traditional",
         ageGroup: "11-35",
         material: "Semi Silk",
@@ -531,7 +525,7 @@ const Costumes = () => {
         material: "Net top with georgette attachments",
         colors: ["Purple", "Pink"],
         sizes: ["XS", "S", "M", "L"],
-        available: 10+1,
+        available: 10 + 1,
         price: "₹500/day",
       },
       {
@@ -604,21 +598,20 @@ const Costumes = () => {
         available: 2,
         price: "₹600/day",
       },
-    
-       
-  
+
       // Age Group 20+
       {
         id: 22,
         name: "Assorted Skirt costume",
-        image:costume13,
+        image: costume13,
         category: "performance",
         ageGroup: "35+",
         material: "Semi Silk",
         available: 5,
         price: "₹600/day",
       },
-      {/*
+      {
+        /*
         id: 15,
         name: "Traditional Silk Set",
         image:costume2,
@@ -640,9 +633,10 @@ const Costumes = () => {
         sizes: ["S", "M", "L"],
         available: 6,
         price: "₹1,500/day",
-        image: "costume19.jpg"
-      },*/}
-    ]
+        image: "costume19.webp"
+      },*/
+      },
+    ],
   };
 
   useEffect(() => {
@@ -650,118 +644,115 @@ const Costumes = () => {
   }, []);
 
   const handleScroll = (ageGroup, direction) => {
-    const safeAgeGroup = ageGroup.replace('+', 'plus');
+    const safeAgeGroup = ageGroup.replace("+", "plus");
     const container = document.querySelector(`.costumes-grid-${safeAgeGroup}`);
     const scrollAmount = 300;
     if (container) {
-      if (direction === 'prev') {
-        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      if (direction === "prev") {
+        container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
       } else {
-        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
       setTimeout(() => checkScroll(ageGroup), 500);
     }
   };
 
   const checkScroll = (ageGroup) => {
-    const safeAgeGroup = ageGroup.replace('+', 'plus');
+    const safeAgeGroup = ageGroup.replace("+", "plus");
     const container = document.querySelector(`.costumes-grid-${safeAgeGroup}`);
     if (container) {
       const hasLeftScroll = container.scrollLeft > 0;
-      const hasRightScroll = container.scrollLeft < (container.scrollWidth - container.clientWidth);
+      const hasRightScroll = container.scrollLeft < container.scrollWidth - container.clientWidth;
       const hasCards = container.children.length > 0;
-      
-      const prevArrow = container.parentElement.querySelector('.nav-arrow.prev');
-      const nextArrow = container.parentElement.querySelector('.nav-arrow.next');
-      
-      if (prevArrow) prevArrow.style.display = hasLeftScroll && hasCards ? 'flex' : 'none';
-      if (nextArrow) nextArrow.style.display = hasRightScroll && hasCards ? 'flex' : 'none';
+
+      const prevArrow = container.parentElement.querySelector(".nav-arrow.prev");
+      const nextArrow = container.parentElement.querySelector(".nav-arrow.next");
+
+      if (prevArrow) prevArrow.style.display = hasLeftScroll && hasCards ? "flex" : "none";
+      if (nextArrow) nextArrow.style.display = hasRightScroll && hasCards ? "flex" : "none";
     }
   };
 
   useEffect(() => {
-    const filtered = (costumes[selectedType] || []).filter(costume => {
-      return selectedCategory === 'all' || costume.category === selectedCategory.toLowerCase();
+    const filtered = (costumes[selectedType] || []).filter((costume) => {
+      return selectedCategory === "all" || costume.category === selectedCategory.toLowerCase();
     });
     setFilteredCostumes(filtered);
   }, [selectedType, selectedCategory]);
 
   useEffect(() => {
-    const ageGroups = ['6-10', '11-35', '35+'];
+    const ageGroups = ["6-10", "11-35", "35+"];
     const containers = [];
 
-    ageGroups.forEach(ageGroup => {
+    ageGroups.forEach((ageGroup) => {
       checkScroll(ageGroup);
-      const container = document.querySelector(`.costumes-grid-${ageGroup.replace('+', 'plus')}`);
+      const container = document.querySelector(`.costumes-grid-${ageGroup.replace("+", "plus")}`);
       if (container) {
         const scrollHandler = () => checkScroll(ageGroup);
-        container.addEventListener('scroll', scrollHandler);
+        container.addEventListener("scroll", scrollHandler);
         containers.push({ container, handler: scrollHandler });
       }
     });
 
     return () => {
       containers.forEach(({ container, handler }) => {
-        container.removeEventListener('scroll', handler);
+        container.removeEventListener("scroll", handler);
       });
     };
   }, [filteredCostumes]);
 
-  
-        
-        
-const renderAgeGroup = (ageGroup, title) => (
-  <div className="age-group-section">
-    <div className="age-label">
-      <span>{title}</span>
-    </div>
-    <div className="costumes-scroll-container">
-      <div className="nav-arrow prev" onClick={() => handleScroll(ageGroup, 'prev')}>
-        <FaChevronLeft />
+  const renderAgeGroup = (ageGroup, title) => (
+    <div className="age-group-section">
+      <div className="age-label">
+        <span>{title}</span>
       </div>
-      
-      <div className={`costumes-grid costumes-grid-${ageGroup.replace('+', 'plus')}`}>
-        {filteredCostumes
-          .filter(costume => costume.ageGroup === ageGroup)
-          .map(costume => (
-            <div className="costume-card" key={costume.id} id={costume.category}>
-              <div className="costume-image">
-                <img src={costume.image} alt={costume.name} />
-                <div className="costume-overlay">
-                  <div className="costume-details">
-                    <p className="material">Material: {costume.material}</p>
-                    {costume.colors && (
-                      <div className="colors">
-                        <p>Available Colors:</p>
-                        <div className="color-dots">
-                          {costume.colors.map(color => (
-                            <span 
-                              key={color} 
-                              className="color-dot" 
-                              style={{ backgroundColor: color.toLowerCase() }}
-                              title={color}
-                            />
-                          ))}
+      <div className="costumes-scroll-container">
+        <div className="nav-arrow prev" onClick={() => handleScroll(ageGroup, "prev")}>
+          <FaChevronLeft />
+        </div>
+
+        <div className={`costumes-grid costumes-grid-${ageGroup.replace("+", "plus")}`}>
+          {filteredCostumes
+            .filter((costume) => costume.ageGroup === ageGroup)
+            .map((costume) => (
+              <div className="costume-card" key={costume.id} id={costume.category}>
+                <div className="costume-image">
+                  <img src={costume.image} alt={costume.name} />
+                  <div className="costume-overlay">
+                    <div className="costume-details">
+                      <p className="material">Material: {costume.material}</p>
+                      {costume.colors && (
+                        <div className="colors">
+                          <p>Available Colors:</p>
+                          <div className="color-dots">
+                            {costume.colors.map((color) => (
+                              <span
+                                key={color}
+                                className="color-dot"
+                                style={{ backgroundColor: color.toLowerCase() }}
+                                title={color}
+                              />
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    )}
-                    {costume.sizes && <p className="sizes">Sizes: {costume.sizes.join(', ')}</p>}
-                    <p className="quantity">Available: {costume.available} pieces</p>
-                    <p className="price">{costume.price}</p>
+                      )}
+                      {costume.sizes && <p className="sizes">Sizes: {costume.sizes.join(", ")}</p>}
+                      <p className="quantity">Available: {costume.available} pieces</p>
+                      <p className="price">{costume.price}</p>
+                    </div>
                   </div>
                 </div>
+                <h3 className="costume-name">{costume.name}</h3>
               </div>
-              <h3 className="costume-name">{costume.name}</h3>
-            </div>
-          ))}
-      </div>
+            ))}
+        </div>
 
-      <div className="nav-arrow next" onClick={() => handleScroll(ageGroup, 'next')}>
-        <FaChevronRight />
+        <div className="nav-arrow next" onClick={() => handleScroll(ageGroup, "next")}>
+          <FaChevronRight />
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
 
   return (
     <div className="costumes-page">
@@ -791,10 +782,11 @@ const renderAgeGroup = (ageGroup, title) => (
         </div>
       </div>
   */}
-      
+
       <div className="costume-banner second-banner">
         <p className="costume-text">
-          A. You can visit Natanam Foundation, <span className="highlight">Horamavu (Bangalore)</span> and choose your costumes.
+          A. You can visit Natanam Foundation,{" "}
+          <span className="highlight">Horamavu (Bangalore)</span> and choose your costumes.
         </p>
         <p className="costume-text">
           B. Send a picture of the dancer and get the costume delivered to your place
@@ -803,15 +795,15 @@ const renderAgeGroup = (ageGroup, title) => (
 
       <div className="filter-section">
         <div className="type-filters">
-          <button 
-            className={`filter-btn ${selectedType === 'rent' ? 'active' : ''}`}
-            onClick={() => setSelectedType('rent')}
+          <button
+            className={`filter-btn ${selectedType === "rent" ? "active" : ""}`}
+            onClick={() => setSelectedType("rent")}
           >
             Rent
           </button>
-          <button 
-            className={`filter-btn ${selectedType === 'purchase' ? 'active' : ''}`}
-            onClick={() => setSelectedType('purchase')}
+          <button
+            className={`filter-btn ${selectedType === "purchase" ? "active" : ""}`}
+            onClick={() => setSelectedType("purchase")}
           >
             Purchase
           </button>
@@ -819,9 +811,9 @@ const renderAgeGroup = (ageGroup, title) => (
       </div>
 
       <div className="costumes-container">
-        {renderAgeGroup('6-10', 'Age 6-10 Years')}
-        {renderAgeGroup('11-35', 'Age 11-35 Years')}
-        {renderAgeGroup('35+', 'Age 35+ Years')}
+        {renderAgeGroup("6-10", "Age 6-10 Years")}
+        {renderAgeGroup("11-35", "Age 11-35 Years")}
+        {renderAgeGroup("35+", "Age 35+ Years")}
       </div>
     </div>
   );
