@@ -1,0 +1,366 @@
+.jewellery-main {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFF 100%);
+  padding: 60px 20px;
+}
+
+.jewellery-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jewellery-main h1 {
+  color: #8B4513;
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+}
+
+.category-showcase {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  margin-bottom: 60px;
+}
+
+.category-card {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 20px rgba(139, 69, 19, 0.1);
+  position: relative;
+}
+
+.category-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.category-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.category-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(139, 69, 19, 0.9), rgba(139, 69, 19, 0.4));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(139, 69, 19, 0.2);
+}
+
+.category-card:hover .category-overlay {
+  opacity: 1;
+}
+
+.category-card:hover .category-image img {
+  transform: scale(1.1);
+}
+
+.category-overlay h3 {
+  color: white;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+}
+
+.category-overlay p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+}
+
+.section-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.section-title {
+  color: #8B4513;
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  padding: 10px 40px;
+  border: 2px solid #8B4513;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.section-header::before,
+.section-header::after {
+  content: '';
+  height: 2px;
+  width: 100px;
+  background: #8B4513;
+  display: block;
+}
+
+.jewellery-tabs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.tab-btn {
+  padding: 15px 40px;
+  background: transparent;
+  border: 2px solid #8B4513;
+  color: #8B4513;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+}
+
+.tab-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #8B4513;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+
+.tab-btn:hover::before,
+.tab-btn.active::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.tab-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+  background: #8B4513;
+  color: white;
+}
+
+.jewellery-section {
+  width: 100%;
+  margin-bottom: 80px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.jewellery-section.active {
+  opacity: 1;
+}
+
+.jewellery-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.jewellery-card {
+  width: 100%;
+  max-width: 320px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(139, 69, 19, 0.1);
+  transition: all 0.4s ease;
+}
+
+.jewellery-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(139, 69, 19, 0.15);
+}
+
+.jewellery-image {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.jewellery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.jewellery-card:hover .jewellery-image img {
+  transform: scale(1.1);
+}
+
+.jewellery-details {
+  padding: 25px;
+  text-align: center;
+  color: #6B3100;
+}
+
+.jewellery-details h4 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  font-family: 'Playfair Display', serif;
+}
+
+.material {
+  color: #D4AF37;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.specifications {
+  background: rgba(139, 69, 19, 0.05);
+  padding: 15px;
+  border-radius: 15px;
+  margin: 15px 0;
+}
+
+.price {
+  font-size: 2rem;
+  color: #D4AF37;
+  font-weight: bold;
+  margin: 20px 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.stock-status {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-top: 15px;
+}
+
+.stock-status.in-stock {
+  background: rgba(40, 167, 69, 0.2);
+  color: #2ecc71;
+}
+
+.stock-status.out-stock {
+  background: rgba(220, 53, 69, 0.2);
+  color: #e74c3c;
+}
+
+@media (max-width: 1200px) {
+  .jewellery-container {
+    max-width: 960px;
+  }
+  
+  .category-card {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .jewellery-container {
+    max-width: 720px;
+  }
+
+  .jewellery-main h1 {
+    font-size: 2.4rem;
+  }
+  
+  .category-card {
+    width: 160px;
+    height: 160px;
+  }
+
+  .jewellery-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    padding: 15px 30px;
+  }
+
+  .jewellery-details h4 {
+    font-size: 1.4rem;
+  }
+
+  .price {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .jewellery-main {
+    padding: 40px 15px;
+  }
+
+  .jewellery-main h1 {
+    font-size: 2rem;
+  }
+
+  .category-card {
+    width: 140px;
+    height: 140px;
+  }
+
+  .category-showcase {
+    gap: 15px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    padding: 12px 25px;
+  }
+
+  .section-header::before,
+  .section-header::after {
+    width: 60px;
+  }
+
+  .jewellery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jewellery-details {
+    padding: 20px;
+  }
+
+  .price {
+    font-size: 1.6rem;
+  }
+}

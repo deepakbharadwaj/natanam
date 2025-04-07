@@ -1,0 +1,700 @@
+/* Events.css */
+
+/* Color Variables */
+:root {
+  --skin-light: #f5e6d8;
+  --skin-medium: #e6c9a8;
+  --skin-dark: #d2a679;
+  --brown-light: #8b5a2b;
+  --brown-medium: #5d4037;
+  --brown-dark: #3e2723;
+}
+
+/* Base Styles */
+.events-page {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--skin-light);
+  color: var(--brown-dark);
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.events-hero {
+  background: linear-gradient(135deg, var(--brown-medium), var(--brown-dark));
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1s ease-out;
+  padding: 120px 20px 20px;  /* Increased top padding */
+  z-index: 1;
+}
+
+.events-hero h1 {
+  font-size: 4.5rem;  /* Increased from 3rem */
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  animation: heroTitleAnimation 1.2s ease-out;
+  letter-spacing: 2px;
+}
+
+/* Year Selector */
+.year-selector {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  animation: fadeInUp 1s ease-out;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.year-btn {
+  padding: 0.7rem 1.3rem;
+  border: 2px solid var(--skin-light);
+  background: transparent;
+  color: var(--skin-light);
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.year-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.year-btn.active {
+  background: var(--skin-light);
+  color: var(--brown-dark);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Content Sections */
+.events-content {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 3rem 20px;
+}
+
+section {
+  margin-bottom: 3rem;
+  animation: fadeIn 1s ease-out;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--brown-dark);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--skin-dark), var(--brown-light));
+  border-radius: 2px;
+}
+
+/* Events Grid */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Event Card */
+.event-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Image Containers */
+.event-image-space {
+  height: 220px;
+  background: linear-gradient(45deg, var(--skin-light), var(--skin-medium));
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-text {
+  color: rgba(0, 0, 0, 0.05);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+/* Slideshow Container */
+.slideshow-container {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: slideFade 16s infinite;
+}
+
+.event-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.event-card:hover .event-image {
+  transform: scale(1.03);
+}
+
+/* Event Details */
+.event-details {
+  padding: 1.2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-details h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--brown-dark);
+  transition: color 0.3s ease;
+}
+
+.event-card:hover .event-details h3 {
+  color: var(--brown-medium);
+}
+
+.event-date {
+  color: var(--skin-dark);
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.event-details p {
+  margin-bottom: 0;
+  color: var(--brown-medium);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+@keyframes heroTitleAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-30px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Update responsive styles */
+@media (max-width: 768px) {
+  .events-hero h1 {
+    font-size: 3.5rem;  /* Adjusted for medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .events-hero h1 {
+    font-size: 2.8rem;  /* Adjusted for small screens */
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  5%,
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+}
+
+/* Horizontal Scrolling Styles */
+.horizontal-scroll-section {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 15px 0; /* Add some padding for the scrollbar */
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+  padding: 15px;
+  width: 100%;
+}
+
+.horizontal-scroll-container {
+  display: flex;
+  flex-wrap: nowrap;
+  /*padding: 0 5%;*/
+}
+
+.scroll-content {
+  display: flex;
+}
+
+.horizontal-event-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  width: calc(30% - 30px);
+  min-width: calc(30% - 30px);
+  min-height: 550px;
+  white-space: normal; /* Allow text to wrap */
+  height: auto;
+  display: inline-block;
+  margin-right: 30px;
+  margin-bottom: 15px;
+  flex: none; /* Prevent items from shrinking or growing */
+  animation: slideIn 0.5s ease-out; /* Added animation */
+}
+/* ... existing code ... */
+
+/* Specific height adjustments for special sections */
+.horizontal-event-image:nth-child(1) {
+  animation-delay: 0s;
+}
+.horizontal-event-image:nth-child(2) {
+  animation-delay: 4s;
+}
+.horizontal-event-image:nth-child(3) {
+  animation-delay: 8s;
+}
+.horizontal-event-image:nth-child(4) {
+  animation-delay: 12s;
+}
+
+@keyframes imageSlide {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Enhanced card styles for specific sections */
+.digital-productions .horizontal-event-card,
+.workshops-training .horizontal-event-card,
+.solo-collaborative .horizontal-event-card {
+  min-height: 850px; /* Increased height */
+  background: linear-gradient(to bottom, white, #faf6f3);
+  border: 2px solid var(--skin-medium); /* Added border */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Adjusted box-shadow */
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+}
+
+.digital-productions .horizontal-event-card::before,
+.workshops-training .horizontal-event-card::before,
+.solo-collaborative .horizontal-event-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid transparent;
+  transition: border-color 0.4s ease;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.digital-productions .horizontal-event-card:hover,
+.workshops-training .horizontal-event-card:hover,
+.solo-collaborative .horizontal-event-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  border-color: transparent;
+}
+
+.digital-productions .horizontal-event-card:hover::before,
+.workshops-training .horizontal-event-card:hover::before,
+.solo-collaborative .horizontal-event-card:hover::before {
+  border-color: var(--skin-dark); /* Border on hover */
+}
+
+/* Enhanced details section */
+.digital-productions .horizontal-event-details,
+.workshops-training .horizontal-event-details,
+.solo-collaborative .horizontal-event-details {
+  padding: 1.5rem;
+  background: linear-gradient(to bottom, transparent, rgba(245, 230, 216, 0.1));
+}
+
+.digital-productions .horizontal-event-details h3,
+.workshops-training .horizontal-event-details h3,
+.solo-collaborative .horizontal-event-details h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--brown-dark);
+  border-bottom: 2px solid var(--skin-light);
+  padding-bottom: 0.5rem;
+}
+
+.digital-productions .event-date,
+.workshops-training .event-date,
+.solo-collaborative .event-date {
+  color: var(--brown-medium);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  padding: 0.3rem 0.8rem;
+  background: var(--skin-light);
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.horizontal-event-card:last-child {
+  margin-right: 0;
+}
+
+.horizontal-event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.horizontal-slideshow {
+  height: 300px; /* Increased height */
+  position: relative;
+  overflow: hidden;
+}
+
+.horizontal-event-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  animation: slideFade 10s infinite ease-in-out; /* Continuous animation */
+}
+
+.horizontal-image-placeholder {
+  height: 300px; /* Increased height */
+  background: linear-gradient(45deg, var(--skin-light), var(--skin-medium));
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.horizontal-event-details {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal-event-details h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--brown-dark);
+  transition: color 0.3s ease;
+}
+
+.horizontal-event-card:hover .horizontal-event-details h3 {
+  color: var(--brown-medium);
+}
+
+/* Full width section */
+.full-width-section {
+  width: 100%;
+}
+
+/* Sliding Events Container */
+.sliding-events-container {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  -webkit-overflow-scrolling: touch;
+  padding: 15px;
+}
+
+/* Sliding Event Card */
+.sliding-event-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+  width: 100%; /* Make it as wide as major performances */
+  min-width: 0; /* Override min-width */
+  max-width: none; /* Remove max-width */
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.5s ease-out; /* Added animation */
+}
+
+.sliding-event-card:last-child {
+  margin-right: 0;
+}
+
+.sliding-event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sliding-image-container {
+  height: 300px; /* Increased height */
+  position: relative;
+  overflow: hidden;
+}
+
+.sliding-image-wrapper {
+  display: flex;
+  height: 100%;
+  animation: slideHorizontal 20s linear infinite;
+}
+
+.sliding-image {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  margin-right: 20px; /* Add space between images */
+}
+
+.sliding-image:last-child {
+  margin-right: 0; /* Remove margin from the last image */
+}
+
+.sliding-event-details {
+  padding: 1rem;
+}
+
+.sliding-event-details h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--brown-dark);
+}
+
+.sliding-event-details p {
+  font-size: 0.9rem;
+  color: var(--brown-medium);
+  line-height: 1.4;
+}
+
+/* Keyframes for animations */
+@keyframes slideHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%); /* Adjust based on the number of images */
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideFade {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  45% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Responsive Design */
+
+@media (max-width: 1600px) {
+  .horizontal-event-card,
+  .sliding-event-card {
+    width: calc(33.33% - 30px);
+    min-width: calc(33.33% - 30px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .horizontal-event-card,
+  .sliding-event-card {
+    width: calc(40% - 30px);
+    min-width: calc(40% - 30px);
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .events-content {
+    max-width: 90%;
+    padding: 2rem 15px;
+  }
+
+  .events-hero {
+    height: 40vh;
+  }
+
+  .events-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .horizontal-event-card {
+    width: calc(85% - 20px);
+    min-width: calc(85% - 20px);
+    margin-right: 20px;
+    min-height: 500px;
+  }
+
+  .horizontal-slideshow,
+  .sliding-image-container {
+    height: 250px;
+  }
+
+  .horizontal-event-details {
+    padding: 1rem;
+  }
+
+  .digital-productions .horizontal-event-card,
+  .workshops-training .horizontal-event-card,
+  .solo-collaborative .horizontal-event-card {
+    min-height: 750px; /* Adjust height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .events-content {
+    max-width: 100%;
+    padding: 1.5rem 10px;
+  }
+
+  .events-hero {
+    height: 35vh;
+  }
+
+  .events-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .horizontal-event-card {
+    width: calc(90% - 15px);
+    min-width: calc(90% - 15px);
+    margin-right: 15px;
+    min-height: 450px;
+  }
+
+  .horizontal-slideshow,
+  .sliding-image-container {
+    height: 220px;
+  }
+
+  .horizontal-event-details,
+  .sliding-event-details {
+    padding: 0.8rem;
+  }
+
+  .horizontal-event-details h3,
+  .sliding-event-details h3 {
+    font-size: 1.1rem;
+  }
+
+  .event-date {
+    font-size: 0.8rem;
+  }
+
+  .horizontal-event-details p,
+  .sliding-event-details p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .year-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .digital-productions .horizontal-event-card,
+  .workshops-training .horizontal-event-card,
+  .solo-collaborative .horizontal-event-card {
+    min-height: 650px; /* Further adjust height for even smaller screens */
+    border: 1px solid var(--skin-medium); /* Ensure border is visible */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Adjust shadow */
+  }
+}
