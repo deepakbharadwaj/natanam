@@ -167,7 +167,7 @@ const Home = () => {
         {
           title: "Navarasa Sadhana Workshop",
           date: "April 2023",
-          description: "Intensive workshop on Navarasas by Guru G Venu (Natanakairali).",
+          description: "Intensive workshop on Navarasas by Guru G Venu .",
           images: navarasaImages,
         },
       ],
@@ -570,7 +570,7 @@ const Home = () => {
         }
 
         .stat-number {
-          font-size: 3rem;
+          font-size: 2rem;
           font-weight: bold;
           margin-bottom: 10px;
           background: linear-gradient(45deg, var(--brown-light), var(--skin-dark));
@@ -607,7 +607,7 @@ const Home = () => {
     padding: 20px 10px;
   }
   .stat-number {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
   .stat-item p {
     font-size: 0.9rem;
@@ -619,7 +619,7 @@ const Home = () => {
   }
 }
 
-        .stat-item p {
+        .stat-item p 0
           font-size: 1.1rem;
           font-weight: 500;
           color: var(--brown-medium);
@@ -850,7 +850,7 @@ const Home = () => {
   }
 }
 
-/* Mobile - Vertical Layout */
+
 /* Alternative Mobile Design */
 @media (max-width: 480px) {
   .achievements-banner {
@@ -868,7 +868,7 @@ const Home = () => {
     border-bottom: none;
   }
   .achievement-stat .number {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin-bottom: 5px;
     min-width: auto;
   }
@@ -1042,7 +1042,7 @@ const Home = () => {
           padding-bottom: 15px;
           -webkit-overflow-scrolling: touch;
           padding: 15px;
-          width: 100%;
+          width: 110%;
         }
 
         .scroll-content {
@@ -1279,7 +1279,9 @@ const Home = () => {
           }
 
           .horizontal-slideshow, .sliding-image-container {
-            height: 200px;
+            height: 250px;
+         
+            
           }
         }
       `}</style>
