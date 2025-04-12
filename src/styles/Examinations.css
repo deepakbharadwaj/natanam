@@ -134,7 +134,7 @@
   }
   
   .highlight-card:hover {
-    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.15);
   }
   
   .highlight-card img {
@@ -152,22 +152,26 @@
   
   .contact-section {
   background: linear-gradient(45deg, #8B4513, #A0522D);
-  padding: 1rem; /* Reduced from 3rem */
+  padding: 1.5rem; /* Reduced from 3rem */
   border-radius: 15px;
   margin-top: 2rem; /* Reduced from 4rem */
   margin-bottom: 2rem; /* Reduced from 4rem */
   width: 100%; /* Added to control width */
+  max-width: 95%;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
   
   .contact-box {
     background: white;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 10px;
     text-align: center;
+    width: 100%;
     max-width: 500px;
     margin: 0 auto;
+    box-sizing: border-box;
   }
   
   .contact-box h3 {
@@ -208,13 +212,15 @@
     background: #8B4513;
     color: white;
     border: none;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     border-radius: 30px;
     font-size: 1.2rem;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    width: auto;
+    max-width: 90%;
   }
   
   .register-btn:hover {
@@ -335,8 +341,22 @@
   @media (max-width: 480px) {
     .examinations-page {
       padding: 0rem;
+      font-size: 0.8rem;
     }
-  
+    .exam-header h1 {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .blink-text {
+      font-size: 1.1rem;
+      margin: 1rem 0;
+    }
+    .exam-question {
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    
     .exam-header {
       margin-bottom: 1rem;
     }
@@ -345,17 +365,42 @@
       margin: 0;
     }
   
-    .contact-section {
-      padding: 0.3rem;
-    }
-  
-    .contact-box h3 {
+    .highlights-header h2 {
       font-size: 1.3rem;
       margin-bottom: 1rem;
     }
   
+    .highlight-card p {
+      font-size: 0.9rem;
+      padding: 1rem;
+    }
+  
+    .highlights-list li {
+      font-size: 0.9rem;
+    }
+    .contact-section {
+      padding: 0rem;
+    margin: 1rem auto;
+    max-width: 95%;
+    }
+  
+    .contact-box {
+      padding: 1rem;
+    }
+    .contact-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0rem;
+    }
+    .contact-details {
+      gap: 0.8rem;
+    }
+    .contact-details a {
+      font-size: 1rem;
+    }
+  
     .register-btn {
-      width: 100%;
-      max-width: 200px;
+    padding: 0.7rem 2rem;
+    font-size: 0.8rem;
+    max-width: 100%;
     }
   }
