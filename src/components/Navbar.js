@@ -25,13 +25,10 @@ const Navbar = ({ setCurrentSection }) => {
 
   const navItems = [
     { name: "Home", path: "home" },
-    { name: "About", path: "about" },
-    { name: "Founder", path: "founder" },
     { name: "Classes", path: "classes" },
     { name: "Costumes", path: "costumes" },
     { name: "Examinations", path: "examinations" },
     { name: "Festivals", path: "festivals" },
-    { name: "Events", path: "events" },
     { name: "Gallery", path: "gallery" },
     { name: "Upcomings", path: "upcomings" },
     { name: "Contact", path: "contact" },
@@ -40,34 +37,38 @@ const Navbar = ({ setCurrentSection }) => {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""} ${isOpen ? "menu-open" : ""}`}>
       <div className="navbar-container">
-        <div className="navbar-brand" onClick={() => handleNavClick("home")}>
-          <div className="brand-container">
-            <img src={logo} alt="Bharatanatyam Mudra" className="nav-logo" />
-            <div className="brand-text">
-              <h1>NATANAM</h1>
-              <h2>FOUNDATION</h2>
-              <p className="brand-tagline">Classical Dance Academy</p>
+        <div className="navbar-left">
+          <div className="navbar-brand" onClick={() => handleNavClick("home")}>
+            <div className="brand-container">
+              <img src={logo} alt="Bharatanatyam Mudra" className="nav-logo" />
+              <div className="brand-text">
+                <h1>NATANAM</h1>
+                <h2>FOUNDATION</h2>
+                <p className="brand-tagline">Classical Dance Academy</p>
+              </div>
             </div>
           </div>
         </div>
-
-        <div className={`navbar-menu ${isOpen ? "active" : ""}`}>
-          {navItems.map((item, index) => (
-            <button
-              key={item.path}
-              onClick={() => handleNavClick(item.path)}
-              className={location.pathname === `/${item.path === "home" ? "" : item.path}` ? "active" : ""}
-            >
-              <span>{item.name}</span>
-              <div className="hover-indicator"></div>
-            </button>
-          ))}
-        </div>
-
-        <div className={`navbar-burger ${isOpen ? "active" : ""}`} onClick={() => setIsOpen(!isOpen)}>
-          <span></span>
-          <span></span>
-          <span></span>
+  
+        <div className="navbar-right">
+          <div className={`navbar-menu ${isOpen ? "active" : ""}`}>
+            {navItems.map((item, index) => (
+              <button
+                key={item.path}
+                onClick={() => handleNavClick(item.path)}
+                className={location.pathname === `/${item.path === "home" ? "" : item.path}` ? "active" : ""}
+                style={{ '--i': index }}
+              >
+                <span>{item.name}</span>
+                <div className="hover-indicator"></div>
+              </button>
+            ))}
+          </div>
+          <div className={`navbar-burger ${isOpen ? "active" : ""}`} onClick={() => setIsOpen(!isOpen)}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
     </nav>
