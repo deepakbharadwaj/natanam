@@ -2,7 +2,18 @@ import React from "react";
 import "../styles/Contact.css";
 import profileImage from "../assets/krupa.webp";
 import profileImage2 from "../assets/Vidya.webp";
-import { FaInstagram, FaFacebook, FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaFacebook,
+  FaEnvelope,
+  FaWhatsapp,
+} from "react-icons/fa";
+import {
+  FaInstagram as FaInstagramOutline,
+  FaFacebook as FaFacebookOutline,
+  FaEnvelope as FaEnvelopeOutline,
+  FaWhatsapp as FaWhatsappOutline,
+} from "react-icons/fa";
 
 const Contact = () => {
   return (
@@ -24,11 +35,14 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="contact-link whatsapp"
             >
-              <FaWhatsapp />
+              <FaWhatsappOutline className="contact-icon" />
               <span>WhatsApp</span>
             </a>
-            <a href="mailto:kruparamachandran@gmail.com" className="contact-link email">
-              <FaEnvelope />
+            <a
+              href="mailto:kruparamachandran@gmail.com"
+              className="contact-link email"
+            >
+              <FaEnvelopeOutline className="contact-icon" />
               <span>Mail</span>
             </a>
             <a
@@ -37,7 +51,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="contact-link instagram"
             >
-              <FaInstagram />
+              <FaInstagramOutline className="contact-icon" />
               <span>Instagram</span>
             </a>
             <a
@@ -46,7 +60,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="contact-link facebook"
             >
-              <FaFacebook />
+              <FaFacebookOutline className="contact-icon" />
               <span>Facebook</span>
             </a>
           </div>
@@ -68,11 +82,14 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="contact-link whatsapp"
             >
-              <FaWhatsapp />
+              <FaWhatsappOutline className="contact-icon" />
               <span>WhatsApp</span>
             </a>
-            <a href="mailto:natanamschool@gmail.com" className="contact-link email">
-              <FaEnvelope />
+            <a
+              href="mailto:natanamschool@gmail.com"
+              className="contact-link email"
+            >
+              <FaEnvelopeOutline className="contact-icon" />
               <span>Mail</span>
             </a>
             <a
@@ -81,7 +98,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="contact-link instagram"
             >
-              <FaInstagram />
+              <FaInstagramOutline className="contact-icon" />
               <span>Instagram</span>
             </a>
             <a
@@ -90,7 +107,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="contact-link facebook"
             >
-              <FaFacebook />
+              <FaFacebookOutline className="contact-icon" />
               <span>Facebook</span>
             </a>
           </div>

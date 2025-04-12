@@ -1,5 +1,5 @@
 .contact-page {
-  background: linear-gradient(to bottom, #FFF5E6, #FFF8DC);
+  background: #f5f3f3;
   height: calc(100vh - 80px);
   padding: 2rem;
   display: flex;
@@ -7,190 +7,273 @@
   align-items: center;
   width: 100%;
   position: fixed;
-  top: 60px;
+  top: 80px;
   left: 0;
-  overflow-y: hidden;
+  overflow-y: auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  /* Glowing effect for the whole page */
+  box-shadow: 0 0 20px rgba(239, 241, 243, 0.3);
 }
 
 .instructors-container {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   justify-content: center;
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  padding: 1rem;
+  padding: 2rem;
+  transition: all 0.4s ease;
 }
-  
+
+.contact-container {
+  background: #111;
+  border-radius: 15px;
+  padding: 3rem;
+  box-shadow: 0 10px 40px rgba(0, 150, 255, 0.5);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(0, 150, 255, 0.3);
+  /* Neon effect for the container */
+  z-index: 1;
+}
+
+.contact-container:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 12px 45px rgba(0, 150, 255, 0.7);
+}
+
+.profile-section {
+  margin-bottom: 2.5rem;
+  animation: fadeIn 1s ease-out;
+}
+
+.profile-image {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #0096ff;
+  box-shadow: 0 6px 15px rgba(0, 150, 255, 0.5);
+  transition: border-color 0.3s ease;
+  /* Pulse animation for the profile image */
+  animation: pulse 2s infinite alternate;
+}
+
+.contact-container:hover .profile-image {
+  border-color: #40c4ff;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.profile-image img:hover {
+  transform: scale(1.1);
+}
+
+.profile-section h1 {
+  color: #fff;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0, 150, 255, 0.8);
+}
+
+.designation {
+  color: #80dfff;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #80dfff;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid #f2f2f3;
+  background-color: rgba(0, 150, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-link:hover {
+  background-color: rgba(0, 150, 255, 0.3);
+  border-color: #61add2;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(0, 150, 255, 0.6);
+}
+
+.contact-icon {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+  color: #0096ff;
+  /* Add a glowing effect to the icons */
+  text-shadow: 0 0 10px #0096ff;
+}
+
+.contact-link:hover .contact-icon {
+  transform: scale(1.2);
+  color: #40c4ff;
+}
+
+/* Add a pseudo-element for a dynamic background effect */
+.contact-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #0096ff, transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.contact-link:hover::before {
+  opacity: 1;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 150, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 15px rgba(0, 150, 255, 0);
+  }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+  .instructors-container {
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
   .contact-container {
-    background: white;
-    border-radius: 20px;
-    padding: 3rem;
-    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.1);
+    flex: 0 1 calc(50% - 1rem);
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 992px) {
+  .contact-page {
+    position: relative;
+    top: 0;
+    height: auto;
+    min-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+
+  .instructors-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-container {
     max-width: 500px;
     width: 100%;
-    text-align: center;
-    flex: 1;
-    position: relative;
   }
-  
-  
-  .profile-section {
-    margin-bottom: 3rem;
-  }
-  
-  .profile-image {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto 2rem;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid #8B4513;
-    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2);
-  }
-  
-  .profile-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .profile-section h1 {
-    color: #8B4513;
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .designation {
-    color: #A0522D;
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .contact-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .contact-page {
     padding: 1rem;
-    border-radius: 10px;
-    text-decoration: none;
-    color: white;
-    font-size: 1.1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .contact-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
 
-  .contact-link.whatsapp {
-    background: #25D366;
-  }
-  
-  .contact-link.email {
-    background: #8B4513;
-  }
-  
-  .contact-link.instagram {
-    background: #E1306C;
-  }
-  
-  .contact-link.facebook {
-    background: #4267B2;
+  .contact-container {
+    padding: 2rem 1.5rem;
   }
 
-  @media (max-width: 1200px) {
-    .instructors-container {
-      gap: 2rem;
-      padding: 1rem;
-    }
-  
-    .contact-container {
-      flex: 0 1 calc(50% - 1rem);
-      min-width: 300px;
-    }
+  .profile-image {
+    width: 140px;
+    height: 140px;
   }
-  
-  @media (max-width: 992px) {
-    .contact-page {
-      position: relative;
-      top: 0;
-      height: auto;
-      min-height: calc(100vh - 80px);
-      overflow-y: visible;
-    }
-  
-    .instructors-container {
-      flex-direction: column;
-      gap: 2rem;
-    }
-  
-    .contact-container {
-      max-width: 500px;
-      width: 100%;
-    }
+
+  .profile-section h1 {
+    font-size: 2rem;
   }
-  
-  @media (max-width: 768px) {
-    .contact-page {
-      padding: 1rem;
-    }
-  
-    .contact-container {
-      padding: 2rem 1.5rem;
-    }
-  
-    .profile-image {
-      width: 150px;
-      height: 150px;
-    }
-  
-    .profile-section h1 {
-      font-size: 2rem;
-    }
-  
-    .contact-link {
-      padding: 0.8rem;
-    }
+
+  .contact-link {
+    padding: 0.8rem;
+    font-size: 0.9rem;
   }
-  
-  @media (max-width: 480px) {
-    .contact-page {
-      padding: 0.5rem;
-    }
-  
-    .contact-container {
-      padding: 1.5rem 1rem;
-    }
-  
-    .profile-image {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 1.5rem;
-    }
-  
-    .profile-section h1 {
-      font-size: 1.8rem;
-    }
-  
-    .designation {
-      font-size: 1rem;
-    }
-  
-    .contact-links {
-      gap: 1rem;
-    }
-  
-    .contact-link {
-      padding: 0.7rem;
-      font-size: 0.9rem;
-    }
+
+  .contact-icon {
+    font-size: 1.2rem;
   }
+}
+
+@media (max-width: 480px) {
+  .contact-page {
+    padding: 0.5rem;
+  }
+
+  .contact-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .profile-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .designation {
+    font-size: 1rem;
+  }
+
+  .contact-links {
+    gap: 1rem;
+  }
+
+  .contact-link {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .contact-icon {
+    font-size: 1rem;
+  }
+}
