@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 import "../styles/Costumes.css";
 // Import costume images
 import costume1 from "../assets/costume1.webp";
@@ -34,614 +34,257 @@ const scrollToCategory = (category) => {
 };
 
 const Costumes = () => {
-  const [selectedType, setSelectedType] = useState("rent");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [filteredCostumes, setFilteredCostumes] = useState([]);
+  const [selectedCostume, setSelectedCostume] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  {
-    /*const quickLinks = [
-    { id: 1, name: 'Traditional', image: 'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=500' },
-    { id: 2, name: 'Practice', image: 'https://images.unsplash.com/photo-1596944946054-85b4b97c6a5f?w=500' },
-    { id: 3, name: 'Performance', image: 'https://images.unsplash.com/photo-1596944924487-3c7f13d0374d?w=500' },
-    { id: 4, name: 'Silk Saree', image: 'https://images.unsplash.com/photo-1596944924456-139d3f4a9a51?w=500' }
-  ];*/
-  }
-
-  const costumes = {
-    rent: [
-      // Age Group 4-10
-      {
-        id: 1,
-        name: "Kids performance costume",
-        image: costume7,
-        //category: "traditional",
-        ageGroup: "6-10",
-        material: "Semi Kanchi Silks",
-        //colors: ["Pink", "Gold", "Green"],
-        //sizes: ["4Y", "6Y", "8Y", "10Y"],
-        available: 2,
-        price: "₹400/day",
-      },
-      {
-        id: 2,
-        name: "Kids performance costume",
-        image: costume8,
-        // category: "practice",
-        ageGroup: "6-10",
-        material: "Semi Kanchi Silks",
-        available: 2,
-        price: "₹400/day",
-      },
-      {
-        id: 3,
-        name: "Kids performance costume",
-        image: costume9,
-        //category: "performance",
-        ageGroup: "6-10",
-        material: "Semi Kanchi Silks",
-        available: 2,
-        price: "₹400/day",
-      },
-      {
-        id: 4,
-        name: "Kids performance costume",
-        image: costume14,
-        category: "traditional",
-        ageGroup: "6-10",
-        material: "Pure Silk",
-        sizes: ["28", "30", "32"],
-        available: 12,
-        price: "₹400/day",
-      },
-      {
-        id: 5,
-        name: "Kids Performance Costume",
-        image: costume20,
-        category: "traditional",
-        ageGroup: "6-10",
-        material: "Pure Silk",
-        available: 1,
-        price: "₹500/day",
-      },
-      {
-        id: 6,
-        name: "Kids Performance Costume",
-        image: costume21,
-        category: "traditional",
-        ageGroup: "6-10",
-        material: "Semi Kanchi",
-        available: 2,
-        price: "₹400/day",
-      },
-      {
-        id: 7,
-        name: "Kids Performance Costume",
-        image: costume22,
-        category: "traditional",
-        ageGroup: "6-10",
-        material: "China Silk",
-        available: 2,
-        price: "₹400/day",
-      },
-      {
-        /*
-        id: 5,
-        name: "Kids Bharatanatyam Basic",
-        category: "practice",
-        ageGroup: "4-10",
-        material: "Cotton Silk",
-        colors: ["Orange", "Red"],
-        sizes: ["4Y", "6Y", "8Y", "10Y"],
-        available: 6,
-        price: "₹1,500/day",
-        image: "costume11.webp"
-      },
-      */
-      },
-
-      // Age Group 11-20
-      {
-        id: 8,
-        name: "Bharatanatyam/Kuchupudi Costume ",
-        image: costume10,
-        category: "traditional",
-        ageGroup: "11-35",
-        material: "Semi Silk",
-        available: 20,
-        price: "₹600/day",
-      },
-      {
-        id: 9,
-        name: "Performance with pant Costume",
-        image: costume11,
-        category: "practice",
-        ageGroup: "11-35",
-        material: "Silk",
-        available: 20,
-        price: "₹600/day",
-      },
-      {
-        id: 10,
-        name: "Navadurga Costume",
-        image: costume12,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Devi Costumes",
-        available: 1,
-        price: "₹600/day",
-      },
-      {
-        id: 11,
-        name: "Bharatantyam Costume Set",
-        image: costume15,
-        category: "traditional",
-        ageGroup: "11-35",
-        material: "Pure Silk",
-        available: 1,
-        price: "₹800/day",
-      },
-      {
-        id: 12,
-        name: "Classical Dance Set",
-        image: costume1,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Semi Kanchi Silk",
-        available: 2,
-        price: "₹600/day",
-      },
-      {
-        id: 13,
-        name: "Classical Dance Set",
-        image: costume2,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Polyester",
-        available: 6,
-        price: "₹500/day",
-      },
-      {
-        id: 14,
-        name: "Classical Dance Set",
-        image: costume3,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Raw Silk",
-        available: 8,
-        price: "₹600/day",
-      },
-      {
-        id: 15,
-        name: "Classical Dance Set",
-        image: costume4,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Net top with georgette attachments",
-        colors: ["Purple", "Pink"],
-        sizes: ["XS", "S", "M", "L"],
-        available: 10 + 1,
-        price: "₹500/day",
-      },
-      {
-        id: 16,
-        name: "Performance Ready Set",
-        image: costume5,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Raw Silk Pant with brocade",
-        available: 4,
-        price: "₹500/day",
-      },
-      {
-        id: 17,
-        name: "Performance Ready Set",
-        image: costume6,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Poly Silk",
-        available: 12,
-        price: "₹500/day",
-      },
-      {
-        id: 18,
-        name: "Performance Ready Set",
-        image: costume16,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Chiffon Georgette Skirt with brocade long blouse",
-        available: 8,
-        price: "₹500/day",
-      },
-      {
-        id: 19,
-        name: "Performance Ready Set",
-        image: costume17,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Balloon pant and strech blouse with net",
-        available: 4,
-        price: "₹500/day",
-      },
-      {
-        id: 20,
-        name: "Performance Ready Set",
-        image: costume19,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Cotton Silk",
-        available: 18,
-        price: "₹600/day",
-      },
-      {
-        id: 21,
-        name: "Classical Dance Set",
-        image: costume18,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Semi Kanchi Silk",
-        available: 2,
-        price: "₹600/day",
-      },
-      {
-        id: 22,
-        name: "Classical Dance Set",
-        image: costume23,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Semi Kanchi Silk",
-        available: 2,
-        price: "₹600/day",
-      },
-
-      // Age Group 20+
-      {
-        id: 22,
-        name: "Assorted Skirt costume",
-        image: costume13,
-        category: "performance",
-        ageGroup: "35+",
-        material: "Semi Silk",
-        available: 5,
-        price: "₹600/day",
-      },
-      {
-        /*
-        id: 15,
-        name: "Traditional Silk Set",
-        image:costume2,
-        category: "traditional",
-        ageGroup: "35+",
-        material: "Pure Kanchipuram Silk",
-        colors: ["Red", "Green", "Blue"],
-        sizes: ["M", "L", "XL"],
-        available: 4,
-        price: "₹4,000/day",
-      },
-      {
-        id: 16,
-        name: "Premium Practice Wear",
-        category: "practice",
-        ageGroup: "35+",
-        material: "Cotton Silk",
-        colors: ["Pink", "Blue", "Yellow"],
-        sizes: ["S", "M", "L"],
-        available: 6,
-        price: "₹1,500/day",
-        image: "costume19.webp"
-      },
-      {
-        id: 17,
-        name: "Arangetram Special Set",
-        category: "performance",
-        ageGroup: "25+",
-        material: "Pure Silk",
-        colors: ["Red", "Gold"],
-        sizes: ["S", "M", "L"],
-        available: 2,
-        price: "₹5,000/day",
-        image: "costume20.webp"
-      },
-      {
-        id: 18,
-        name: "Professional Dance Set",
-        category: "traditional",
-        ageGroup: "25+",
-        material: "Silk Blend",
-        colors: ["Green", "Gold", "Maroon"],
-        sizes: ["M", "L", "XL"],
-        available: 3,
-        price: "₹3,800/day",
-        image: "costume21.webp"
-      */
-      },
-    ],
-    purchase: [
-      {
-        id: 1,
-        name: "Kids performance costume",
-        image: costume7,
-        //category: "traditional",
-        ageGroup: "6-10",
-        material: "Semi Kanchi Silks",
-        //colors: ["Pink", "Gold", "Green"],
-        //sizes: ["4Y", "6Y", "8Y", "10Y"],
-        available: 2,
-        price: "₹400/day",
-      },
-      {
-        id: 2,
-        name: "Kids performance costume",
-        image: costume8,
-        // category: "practice",
-        ageGroup: "6-10",
-        material: "Semi Kanchi Silks",
-        available: 2,
-        price: "₹400/day",
-      },
-      {
-        id: 3,
-        name: "Kids performance costume",
-        image: costume9,
-        //category: "performance",
-        ageGroup: "6-10",
-        material: "Semi Kanchi Silks",
-        available: 2,
-        price: "₹400/day",
-      },
-      {
-        id: 4,
-        name: "Kids performance costume",
-        image: costume14,
-        category: "traditional",
-        ageGroup: "6-10",
-        material: "Pure Silk",
-        sizes: ["28", "30", "32"],
-        available: 12,
-        price: "₹400/day",
-      },
-      {
-        id: 5,
-        name: "Kids Performance Costume",
-        image: costume20,
-        category: "traditional",
-        ageGroup: "6-10",
-        material: "Pure Silk",
-        available: 1,
-        price: "₹500/day",
-      },
-      {
-        id: 6,
-        name: "Kids Performance Costume",
-        image: costume21,
-        category: "traditional",
-        ageGroup: "6-10",
-        material: "Semi Kanchi",
-        available: 2,
-        price: "₹400/day",
-      },
-      {
-        id: 7,
-        name: "Kids Performance Costume",
-        image: costume22,
-        category: "traditional",
-        ageGroup: "6-10",
-        material: "China Silk",
-        available: 2,
-        price: "₹400/day",
-      },
-      {
-        /*
-        id: 5,
-        name: "Kids Bharatanatyam Basic",
-        category: "practice",
-        ageGroup: "4-10",
-        material: "Cotton Silk",
-        colors: ["Orange", "Red"],
-        sizes: ["4Y", "6Y", "8Y", "10Y"],
-        available: 6,
-        price: "₹1,500/day",
-        image: "costume11.webp"
-      },
-      */
-      },
-
-      // Age Group 11-20
-      {
-        id: 8,
-        name: "Bharatanatyam/Kuchupudi Costume ",
-        image: costume10,
-        category: "traditional",
-        ageGroup: "11-35",
-        material: "Semi Silk",
-        available: 20,
-        price: "₹600/day",
-      },
-      {
-        id: 9,
-        name: "Performance with pant Costume",
-        image: costume11,
-        category: "practice",
-        ageGroup: "11-35",
-        material: "Silk",
-        available: 20,
-        price: "₹600/day",
-      },
-      {
-        id: 10,
-        name: "Navadurga Costume",
-        image: costume12,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Devi Costumes",
-        available: 1,
-        price: "₹600/day",
-      },
-      {
-        id: 11,
-        name: "Bharatantyam Costume Set",
-        image: costume15,
-        category: "traditional",
-        ageGroup: "11-35",
-        material: "Pure Silk",
-        available: 1,
-        price: "₹800/day",
-      },
-      {
-        id: 12,
-        name: "Classical Dance Set",
-        image: costume1,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Semi Kanchi Silk",
-        available: 2,
-        price: "₹600/day",
-      },
-      {
-        id: 13,
-        name: "Classical Dance Set",
-        image: costume2,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Polyester",
-        available: 6,
-        price: "₹500/day",
-      },
-      {
-        id: 14,
-        name: "Classical Dance Set",
-        image: costume3,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Raw Silk",
-        available: 8,
-        price: "₹600/day",
-      },
-      {
-        id: 15,
-        name: "Classical Dance Set",
-        image: costume4,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Net top with georgette attachments",
-        colors: ["Purple", "Pink"],
-        sizes: ["XS", "S", "M", "L"],
-        available: 10 + 1,
-        price: "₹500/day",
-      },
-      {
-        id: 16,
-        name: "Performance Ready Set",
-        image: costume5,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Raw Silk Pant with brocade",
-        available: 4,
-        price: "₹500/day",
-      },
-      {
-        id: 17,
-        name: "Performance Ready Set",
-        image: costume6,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Poly Silk",
-        available: 12,
-        price: "₹500/day",
-      },
-      {
-        id: 18,
-        name: "Performance Ready Set",
-        image: costume16,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Chiffon Georgette Skirt with brocade long blouse",
-        available: 8,
-        price: "₹500/day",
-      },
-      {
-        id: 19,
-        name: "Performance Ready Set",
-        image: costume17,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Balloon pant and strech blouse with net",
-        available: 4,
-        price: "₹500/day",
-      },
-      {
-        id: 20,
-        name: "Performance Ready Set",
-        image: costume19,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Cotton Silk",
-        available: 18,
-        price: "₹600/day",
-      },
-      {
-        id: 21,
-        name: "Classical Dance Set",
-        image: costume18,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Semi Kanchi Silk",
-        available: 2,
-        price: "₹600/day",
-      },
-      {
-        id: 22,
-        name: "Classical Dance Set",
-        image: costume23,
-        category: "performance",
-        ageGroup: "11-35",
-        material: "Semi Kanchi Silk",
-        available: 2,
-        price: "₹600/day",
-      },
-
-      // Age Group 20+
-      {
-        id: 22,
-        name: "Assorted Skirt costume",
-        image: costume13,
-        category: "performance",
-        ageGroup: "35+",
-        material: "Semi Silk",
-        available: 5,
-        price: "₹600/day",
-      },
-      {
-        /*
-        id: 15,
-        name: "Traditional Silk Set",
-        image:costume2,
-        category: "traditional",
-        ageGroup: "35+",
-        material: "Pure Kanchipuram Silk",
-        colors: ["Red", "Green", "Blue"],
-        sizes: ["M", "L", "XL"],
-        available: 4,
-        price: "₹4,000/day",
-      },
-      {
-        id: 16,
-        name: "Premium Practice Wear",
-        category: "practice",
-        ageGroup: "35+",
-        material: "Cotton Silk",
-        colors: ["Pink", "Blue", "Yellow"],
-        sizes: ["S", "M", "L"],
-        available: 6,
-        price: "₹1,500/day",
-        image: "costume19.webp"
-      },*/
-      },
-    ],
-  };
+  const costumes = [
+    // Age Group 4-10
+    {
+      id: 1,
+      name: "Kids performance costume",
+      image: costume7,
+      ageGroup: "6-10",
+      material: "Semi Kanchi Silks",
+      available: 2,
+      price: "₹400/day",
+    },
+    {
+      id: 2,
+      name: "Kids performance costume",
+      image: costume8,
+      ageGroup: "6-10",
+      material: "Semi Kanchi Silks",
+      available: 2,
+      price: "₹400/day",
+    },
+    {
+      id: 3,
+      name: "Kids performance costume",
+      image: costume9,
+      ageGroup: "6-10",
+      material: "Semi Kanchi Silks",
+      available: 2,
+      price: "₹400/day",
+    },
+    {
+      id: 4,
+      name: "Kids performance costume",
+      image: costume14,
+      category: "traditional",
+      ageGroup: "6-10",
+      material: "Pure Silk",
+      sizes: ["28", "30", "32"],
+      available: 12,
+      price: "₹400/day",
+    },
+    {
+      id: 5,
+      name: "Kids Performance Costume",
+      image: costume20,
+      category: "traditional",
+      ageGroup: "6-10",
+      material: "Pure Silk",
+      available: 1,
+      price: "₹500/day",
+    },
+    {
+      id: 6,
+      name: "Kids Performance Costume",
+      image: costume21,
+      category: "traditional",
+      ageGroup: "6-10",
+      material: "Semi Kanchi",
+      available: 2,
+      price: "₹400/day",
+    },
+    {
+      id: 7,
+      name: "Kids Performance Costume",
+      image: costume22,
+      category: "traditional",
+      ageGroup: "6-10",
+      material: "China Silk",
+      available: 2,
+      price: "₹400/day",
+    },
+    // Age Group 11-20
+    {
+      id: 8,
+      name: "Bharatanatyam/Kuchupudi Costume",
+      image: costume10,
+      category: "traditional",
+      ageGroup: "11-35",
+      material: "Semi Silk",
+      available: 20,
+      price: "₹600/day",
+    },
+    {
+      id: 9,
+      name: "Performance with pant Costume",
+      image: costume11,
+      category: "practice",
+      ageGroup: "11-35",
+      material: "Silk",
+      available: 20,
+      price: "₹600/day",
+    },
+    {
+      id: 10,
+      name: "Navadurga Costume",
+      image: costume12,
+      category: "performance",
+      ageGroup: "11-35",
+      material: "Devi Costumes",
+      available: 1,
+      price: "₹600/day",
+    },
+    {
+      id: 11,
+      name: "Bharatantyam Costume Set",
+      image: costume15,
+      category: "traditional",
+      ageGroup: "11-35",
+      material: "Pure Silk",
+      available: 1,
+      price: "₹800/day",
+    },
+    {
+      id: 12,
+      name: "Classical Dance Set",
+      image: costume1,
+      category: "performance",
+      ageGroup: "11-35",
+      material: "Semi Kanchi Silk",
+      available: 2,
+      price: "₹600/day",
+    },
+    {
+      id: 13,
+      name: "Classical Dance Set",
+      image: costume2,
+      category: "performance",
+      ageGroup: "11-35",
+      material: "Polyester",
+      available: 6,
+      price: "₹500/day",
+    },
+    {
+      id: 14,
+      name: "Classical Dance Set",
+      image: costume3,
+      category: "performance",
+      ageGroup: "11-35",
+      material: "Raw Silk",
+      available: 8,
+      price: "₹600/day",
+    },
+    {
+      id: 15,
+      name: "Classical Dance Set",
+      image: costume4,
+      category: "performance",
+      ageGroup: "11-35",
+      material: "Net top with georgette attachments",
+      colors: ["Purple", "Pink"],
+      sizes: ["XS", "S", "M", "L"],
+      available: 11,
+      price: "₹500/day",
+    },
+    {
+      id: 16,
+      name: "Performance Ready Set",
+      image: costume5,
+      category: "performance",
+      ageGroup: "11-35",
+      material: "Raw Silk Pant with brocade",
+      available: 4,
+      price: "₹500/day",
+    },
+    {
+      id: 17,
+      name: "Performance Ready Set",
+      image: costume6,
+      category: "performance",
+      ageGroup: "11-35",
+      material: "Poly Silk",
+      available: 12,
+      price: "₹500/day",
+    },
+    {
+      id: 18,
+      name: "Performance Ready Set",
+      image: costume16,
+      category: "performance",
+      ageGroup: "11-35",
+      material: "Chiffon Georgette Skirt with brocade long blouse",
+      available: 8,
+      price: "₹500/day",
+    },
+    {
+      id: 19,
+      name: "Performance Ready Set",
+      image: costume17,
+      category: "performance",
+      ageGroup: "11-35",
+      material: "Balloon pant and strech blouse with net",
+      available: 4,
+      price: "₹500/day",
+    },
+    {
+      id: 20,
+      name: "Performance Ready Set",
+      image: costume19,
+      category: "performance",
+      ageGroup: "11-35",
+      material: "Cotton Silk",
+      available: 18,
+      price: "₹600/day",
+    },
+    {
+      id: 21,
+      name: "Classical Dance Set",
+      image: costume18,
+      category: "performance",
+      ageGroup: "11-35",
+      material: "Semi Kanchi Silk",
+      available: 2,
+      price: "₹600/day",
+    },
+    {
+      id: 22,
+      name: "Classical Dance Set",
+      image: costume23,
+      category: "performance",
+      ageGroup: "11-35",
+      material: "Semi Kanchi Silk",
+      available: 2,
+      price: "₹600/day",
+    },
+    // Age Group 20+
+    {
+      id: 23,
+      name: "Assorted Skirt costume",
+      image: costume13,
+      category: "performance",
+      ageGroup: "35+",
+      material: "Semi Silk",
+      available: 5,
+      price: "₹600/day",
+    },
+  ];
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const filtered = costumes.filter((costume) => {
+      return selectedCategory === "all" || costume.category === selectedCategory.toLowerCase();
+    });
+    setFilteredCostumes(filtered);
+  }, [selectedCategory]);
 
   const handleScroll = (ageGroup, direction) => {
     const safeAgeGroup = ageGroup.replace("+", "plus");
@@ -674,13 +317,6 @@ const Costumes = () => {
   };
 
   useEffect(() => {
-    const filtered = (costumes[selectedType] || []).filter((costume) => {
-      return selectedCategory === "all" || costume.category === selectedCategory.toLowerCase();
-    });
-    setFilteredCostumes(filtered);
-  }, [selectedType, selectedCategory]);
-
-  useEffect(() => {
     const ageGroups = ["6-10", "11-35", "35+"];
     const containers = [];
 
@@ -701,6 +337,17 @@ const Costumes = () => {
     };
   }, [filteredCostumes]);
 
+  const openModal = (costume) => {
+    setSelectedCostume(costume);
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = 'auto';
+  };
+
   const renderAgeGroup = (ageGroup, title) => (
     <div className="age-group-section">
       <div className="age-label">
@@ -715,32 +362,9 @@ const Costumes = () => {
           {filteredCostumes
             .filter((costume) => costume.ageGroup === ageGroup)
             .map((costume) => (
-              <div className="costume-card" key={costume.id} id={costume.category}>
+              <div className="costume-card" key={costume.id} onClick={() => openModal(costume)}>
                 <div className="costume-image">
                   <img src={costume.image} alt={costume.name} />
-                  <div className="costume-overlay">
-                    <div className="costume-details">
-                      <p className="material">Material: {costume.material}</p>
-                      {costume.colors && (
-                        <div className="colors">
-                          <p>Available Colors:</p>
-                          <div className="color-dots">
-                            {costume.colors.map((color) => (
-                              <span
-                                key={color}
-                                className="color-dot"
-                                style={{ backgroundColor: color.toLowerCase() }}
-                                title={color}
-                              />
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                      {costume.sizes && <p className="sizes">Sizes: {costume.sizes.join(", ")}</p>}
-                      <p className="quantity">Available: {costume.available} pieces</p>
-                      <p className="price">{costume.price}</p>
-                    </div>
-                  </div>
                 </div>
                 <h3 className="costume-name">{costume.name}</h3>
               </div>
@@ -763,26 +387,6 @@ const Costumes = () => {
         </p>
       </div>
 
-      {/*<div className="quick-selection">
-        <h2>Quick Selection</h2>
-        <div className="quick-circles">
-          {quickLinks.map(link => (
-            <div 
-              key={link.id} 
-              className={`quick-circle ${selectedCategory === link.name.toLowerCase() ? 'active' : ''}`}
-              onClick={() => {
-                setSelectedCategory(link.name.toLowerCase());
-                scrollToCategory(link.name.toLowerCase());
-              }}
-            >
-              <img src={link.image} alt={link.name} />
-              <span>{link.name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-  */}
-
       <div className="costume-banner second-banner">
         <p className="costume-text">
           A. You can visit Natanam Foundation,{" "}
@@ -794,18 +398,30 @@ const Costumes = () => {
       </div>
 
       <div className="filter-section">
-        <div className="type-filters">
+        <div className="category-filters">
           <button
-            className={`filter-btn ${selectedType === "rent" ? "active" : ""}`}
-            onClick={() => setSelectedType("rent")}
+            className={`filter-btn ${selectedCategory === "all" ? "active" : ""}`}
+            onClick={() => setSelectedCategory("all")}
           >
-            Rent
+            All
           </button>
           <button
-            className={`filter-btn ${selectedType === "purchase" ? "active" : ""}`}
-            onClick={() => setSelectedType("purchase")}
+            className={`filter-btn ${selectedCategory === "traditional" ? "active" : ""}`}
+            onClick={() => setSelectedCategory("traditional")}
           >
-            Purchase
+            Traditional
+          </button>
+          <button
+            className={`filter-btn ${selectedCategory === "performance" ? "active" : ""}`}
+            onClick={() => setSelectedCategory("performance")}
+          >
+            Performance
+          </button>
+          <button
+            className={`filter-btn ${selectedCategory === "practice" ? "active" : ""}`}
+            onClick={() => setSelectedCategory("practice")}
+          >
+            Practice
           </button>
         </div>
       </div>
@@ -815,6 +431,41 @@ const Costumes = () => {
         {renderAgeGroup("11-35", "Age 11-35 Years")}
         {renderAgeGroup("35+", "Age 35+ Years")}
       </div>
+
+      {isModalOpen && selectedCostume && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-modal" onClick={closeModal}>
+              <FaTimes />
+            </button>
+            <div className="modal-image-container">
+              <img src={selectedCostume.image} alt={selectedCostume.name} className="modal-image" />
+            </div>
+            <div className="modal-details">
+              <h2>{selectedCostume.name}</h2>
+              <p><strong>Material:</strong> {selectedCostume.material}</p>
+              {selectedCostume.colors && (
+                <div className="modal-colors">
+                  <p><strong>Colors:</strong></p>
+                  <div className="color-dots">
+                    {selectedCostume.colors.map((color) => (
+                      <span
+                        key={color}
+                        className="color-dot"
+                        style={{ backgroundColor: color.toLowerCase() }}
+                        title={color}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+              {selectedCostume.sizes && <p><strong>Sizes:</strong> {selectedCostume.sizes.join(", ")}</p>}
+              <p><strong>Available:</strong> {selectedCostume.available} pieces</p>
+              <p className="modal-price">{selectedCostume.price}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
