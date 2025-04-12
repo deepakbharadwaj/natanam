@@ -4,7 +4,7 @@ import "../styles/Classes.css";
 import stickerSolo from "../assets/sticker-solo.webp";
 import stickerGroup from "../assets/sticker-group.webp";
 import stickerArangetram from "../assets/sticker-arangetram.webp";
-
+import stickerSoloOnline from '../assets/sticker-soloonline.webp';
 const Classes = () => {
   const [mode, setMode] = useState("offline");
 
@@ -36,14 +36,18 @@ const Classes = () => {
         </div>
 
         <div className="categories-container">
-          {(mode === "offline" || mode === "online") && (
-            <div className="class-category">
-              <h3 className="category-title">Solo Classes</h3>
-              <div className="class-card premium">
-                <h3>SOLO CLASSES</h3>
-                <div className="sticker-container">
-                  <img src={stickerSolo} alt="Solo Dance" className="sticker-image" />
-                </div>
+        {(mode === "offline" || mode === "online") && (
+  <div className="class-category">
+    <h3 className="category-title">Solo Classes</h3>
+    <div className="class-card premium">
+      <h3>SOLO CLASSES</h3>
+      <div className={`sticker-container ${mode === "online" ? "laptop-frame" : ""}`}>
+        <img 
+          src={mode === "online" ? stickerSoloOnline : stickerSolo} 
+          alt="Solo Dance" 
+          className="sticker-image" 
+        />
+      </div>
                 <div className="fee-details">
                   <p className="registration">Registration Fee: ₹500</p>
                   <p>Monthly Fee: ₹5,000</p>

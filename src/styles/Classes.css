@@ -114,6 +114,7 @@
   width: 100%;
   height: 65%;
   padding: 0.5rem;
+  margin-bottom: 2rem;
   animation: fadeIn 1s ease-out;
 }
 
@@ -233,7 +234,8 @@
 .enroll-button.main {
   display: block;
   margin: 0.8rem auto 0;
-  padding: 0.6rem 1.8rem;
+  padding: 0.6rem 1rem;
+ 
   background: transparent;
   color: #8B4513;
   border: 1px solid #8B4513;
@@ -242,6 +244,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   animation: fadeInUp 1s ease-out;
+
 }
 
 .enroll-button.main:hover {
@@ -267,8 +270,8 @@
 }
 
 .sticker-image {
-  width: 140px;
-  height: 140px;
+  width: 180px;
+  height: 180px;
   object-fit: contain;
   border-radius: 12px;
   animation: smoothBounce 3s ease-in-out infinite;
@@ -276,7 +279,7 @@
 }
 
 .sticker-image:hover {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1) rotate(2deg);
 }
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
