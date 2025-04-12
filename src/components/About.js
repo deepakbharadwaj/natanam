@@ -3,7 +3,7 @@ import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 import "../styles/About.css";
 import aboutImage from "../assets/about-image.webp";
-import danceVideo from "../assets/bharatanatyam-video.webp";
+import danceVideo from "../assets/bharatanatyam-video.webm";
 
 const About = () => {
   const [ref, inView] = useInView({
