@@ -1,67 +1,67 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import CountUp from 'react-countup';
-import { useInView } from 'react-intersection-observer';
-
+import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // Import all images
-import navarasa1 from '../assets/navarasa1.webp';
-import navarasa2 from '../assets/navarasa2.webp';
-import navarasa3 from '../assets/navarasa3.webp';
-import navarasa4 from '../assets/navarasa4.webp';
-import navarasa5 from '../assets/navarasa5.webp';
-import navarasa6 from '../assets/navarasa6.webp';
-import navarasa7 from '../assets/navarasa7.webp';
-import rangotsavam2023_1 from '../assets/rangotsavam2023_1.webp';
-import rangotsavam2023_2 from '../assets/rangotsavam2023_2.webp';
-import rangotsavam2023_3 from '../assets/rangotsavam2023_3.webp';
-import rangotsavam2023_4 from '../assets/rangotsavam2023_4.webp';
-import rangotsavam2023_5 from '../assets/rangotsavam2023_5.webp';
-import rangotsavam2023_6 from '../assets/rangotsavam2023_6.webp';
-import rangotsavam2023_7 from '../assets/rangotsavam2023_7.webp';
-import rangotsavam2024_1 from '../assets/rangotsavam2024_1.webp';
-import rangotsavam2024_2 from '../assets/rangotsavam2024_2.webp';
-import rangotsavam2024_3 from '../assets/rangotsavam2024_3.webp';
-import rangotsavam2024_4 from '../assets/rangotsavam2024_4.webp';
-import rangotsavam2024_5 from '../assets/rangotsavam2024_5.webp';
-import rangotsavam2024_6 from '../assets/rangotsavam2024_6.webp';
-import rangotsavam2024_7 from '../assets/rangotsavam2024_7.webp';
-import rangotsavam2024_8 from '../assets/rangotsavam2024_8.webp';
-import rangotsavam2024_9 from '../assets/rangotsavam2024_9.webp';
-import al4s_1 from '../assets/al4s_1.webp';
-import digital2023_1 from '../assets/digital2023_1.webp';
-import digital2023_2 from '../assets/digital2023_2.webp';
-import digital2023_3 from '../assets/digital2023_3.webp';
-import digital2023_4 from '../assets/digital2023_4.webp';
-import digital2024_1 from '../assets/digital2024_1.webp';
-import digital2024_2 from '../assets/digital2024_2.webp';
-import digital2024_3 from '../assets/digital2024_3.webp';
-import digital2024_4 from '../assets/digital2024_4.webp';
-import digital2024_5 from '../assets/digital2024_5.webp';
-import digital2024_6 from '../assets/digital2024_6.webp';
-import krishnajanmastami1 from '../assets/krishnajanmastami1.webp';
-import krishnajanmastami2 from '../assets/krishnajanmastami2.webp';
-import krishnajanmastami3 from '../assets/krishnajanmastami3.webp';
-import krishnajanmastami4 from '../assets/krishnajanmastami4.webp';
-import krishnajanmastami5 from '../assets/krishnajanmastami5.webp';
-import republicday1 from '../assets/republicday1.webp';
-import republicday2 from '../assets/republicday2.webp';
-import republicday3 from '../assets/republicday3.webp';
-import republicday4 from '../assets/republicday4.webp';
-import republicday5 from '../assets/republicday5.webp';
-import solo1 from '../assets/solo1.webp';
-import solo2 from '../assets/solo2.webp';
-import solo3 from '../assets/solo3.webp';
-import solo4 from '../assets/solo4.webp';
-import solo5 from '../assets/solo5.webp';
-import solo6 from '../assets/solo6.webp';
-import solo7 from '../assets/solo7.webp';
-import vadakkum2023_1 from '../assets/vadakkum2023_1.webp';
-import yuvadasara_1 from '../assets/yuvadasara_1.webp';
-import aboutImage from '../assets/about-image.webp';
-import danceVideo from '../assets/bharatanatyam-video.webm';
-import founderImage from '../assets/About1.webp';
-import backgroundImage from '../assets/About3.webp';
+import navarasa1 from "../assets/navarasa1.webp";
+import navarasa2 from "../assets/navarasa2.webp";
+import navarasa3 from "../assets/navarasa3.webp";
+import navarasa4 from "../assets/navarasa4.webp";
+import navarasa5 from "../assets/navarasa5.webp";
+import navarasa6 from "../assets/navarasa6.webp";
+import navarasa7 from "../assets/navarasa7.webp";
+import rangotsavam2023_1 from "../assets/rangotsavam2023_1.webp";
+import rangotsavam2023_2 from "../assets/rangotsavam2023_2.webp";
+import rangotsavam2023_3 from "../assets/rangotsavam2023_3.webp";
+import rangotsavam2023_4 from "../assets/rangotsavam2023_4.webp";
+import rangotsavam2023_5 from "../assets/rangotsavam2023_5.webp";
+import rangotsavam2023_6 from "../assets/rangotsavam2023_6.webp";
+import rangotsavam2023_7 from "../assets/rangotsavam2023_7.webp";
+import rangotsavam2024_1 from "../assets/rangotsavam2024_1.webp";
+import rangotsavam2024_2 from "../assets/rangotsavam2024_2.webp";
+import rangotsavam2024_3 from "../assets/rangotsavam2024_3.webp";
+import rangotsavam2024_4 from "../assets/rangotsavam2024_4.webp";
+import rangotsavam2024_5 from "../assets/rangotsavam2024_5.webp";
+import rangotsavam2024_6 from "../assets/rangotsavam2024_6.webp";
+import rangotsavam2024_7 from "../assets/rangotsavam2024_7.webp";
+import rangotsavam2024_8 from "../assets/rangotsavam2024_8.webp";
+import rangotsavam2024_9 from "../assets/rangotsavam2024_9.webp";
+import al4s_1 from "../assets/al4s_1.webp";
+import digital2023_1 from "../assets/digital2023_1.webp";
+import digital2023_2 from "../assets/digital2023_2.webp";
+import digital2023_3 from "../assets/digital2023_3.webp";
+import digital2023_4 from "../assets/digital2023_4.webp";
+import digital2024_1 from "../assets/digital2024_1.webp";
+import digital2024_2 from "../assets/digital2024_2.webp";
+import digital2024_3 from "../assets/digital2024_3.webp";
+import digital2024_4 from "../assets/digital2024_4.webp";
+import digital2024_5 from "../assets/digital2024_5.webp";
+import digital2024_6 from "../assets/digital2024_6.webp";
+import krishnajanmastami1 from "../assets/krishnajanmastami1.webp";
+import krishnajanmastami2 from "../assets/krishnajanmastami2.webp";
+import krishnajanmastami3 from "../assets/krishnajanmastami3.webp";
+import krishnajanmastami4 from "../assets/krishnajanmastami4.webp";
+import krishnajanmastami5 from "../assets/krishnajanmastami5.webp";
+import republicday1 from "../assets/republicday1.webp";
+import republicday2 from "../assets/republicday2.webp";
+import republicday3 from "../assets/republicday3.webp";
+import republicday4 from "../assets/republicday4.webp";
+import republicday5 from "../assets/republicday5.webp";
+import solo1 from "../assets/solo1.webp";
+import solo2 from "../assets/solo2.webp";
+import solo3 from "../assets/solo3.webp";
+import solo4 from "../assets/solo4.webp";
+import solo5 from "../assets/solo5.webp";
+import solo6 from "../assets/solo6.webp";
+import solo7 from "../assets/solo7.webp";
+import vadakkum2023_1 from "../assets/vadakkum2023_1.webp";
+import yuvadasara_1 from "../assets/yuvadasara_1.webp";
+import aboutImage from "../assets/about-image.webp";
+import danceVideo from "../assets/bharatanatyam-video.webm";
+import founderImage from "../assets/About1.webp";
+import backgroundImage from "../assets/About3.webp";
 
 const Home = () => {
   const [activeYear, setActiveYear] = useState("2024");
@@ -74,22 +74,51 @@ const Home = () => {
   });
 
   // Image arrays
-  const navarasaImages = [navarasa1, navarasa2, navarasa3, navarasa4, navarasa5, navarasa6, navarasa7];
+  const navarasaImages = [
+    navarasa1,
+    navarasa2,
+    navarasa3,
+    navarasa4,
+    navarasa5,
+    navarasa6,
+    navarasa7,
+  ];
   const rangotsavam2023Images = [
-    rangotsavam2023_1, rangotsavam2023_2, rangotsavam2023_3, rangotsavam2023_4,
-    rangotsavam2023_5, rangotsavam2023_6, rangotsavam2023_7
+    rangotsavam2023_1,
+    rangotsavam2023_2,
+    rangotsavam2023_3,
+    rangotsavam2023_4,
+    rangotsavam2023_5,
+    rangotsavam2023_6,
+    rangotsavam2023_7,
   ];
   const rangotsavam2024Images = [
-    rangotsavam2024_1, rangotsavam2024_2, rangotsavam2024_3, rangotsavam2024_4,
-    rangotsavam2024_5, rangotsavam2024_6, rangotsavam2024_7, rangotsavam2024_8, rangotsavam2024_9
+    rangotsavam2024_1,
+    rangotsavam2024_2,
+    rangotsavam2024_3,
+    rangotsavam2024_4,
+    rangotsavam2024_5,
+    rangotsavam2024_6,
+    rangotsavam2024_7,
+    rangotsavam2024_8,
+    rangotsavam2024_9,
   ];
   const al4sImages = [al4s_1];
   const digitalImages2023 = [digital2023_1, digital2023_2, digital2023_3, digital2023_4];
   const digitalImages2024 = [
-    digital2024_1, digital2024_2, digital2024_3, digital2024_4, digital2024_5, digital2024_6
+    digital2024_1,
+    digital2024_2,
+    digital2024_3,
+    digital2024_4,
+    digital2024_5,
+    digital2024_6,
   ];
   const krishnajanmastamiImages = [
-    krishnajanmastami1, krishnajanmastami2, krishnajanmastami3, krishnajanmastami4, krishnajanmastami5
+    krishnajanmastami1,
+    krishnajanmastami2,
+    krishnajanmastami3,
+    krishnajanmastami4,
+    krishnajanmastami5,
   ];
   const republicdayImages = [republicday1, republicday2, republicday3, republicday4, republicday5];
   const soloImages = [solo1, solo2, solo3, solo4, solo5, solo6, solo7];
@@ -98,12 +127,42 @@ const Home = () => {
 
   // Milestones data
   const milestones = [
-    { year: "1994", achievement: "Inception of Natanam School of Bharatanatyam", description: "Started with a vision to preserve and promote Bharatanatyam", icon: "🏫" },
-    { year: "2013", achievement: "Affiliation with Bangiya Sangit Parishad", description: "International recognition for exams in the field of Indian Dance & Music", icon: "🌏" },
-    { year: "2014", achievement: "Inception of Natanam Foundation", description: "Expanding the horizons of Indian Classical Arts", icon: "🏢" },
-    { year: "2022", achievement: "Launch of Aaharya Costumes and Dance Needs", description: "Premium rental for Classical & Semi-Classical Costumes and Accessories", icon: "💃" },
-    { year: "2020", achievement: "Digital Innovation in Indian Classical Arts", description: "Online Digital Productions, Courses and Workshops", icon: "💻" },
-    { year: "2023", achievement: "Excellence in Dance", description: "Recognized as leading Bharatanatyam institution", icon: "🏆" },
+    {
+      year: "1994",
+      achievement: "Inception of Natanam School of Bharatanatyam",
+      description: "Started with a vision to preserve and promote Bharatanatyam",
+      icon: "🏫",
+    },
+    {
+      year: "2013",
+      achievement: "Affiliation with Bangiya Sangit Parishad",
+      description: "International recognition for exams in the field of Indian Dance & Music",
+      icon: "🌏",
+    },
+    {
+      year: "2014",
+      achievement: "Inception of Natanam Foundation",
+      description: "Expanding the horizons of Indian Classical Arts",
+      icon: "🏢",
+    },
+    {
+      year: "2022",
+      achievement: "Launch of Aaharya Costumes and Dance Needs",
+      description: "Premium rental for Classical & Semi-Classical Costumes and Accessories",
+      icon: "💃",
+    },
+    {
+      year: "2020",
+      achievement: "Digital Innovation in Indian Classical Arts",
+      description: "Online Digital Productions, Courses and Workshops",
+      icon: "💻",
+    },
+    {
+      year: "2023",
+      achievement: "Excellence in Dance",
+      description: "Recognized as leading Bharatanatyam institution",
+      icon: "🏆",
+    },
   ];
 
   // Events data by year
@@ -113,7 +172,8 @@ const Home = () => {
         {
           title: "Republic Day Celebration – Kartavya Path, New Delhi",
           date: "January 26, 2024",
-          description: "Team Natanam, led by Krupa, performed with 1500 dancers representing Naari Shakthi before the Honorable President and Prime Minister.",
+          description:
+            "Team Natanam, led by Krupa, performed with 1500 dancers representing Naari Shakthi before the Honorable President and Prime Minister.",
           images: republicdayImages,
         },
         {
@@ -137,7 +197,8 @@ const Home = () => {
       digitalProductions: [
         {
           title: "Digital Productions 2024",
-          description: "Creative digital dance works including Veera Raja Veera and Sambho Mahadeva",
+          description:
+            "Creative digital dance works including Veera Raja Veera and Sambho Mahadeva",
           images: digitalImages2024,
         },
       ],
@@ -193,16 +254,15 @@ const Home = () => {
     const handleScroll = () => {
       if (videoRef.current) {
         const videoRect = videoRef.current.getBoundingClientRect();
-        const isVideoInView = (
+        const isVideoInView =
           videoRect.top <= (window.innerHeight || document.documentElement.clientHeight) / 2 &&
-          videoRect.bottom >= (window.innerHeight || document.documentElement.clientHeight) / 2
-        );
+          videoRect.bottom >= (window.innerHeight || document.documentElement.clientHeight) / 2;
         setIsVideoMuted(!isVideoInView);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Video autoplay effect
@@ -1291,7 +1351,8 @@ const Home = () => {
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <p className="hero-tagline">
-            "Bharatanatyam - where divine grace meets earthly expression, each movement telling stories of ancient wisdom through the language of dance."
+            "Bharatanatyam - where divine grace meets earthly expression, each movement telling
+            stories of ancient wisdom through the language of dance."
           </p>
         </div>
       </section>
@@ -1300,83 +1361,83 @@ const Home = () => {
       <section className="about-section">
         <div className="video-container">
           <section className="relative w-full h-[60vh] overflow-hidden group">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="relative w-full h-full"
-        >
-          <video
-            ref={videoRef}
-            loop
-            muted={isVideoMuted}
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source src={danceVideo} type="video/webm" />
-          </video>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="relative w-full h-full"
+            >
+              <video
+                ref={videoRef}
+                loop
+                muted={isVideoMuted}
+                playsInline
+                className="w-full h-full object-cover"
+              >
+                <source src={danceVideo} type="video/webm" />
+              </video>
 
-          {/* Play/Pause Button */}
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={handleVideoPlayPause}
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+              {/* Play/Pause Button */}
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={handleVideoPlayPause}
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
                      bg-white/20 backdrop-blur-sm rounded-full p-4 
                      group-hover:opacity-100 opacity-0 transition-opacity duration-300"
-          >
-            {isPlaying ? (
-              <motion.svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="white"
-                className="w-12 h-12"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ type: "spring", stiffness: 260, damping: 20 }}
               >
-                <path d="M8 5v14l11-7z" />
-              </motion.svg>
-            ) : (
+                {isPlaying ? (
+                  <motion.svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="white"
+                    className="w-12 h-12"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </motion.svg>
+                ) : (
+                  <motion.div
+                    className="w-12 h-12 flex items-center justify-center"
+                    initial={{ rotate: 0 }}
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="white"
+                      className="w-12 h-12"
+                    >
+                      <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                    </svg>
+                  </motion.div>
+                )}
+              </motion.button>
+
+              {/* Video Overlay */}
               <motion.div
-                className="w-12 h-12 flex items-center justify-center"
-                initial={{ rotate: 0 }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="white"
-                  className="w-12 h-12"
-                >
-                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                </svg>
-              </motion.div>
-            )}
-          </motion.button>
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isPlaying ? 0 : 0.5 }}
+                transition={{ duration: 0.3 }}
+                className="absolute inset-0 bg-black pointer-events-none"
+              />
+            </motion.div>
 
-          {/* Video Overlay */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isPlaying ? 0 : 0.5 }}
-            transition={{ duration: 0.3 }}
-            className="absolute inset-0 bg-black pointer-events-none"
-          />
-        </motion.div>
-
-        {/* Video Caption */}
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-          className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent"
-        >
-          <p className="text-white text-center text-lg md:text-xl">
-            Experience the grace of Bharatanatyam
-          </p>
-        </motion.div>
-      </section>
+            {/* Video Caption */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent"
+            >
+              <p className="text-white text-center text-lg md:text-xl">
+                Experience the grace of Bharatanatyam
+              </p>
+            </motion.div>
+          </section>
         </div>
 
         <div className="about-content">
@@ -1384,20 +1445,20 @@ const Home = () => {
             <h2>About Natanam Foundation</h2>
             <p>
               Natanam Foundation, Bangalore, established in 1994 with the blessings and guidance of
-              Guru Dr. D Sarvotthama Kamath, has been a nurturing ground for countless students under
-              the artistic direction of Vid. S Vidya Murali. Affiliated with the Bangiya Sangeet
-              Parishad, Kolkata, the foundation offers annual exams to students from its associated
-              centers.
+              Guru Dr. D Sarvotthama Kamath, has been a nurturing ground for countless students
+              under the artistic direction of Vid. S Vidya Murali. Affiliated with the Bangiya
+              Sangeet Parishad, Kolkata, the foundation offers annual exams to students from its
+              associated centers.
             </p>
             <p>
               Team Natanam, the foundation's dynamic performing wing, is led by Krupa Ramachandran,
-              whose pursuit of precision and visual geometry inspires her fellow dancers. The team has
-              toured across India, captivating audiences at prestigious festivals and events with
-              their spellbinding performances.
+              whose pursuit of precision and visual geometry inspires her fellow dancers. The team
+              has toured across India, captivating audiences at prestigious festivals and events
+              with their spellbinding performances.
             </p>
             <p>
-              In addition to its artistic endeavors, Natanam Foundation also runs Aharya Costumes and
-              Dance Needs, a dedicated costume rental wing that caters to the needs of dancers,
+              In addition to its artistic endeavors, Natanam Foundation also runs Aharya Costumes
+              and Dance Needs, a dedicated costume rental wing that caters to the needs of dancers,
               offering a range of exquisitely designed Bharatanatyam and semi-classical costumes.
             </p>
           </div>
@@ -1488,7 +1549,8 @@ const Home = () => {
                   Vidya has showcased her talent in numerous dance dramas under the direction of her
                   esteemed Guru, Dr. D. Sarvothama Kamath of Bangalore University. She has also
                   performed under the guidance of Acharya Ranjani Ganesan Ramesh of Kalakshetra,
-                  contributing to renowned productions such as *Dashavatara* and *Navarasa Shiva Shakti.
+                  contributing to renowned productions such as *Dashavatara* and *Navarasa Shiva
+                  Shakti.
                 </p>
                 <p>
                   Beyond her performances, Vidya is an accomplished choreographer, having
