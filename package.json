@@ -44,13 +44,14 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build",
+    "build": "craco build && node scripts/generate-sitemap.js",
     "test": "craco test",
     "eject": "react-scripts eject",
     "optimize-assets": "node optimize-assets.js",
     "analyze": "ANALYZE=true craco build",
     "optimize-images": "node scripts/optimize-images.js",
-    "serve": "node serve.js"
+    "serve": "node serve.js",
+    "generate-sitemap": "node scripts/generate-sitemap.js"
   },
   "eslintConfig": {
     "extends": [
