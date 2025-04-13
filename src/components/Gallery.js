@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import Masonry from 'react-masonry-css';
-import { motion, AnimatePresence } from 'framer-motion';
-import '../styles/Gallery.css'; // Create this file for styling
+import React, { useEffect } from 'react';
+import Masonry  from 'react-masonry-css';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import '../styles/Gallery.css';
 
-
-// Image imports (as you provided)
+// Image imports
 import gallery1 from '../assets/gallery1.webp';
 import gallery2 from '../assets/gallery2.webp';
 import gallery3 from '../assets/gallery3.webp';
@@ -75,121 +74,90 @@ import solo7 from '../assets/solo7.webp';
 import vadakkum2023_1 from '../assets/vadakkum2023_1.webp';
 import yuvadasara_1 from '../assets/yuvadasara_1.webp';
 
-
 const images = [
- gallery1,
- gallery2,
- gallery3,
- gallery4,
- gallery5,
- gallery6,
- gallery7,
- gallery8,
- gallery9,
- gallery10,
- gallery11,
- gallery12,
- gallery13,
- gallery14,
- gallery15,
- gallery16,
- navarasa1,
- navarasa2,
- navarasa3,
- navarasa4,
- navarasa5,
- navarasa6,
- navarasa7,
- rangotsavam2023_1,
- rangotsavam2023_2,
- rangotsavam2023_3,
- rangotsavam2023_4,
- rangotsavam2023_5,
- rangotsavam2023_6,
- rangotsavam2023_7,
- rangotsavam2024_1,
- rangotsavam2024_2,
- rangotsavam2024_3,
- rangotsavam2024_4,
- rangotsavam2024_5,
- rangotsavam2024_6,
- rangotsavam2024_7,
- rangotsavam2024_8,
- rangotsavam2024_9,
- al4s_1,
- digital2023_1,
- digital2023_2,
- digital2023_3,
- digital2023_4,
- digital2024_1,
- digital2024_2,
- digital2024_3,
- digital2024_4,
- digital2024_5,
- digital2024_6,
- krishnajanmastami1,
- krishnajanmastami2,
- krishnajanmastami3,
- krishnajanmastami4,
- krishnajanmastami5,
- republicday1,
- republicday2,
- republicday3,
- republicday4,
- republicday5,
- solo1,
- solo2,
- solo3,
- solo4,
- solo5,
- solo6,
- solo7,
- vadakkum2023_1,
- yuvadasara_1,
+  gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7, gallery8,
+  gallery9, gallery10, gallery11, gallery12, gallery13, gallery14, gallery15, gallery16,
+  navarasa1, navarasa2, navarasa3, navarasa4, navarasa5, navarasa6, navarasa7,
+  rangotsavam2023_1, rangotsavam2023_2, rangotsavam2023_3, rangotsavam2023_4,
+  rangotsavam2023_5, rangotsavam2023_6, rangotsavam2023_7, rangotsavam2024_1,
+  rangotsavam2024_2, rangotsavam2024_3, rangotsavam2024_4, rangotsavam2024_5,
+  rangotsavam2024_6, rangotsavam2024_7, rangotsavam2024_8, rangotsavam2024_9,
+  al4s_1, digital2023_1, digital2023_2, digital2023_3, digital2023_4, digital2024_1,
+  digital2024_2, digital2024_3, digital2024_4, digital2024_5, digital2024_6,
+  krishnajanmastami1, krishnajanmastami2, krishnajanmastami3, krishnajanmastami4,
+  krishnajanmastami5, republicday1, republicday2, republicday3, republicday4,
+  republicday5, solo1, solo2, solo3, solo4, solo5, solo6, solo7, vadakkum2023_1,
+  yuvadasara_1
 ];
 
-
 function Gallery() {
-  const [mounted, setMounted] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const yValue = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   useEffect(() => {
-    setMounted(true);
+    document.title = "Gallery | Bharostanatyam";
   }, []);
 
-  const breakpoints = {
-    default: 4,
-    1600: 4,
-    1200: 3,
-    900: 2,
-    600: 1,
-  };
+    const breakpoints = {
+      default: 4,
+      1600: 4,
+      1200: 3,
+      900: 2,
+      600: 1,
+    };
+  
+    return (
+      <div className="gallery-container">
+        {/* New animated background elements */}
+        <div className="background-wrapper">
+          <motion.div 
+            className="bg-circle-1"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 0.1, scale: 1 }}
+            transition={{ duration: 1.5, delay: 0.2 }}
+          />
+          <motion.div 
+            className="bg-circle-2"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 0.1, scale: 1 }}
+            transition={{ duration: 1.5, delay: 0.4 }}
+          />
+        </div>
+  
+        <h1>Gallery</h1>
+        <Masonry
+          breakpointCols={breakpoints}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
+          {images.map((image, index) => (
+            <motion.div
+              key={index}
+              className="gallery-item-wrapper"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              whileHover={{
+                zIndex: 1,
+                scale: 1.05,
+                rotateY: 5,
+                rotateX: 2,
+                transition: { duration: 0.3 }
+              }}
+            >
+              <div className="gallery-item">
+                <img 
+                  src={image} 
+                  alt={`Gallery item ${index + 1}`}
+                  loading="lazy"
+                />
+              </div>
+            </motion.div>
+          ))}
+        </Masonry>
+      </div>
+    );
+  }
+  
+  export default Gallery;
 
-  return (
-    <div className="gallery-container">
-      <h1>Gallery</h1>
-      <Masonry
-        breakpointCols={breakpoints}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
-        {images.map((image, index) => (
-          <motion.div
-            key={index}
-            className="gallery-item"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.05 }}
-          >
-            <img 
-              src={image} 
-              alt={`Gallery item ${index + 1}`}
-              loading="lazy"
-            />
-          </motion.div>
-        ))}
-      </Masonry>
-    </div>
-  );
-}
-
-export default Gallery;
