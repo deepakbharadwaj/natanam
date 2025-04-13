@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Helmet } from "react-helmet"; // Add this import
+import bharatanatyamBg from "../assets/bharatanatyam-bg.webp"; 
 
 // Import all images
 import navarasa1 from "../assets/navarasa1.webp";
@@ -386,6 +388,11 @@ const Home = () => {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>Natanam Foundation - Classical Dance Academy in Bangalore</title>
+        <meta name="description" content="Natanam Foundation is a premier Bharatanatyam dance academy in Bangalore, established in 1994. We offer classical dance training, performances, and workshops under expert guidance." />
+      </Helmet>
     <div className="home-page">
       <style jsx global>{`
         /* Global Styles */
@@ -481,7 +488,7 @@ const Home = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          background-image: url('../assets/bharatanatyam-bg.webm');
+          background-image: url(${bharatanatyamBg});
           background-size: cover;
           background-position: center;
           overflow: hidden;
@@ -1668,6 +1675,7 @@ const Home = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
