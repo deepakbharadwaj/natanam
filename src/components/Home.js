@@ -4,7 +4,7 @@ import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Helmet } from "react-helmet"; // Add this import
-import bharatanatyamBg from "../assets/bharatanatyam-bg.webp"; 
+import bharatanatyamBg from "../assets/bharatanatyam-bg1.webp"; 
 
 // Import all images
 import navarasa1 from "../assets/navarasa1.webp";
@@ -484,6 +484,7 @@ const Home = () => {
 
         .hero-section {
           position: relative;
+          width: 100%;
           height: 100vh;
           display: flex;
           align-items: center;
@@ -599,7 +600,7 @@ const Home = () => {
         }
 
         .about-image img {
-          width: 100%;
+          width: 100%; 
           height: auto;
           border-radius: 15px;
           box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
@@ -1357,10 +1358,10 @@ const Home = () => {
       <section className="hero-section">
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <p className="hero-tagline">
+          {/*<p className="hero-tagline">
             "Bharatanatyam - where divine grace meets earthly expression, each movement telling
             stories of ancient wisdom through the language of dance."
-          </p>
+          </p>*/}
         </div>
       </section>
 
