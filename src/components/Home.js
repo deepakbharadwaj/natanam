@@ -75,6 +75,46 @@ const Home = () => {
     triggerOnce: true,
   });
 
+  // Add YouTube player state
+  const [player, setPlayer] = useState(null);
+
+  // Function to handle YouTube player ready
+  const onPlayerReady = (event) => {
+    setPlayer(event.target);
+    event.target.mute(); // Start muted
+  };
+
+  // Load YouTube IFrame API
+  useEffect(() => {
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    window.onYouTubeIframeAPIReady = () => {
+      new window.YT.Player('youtube-player', {
+        videoId: 'PQr_DMHPZO0',
+        playerVars: {
+          autoplay: 0,
+          controls: 0,
+          modestbranding: 1,
+          rel: 0,
+          showinfo: 0,
+          mute: 1,
+          enablejsapi: 1,
+          iv_load_policy: 3,
+          fs: 0,
+          playsinline: 1,
+          origin: window.location.origin,
+          widget_referrer: window.location.href,
+        },
+        events: {
+          onReady: onPlayerReady,
+        },
+      });
+    };
+  }, []);
+
   // Image arrays
   const navarasaImages = [
     navarasa1,
@@ -251,29 +291,16 @@ const Home = () => {
     },
   };
 
-  // Handle video mute/unmute when in view
-  useEffect(() => {
-    const handleScroll = () => {
-      if (videoRef.current) {
-        const videoRect = videoRef.current.getBoundingClientRect();
-        const isVideoInView =
-          videoRect.top <= (window.innerHeight || document.documentElement.clientHeight) / 2 &&
-          videoRect.bottom >= (window.innerHeight || document.documentElement.clientHeight) / 2;
-        setIsVideoMuted(!isVideoInView);
+  const handleVideoPlayPause = () => {
+    if (player) {
+      if (isPlaying) {
+        player.pauseVideo();
+      } else {
+        player.playVideo();
       }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Video autoplay effect
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play();
-      videoRef.current.playbackRate = 1.2;
+      setIsPlaying(!isPlaying);
     }
-  }, []);
+  };
 
   // Component for event cards
   const EventCard = ({ event }) => {
@@ -306,18 +333,6 @@ const Home = () => {
         </div>
       </div>
     );
-  };
-
-  const handleVideoPlayPause = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-        setIsVideoMuted(false);
-      }
-      setIsPlaying(!isPlaying);
-    }
   };
 
   // Component for horizontal scrolling event cards
@@ -531,18 +546,31 @@ const Home = () => {
         }
 
         .video-container {
-          width: 100%;
-          height: 60vh;
-          overflow: hidden;
+          width: 90vw;
+          height: 55vh;
+          margin: 0 auto;
           position: relative;
-          box-shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
+          overflow: hidden;
+          border-radius: 20px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          aspect-ratio: 16/9;
         }
 
-        .video-container video {
+        #youtube-player {
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+        }
+
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          object-position: center 35%;
+          border: none;
         }
 
         .about-content {
@@ -1275,7 +1303,9 @@ const Home = () => {
           }
 
           .video-container {
-            height: 40vh;
+            width: 100vw;
+            height: 55vh;
+            border-radius: 0;
           }
 
           .founder-hero {
@@ -1348,9 +1378,20 @@ const Home = () => {
 
           .horizontal-slideshow, .sliding-image-container {
             height: 250px;
-         
-            
           }
+        }
+
+        /* Hide YouTube logo and controls */
+        .ytp-chrome-top,
+        .ytp-gradient-top,
+        .ytp-chrome-controls,
+        .ytp-gradient-bottom,
+        .ytp-chrome-bottom,
+        .ytp-watermark,
+        .ytp-pause-overlay,
+        .ytp-contextmenu,
+        .ytp-ce-element {
+          display: none !important;
         }
       `}</style>
 
@@ -1368,50 +1409,31 @@ const Home = () => {
       {/* About Section */}
       <section className="about-section">
         <div className="video-container">
-          <section className="relative w-full h-[60vh] overflow-hidden group">
+          <section className="absolute inset-0 overflow-hidden group">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
               className="relative w-full h-full"
             >
-              <video
-                ref={videoRef}
-                loop
-                muted={isVideoMuted}
-                playsInline
-                className="w-full h-full object-cover"
-              >
-                <source src={danceVideo} type="video/webm" />
-              </video>
+              <div id="youtube-player" className="w-full h-full"></div>
 
-              {/* Play/Pause Button */}
+              {/* Cute Play/Pause Button */}
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={handleVideoPlayPause}
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                     bg-white/20 backdrop-blur-sm rounded-full p-4 
-                     group-hover:opacity-100 opacity-0 transition-opacity duration-300"
+                     bg-white/30 backdrop-blur-md rounded-full p-6 
+                     group-hover:opacity-100 opacity-0 transition-opacity duration-300
+                     hover:bg-white/40 shadow-lg"
               >
                 {isPlaying ? (
-                  <motion.svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="white"
-                    className="w-12 h-12"
+                  <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </motion.svg>
-                ) : (
-                  <motion.div
-                    className="w-12 h-12 flex items-center justify-center"
-                    initial={{ rotate: 0 }}
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                    className="relative"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1420,6 +1442,45 @@ const Home = () => {
                       className="w-12 h-12"
                     >
                       <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                      <motion.circle
+                        cx="12"
+                        cy="12"
+                        r="11"
+                        fill="none"
+                        stroke="white"
+                        strokeWidth="2"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      />
+                    </svg>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    initial={{ rotate: 0 }}
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                    className="relative"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="white"
+                      className="w-12 h-12"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                      <motion.circle
+                        cx="12"
+                        cy="12"
+                        r="11"
+                        fill="none"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeDasharray="69"
+                        strokeDashoffset="69"
+                        animate={{ strokeDashoffset: 0 }}
+                        transition={{ duration: 1, repeat: Infinity }}
+                      />
                     </svg>
                   </motion.div>
                 )}
