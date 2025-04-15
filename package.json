@@ -44,7 +44,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build && node scripts/generate-sitemap.js",
+    "build": "react-scripts build && node scripts/generate-sitemap.js",
     "test": "craco test",
     "eject": "react-scripts eject",
     "optimize-assets": "node optimize-assets.js",
