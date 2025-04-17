@@ -4,7 +4,8 @@ import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Helmet } from "react-helmet";
-import SEO from "./SEO";
+import { Link } from "react-router-dom";
+import "../styles/Home.css";
 
 // Import background and video assets
 import bharatanatyamBg from "../assets/bharatanatyam-bg.webp";
@@ -69,9 +70,11 @@ import yuvadasara_1 from "../assets/yuvadasara_1.webp";
 import aboutImage from "../assets/about-image.webp";
 import founderImage from "../assets/About1.webp";
 import backgroundImage from "../assets/About3.webp";
+import kateel2025_1 from "../assets/kateel2025_1.webp";
+import kateel2025_2 from "../assets/kateel2025_2.webp";
 
 const Home = () => {
-  const [activeYear, setActiveYear] = useState("2024");
+  const [activeYear, setActiveYear] = useState("2025");
   const [isPlaying, setIsPlaying] = useState(false);
   const [isVideoMuted, setIsVideoMuted] = useState(true);
   const [showVideo, setShowVideo] = useState(false);
@@ -144,7 +147,12 @@ const Home = () => {
     rangotsavam2024_9,
   ];
   const al4sImages = [al4s_1];
-  const digitalImages2023 = [digital2023_1, digital2023_2, digital2023_3, digital2023_4];
+  const digitalImages2023 = [
+    digital2023_1,
+    digital2023_2,
+    digital2023_3,
+    digital2023_4,
+  ];
   const digitalImages2024 = [
     digital2024_1,
     digital2024_2,
@@ -160,10 +168,17 @@ const Home = () => {
     krishnajanmastami4,
     krishnajanmastami5,
   ];
-  const republicdayImages = [republicday1, republicday2, republicday3, republicday4, republicday5];
+  const republicdayImages = [
+    republicday1,
+    republicday2,
+    republicday3,
+    republicday4,
+    republicday5,
+  ];
   const soloImages = [solo1, solo2, solo3, solo4, solo5, solo6, solo7];
   const vadakkum2023Images = [vadakkum2023_1];
   const yuvadasaraImages = [yuvadasara_1];
+  const kateelImages = [kateel2025_1, kateel2025_2];
 
   // Milestones data
   const milestones = [
@@ -176,7 +191,8 @@ const Home = () => {
     {
       year: "2013",
       achievement: "Affiliation with Bangiya Sangit Parishad",
-      description: "International recognition for exams in the field of Indian Dance & Music",
+      description:
+        "International recognition for exams in the field of Indian Dance & Music",
       icon: "🌏",
     },
     {
@@ -188,7 +204,8 @@ const Home = () => {
     {
       year: "2022",
       achievement: "Launch of Aaharya Costumes and Dance Needs",
-      description: "Premium rental for Classical & Semi-Classical Costumes and Accessories",
+      description:
+        "Premium rental for Classical & Semi-Classical Costumes and Accessories",
       icon: "💃",
     },
     {
@@ -207,6 +224,35 @@ const Home = () => {
 
   // Events data by year
   const years = {
+    2025: {
+      majorPerformances: [
+        {
+          title: "Sripuram Golden Temple Performance",
+          date: "February 22, 2025",
+          description: "Team Natanam, under the guidance of Guru Vid. S. Vidya Murali, had the honour of presenting a Bharatanatyam performance at the sacred Sripuram Golden Temple, Vellore, offering devotional Nritya Seva.",
+          images: [],
+        },
+        {
+          title: "Tandava Season 3 & EVA International Women's Day Festival",
+          date: "March 7, 2025",
+          description: "Featured at the prestigious Tandava Season 3 felicitation ceremony and the EVA International Women's Day Talent Festival at DLF Cyber City, Manapakkam, showcasing exemplary performances that celebrated womanhood and artistic excellence.",
+          images: [],
+        },
+        {
+          title: "IISc Cultural Evening",
+          date: "March 14, 2025",
+          description: "Team Natanam proudly represented Bharatanatyam at the Indian Institute of Science (IISc), Bengaluru, contributing to a vibrant and diverse cultural showcase.",
+          images: [],
+        },
+        {
+          title: "Kateel Durgaparameshwari Temple Performance",
+          date: "April 13, 2025",
+          description: "Guru Vid. S. Vidya Murali and Smt. Krupa Ramachandran offered a soulful Bharatanatyam performance at the Kateel Durgaparameshwari Temple, as part of the temple Jaathre celebrations.",
+          images: kateelImages,
+        },
+      ],
+      
+    },
     2024: {
       majorPerformances: [
         {
@@ -230,7 +276,8 @@ const Home = () => {
         {
           title: "Rangotsavam 2024",
           date: "November 17, 2024",
-          description: "The grand annual day celebration at Krishnadevaraya Auditorium.",
+          description:
+            "The grand annual day celebration at Krishnadevaraya Auditorium.",
           images: rangotsavam2024Images,
         },
       ],
@@ -254,13 +301,15 @@ const Home = () => {
         {
           title: "Vadakkumnathan Temple Performance",
           date: "February 7, 2023",
-          description: "Team Natanam performed at this prestigious temple in Thrissur, Kerala.",
+          description:
+            "Team Natanam performed at this prestigious temple in Thrissur, Kerala.",
           images: vadakkum2023Images,
         },
         {
           title: "Rangotsavam 2023",
           date: "November 2023",
-          description: "The annual showcase of students at Krishnadevaraya Auditorium, Bangalore.",
+          description:
+            "The annual showcase of students at Krishnadevaraya Auditorium, Bangalore.",
           images: rangotsavam2023Images,
         },
       ],
@@ -304,7 +353,11 @@ const Home = () => {
                   zIndex: event.images.length - imgIndex,
                 }}
               >
-                <img src={img} alt={`${event.title} ${imgIndex + 1}`} className="event-image" />
+                <img
+                  src={img}
+                  alt={`${event.title} ${imgIndex + 1}`}
+                  className="event-image"
+                />
               </div>
             ))}
           </div>
@@ -391,20 +444,13 @@ const Home = () => {
 
   return (
     <>
-      <SEO
-        title="Natanam Foundation - Classical Dance Academy in Bangalore"
-        description="Premier classical dance academy in Bangalore teaching Bharatanatyam and Kuchipudi since 1994. Join our classes and discover the art of Indian classical dance under expert guidance."
-      />
       <Helmet>
         <title>Natanam Foundation - Classical Dance Academy in Bangalore</title>
         <meta
           name="description"
           content="Natanam Foundation is a premier Bharatanatyam dance academy in Bangalore, established in 1994. We offer classical dance training, performances, and workshops under expert guidance."
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap"
-          rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet" />
       </Helmet>
       <div className="home-page">
         <style jsx global>{`
@@ -1664,23 +1710,25 @@ const Home = () => {
             <div className="about-text">
               <h2>About Natanam Foundation</h2>
               <p>
-                Natanam Foundation, Bangalore, established in 1994 with the blessings and guidance
-                of Guru Dr. D Sarvotthama Kamath, has been a nurturing ground for countless students
-                under the artistic direction of Vid. S Vidya Murali. Affiliated with the Bangiya
-                Sangeet Parishad, Kolkata, the foundation offers annual exams to students from its
-                associated centers.
+                Natanam Foundation, Bangalore, established in 1994 with the blessings
+                and guidance of Guru Dr. D Sarvotthama Kamath, has been a nurturing
+                ground for countless students under the artistic direction of Vid. S
+                Vidya Murali. Affiliated with the Bangiya Sangeet Parishad, Kolkata,
+                the foundation offers annual exams to students from its associated
+                centers.
               </p>
               <p>
                 Team Natanam, the foundation's dynamic performing wing, is led by Krupa
-                Ramachandran, whose pursuit of precision and visual geometry inspires her fellow
-                dancers. The team has toured across India, captivating audiences at prestigious
-                festivals and events with their spellbinding performances.
+                Ramachandran, whose pursuit of precision and visual geometry inspires
+                her fellow dancers. The team has toured across India, captivating
+                audiences at prestigious festivals and events with their spellbinding
+                performances.
               </p>
               <p>
-                In addition to its artistic endeavors, Natanam Foundation also runs Aharya Costumes
-                and Dance Needs, a dedicated costume rental wing that caters to the needs of
-                dancers, offering a range of exquisitely designed Bharatanatyam and semi-classical
-                costumes.
+                In addition to its artistic endeavors, Natanam Foundation also runs
+                Aharya Costumes and Dance Needs, a dedicated costume rental wing that
+                caters to the needs of dancers, offering a range of exquisitely
+                designed Bharatanatyam and semi-classical costumes.
               </p>
             </div>
             <div className="about-image">
@@ -1692,37 +1740,49 @@ const Home = () => {
           <div className="stats-container" ref={ref}>
             <div className="stat-item">
               <div className="stat-number">
-                {inView && <CountUp start={0} end={30} duration={2.5} suffix="+" />}
+                {inView && (
+                  <CountUp start={0} end={30} duration={2.5} suffix="+" />
+                )}
               </div>
               <p>Years of Legacy</p>
             </div>
             <div className="stat-item">
               <div className="stat-number">
-                {inView && <CountUp start={0} end={3000} duration={2.5} suffix="+" />}
+                {inView && (
+                  <CountUp start={0} end={3000} duration={2.5} suffix="+" />
+                )}
               </div>
               <p>Students</p>
             </div>
             <div className="stat-item">
               <div className="stat-number">
-                {inView && <CountUp start={0} end={500} duration={2.5} suffix="+" />}
+                {inView && (
+                  <CountUp start={0} end={500} duration={2.5} suffix="+" />
+                )}
               </div>
               <p>Performances</p>
             </div>
             <div className="stat-item">
               <div className="stat-number">
-                {inView && <CountUp start={0} end={10} duration={2.5} suffix="+" />}
+                {inView && (
+                  <CountUp start={0} end={10} duration={2.5} suffix="+" />
+                )}
               </div>
               <p>Arangetrams</p>
             </div>
             <div className="stat-item">
               <div className="stat-number">
-                {inView && <CountUp start={0} end={50} duration={2.5} suffix="+" />}
+                {inView && (
+                  <CountUp start={0} end={50} duration={2.5} suffix="+" />
+                )}
               </div>
               <p>Awards</p>
             </div>
             <div className="stat-item">
               <div className="stat-number">
-                {inView && <CountUp start={0} end={1000} duration={2.5} suffix="+" />}
+                {inView && (
+                  <CountUp start={0} end={1000} duration={2.5} suffix="+" />
+                )}
               </div>
               <p>Followers</p>
             </div>
@@ -1754,28 +1814,30 @@ const Home = () => {
                 <p className="founder-title">Artistic Director & Bharatanatyam Guru</p>
                 <div className="founder-quote">
                   <blockquote>
-                    "Dance is the hidden language of the soul, and through Bharatanatyam, we
-                    discover its most beautiful expressions."
+                    "Dance is the hidden language of the soul, and through Bharatanatyam,
+                    we discover its most beautiful expressions."
                   </blockquote>
                 </div>
                 <div className="founder-bio">
                   <p>
-                    Vidya Murali, fondly known among her students, is a distinguished Bharatanatyam
-                    danseuse, teacher, and organizer, embodying the role of a nurturing mentor. She
-                    embarked on her journey in dance at the age of 10, captivated by the elegance of
-                    Bharatanatyam. Her passion led her to pursue formal training in the art form
-                    throughout her Bachelor's and Master's degrees at Bangalore University.
+                    Vidya Murali, fondly known among her students, is a distinguished
+                    Bharatanatyam danseuse, teacher, and organizer, embodying the role of
+                    a nurturing mentor. She embarked on her journey in dance at the age
+                    of 10, captivated by the elegance of Bharatanatyam. Her passion led
+                    her to pursue formal training in the art form throughout her
+                    Bachelor's and Master's degrees at Bangalore University.
                   </p>
                   <p>
-                    Vidya has showcased her talent in numerous dance dramas under the direction of
-                    her esteemed Guru, Dr. D. Sarvothama Kamath of Bangalore University. She has
-                    also performed under the guidance of Acharya Ranjani Ganesan Ramesh of
-                    Kalakshetra, contributing to renowned productions such as <em>Dashavatara</em>{" "}
-                    and <em>Navarasa Shiva Shakti</em>.
+                    Vidya has showcased her talent in numerous dance dramas under the
+                    direction of her esteemed Guru, Dr. D. Sarvothama Kamath of
+                    Bangalore University. She has also performed under the guidance of
+                    Acharya Ranjani Ganesan Ramesh of Kalakshetra, contributing to
+                    renowned productions such as <em>Dashavatara</em> and <em>Navarasa Shiva
+                    Shakti</em>.
                   </p>
                   <p>
-                    Beyond her performances, Vidya is an accomplished choreographer, having
-                    conceptualized and presented several notable pieces, including{" "}
+                    Beyond her performances, Vidya is an accomplished choreographer,
+                    having conceptualized and presented several notable pieces, including{" "}
                     <em>Ganesha Vandanam, Hari Hara, Shanmukha, Kalinga Mardhanam,</em> and{" "}
                     <em>Krishnam Vande Jagadgurum</em>.
                   </p>
@@ -1895,3 +1957,5 @@ const Home = () => {
 };
 
 export default Home;
+
+

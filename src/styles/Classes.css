@@ -407,19 +407,21 @@
   .classes-section {
     height: auto;
     min-height: 100vh;
-    padding: 100px 0.5rem 2rem;
+    padding: 80px 0.5rem 2rem;
     margin-top: 0;
+    will-change: transform; /* Performance optimization for animations */
   }
   
   .classes-page {
-    position: relative;  /* Change to relative */
-    overflow-y: auto;   /* Enable vertical scrolling */
+    position: relative;
+    overflow-y: auto;
     min-height: 100vh;
     height: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   }
   
   .classes-section h2 {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 4vw, 2rem); /* Responsive font size */
     margin-bottom: 0.5rem;
   }
   
@@ -427,56 +429,101 @@
     flex-wrap: wrap;
     height: auto;
     padding-bottom: 2rem;
-    align-content: center;
+    align-content: flex-start;
+    gap: 1.5rem;
   }
   
   .class-category {
-    width: 95%;
-    height: 48%;
+    width: calc(95% - 1rem);
+    height: auto;
+    min-height: 300px;
     min-width: 200px;
+    transform: translateZ(0); /* Hardware acceleration */
+  }
+
+  .enroll-button.main {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .classes-page {
-    overflow-x: hidden;  /* Prevent horizontal scrolling */
+    overflow-x: hidden;
   }
 
   .classes-section h2 {
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+    text-align: center;
   }
 
   .classes-section {
-    padding: 80px 0.5rem 2rem;
+    padding: 70px 0.5rem 2rem;
     height: auto;
   }
   
   .class-category {
-    min-height: auto; /* Remove fixed height */
-    height: auto; /* Let content determine height */
-    margin-bottom: 1.5rem; /* Add space between stacked cards */
-    width: 90%;
+    min-height: 280px;
+    height: auto;
+    margin-bottom: 1rem;
+    width: calc(90% - 1rem);
+    transition: transform 0.2s ease; /* Faster animation for mobile */
   }
 
   .mode-selector {
     flex-direction: column;
     gap: 0.5rem;
+    margin-bottom: 1.5rem;
   }
   
   .categories-container {
-    height: 75%;
-    gap: 1.5rem;
+    height: auto;
+    gap: 1rem;
+    padding: 0.5rem;
   }
   
   .category-title {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
   }
   
   .class-card h3 {
-    font-size: 1.3rem;
+    font-size: clamp(1.1rem, 3.5vw, 1.3rem);
   }
+
   .sticker-image {
-    width: 100px;  /* Reduced size for smaller screens */
-    height: 100px;
+    width: 80px;
+    height: 80px;
+    opacity: 0.8; /* Slightly reduce opacity for better text contrast */
+  }
+
+  .fee-details {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  /* Optimize animations for mobile */
+  @media (prefers-reduced-motion: reduce) {
+    .class-category,
+    .enroll-button.main,
+    .sticker-image {
+      animation: none;
+      transition: none;
+    }
+  }
+}
+
+/* Add support for larger screens */
+@media (min-width: 1920px) {
+  .classes-section {
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+
+  .categories-container {
+    gap: 2rem;
+  }
+
+  .class-category {
+    max-width: 400px;
   }
 }

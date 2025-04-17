@@ -46,7 +46,7 @@ const Classes = () => {
             {(mode === "offline" || mode === "online") && (
               <div className="class-category">
                 <h3 className="category-title">Solo Classes</h3>
-                <div className="class-card premium">
+                <div className="class-card premium" onClick={handleEnroll}>
                   <h3>SOLO CLASSES</h3>
                   <div className={`sticker-container ${mode === "online" ? "laptop-frame" : ""}`}>
                     <img
@@ -69,7 +69,7 @@ const Classes = () => {
               <>
                 <div className="class-category">
                   <h3 className="category-title">Group Classes</h3>
-                  <div className="class-card premium">
+                  <div className="class-card premium" onClick={handleEnroll}>
                     <h3>GROUP CLASSES</h3>
                     <div className="sticker-container">
                       <img src={stickerGroup} alt="Group Dance" className="sticker-image" />
@@ -85,7 +85,7 @@ const Classes = () => {
 
                 <div className="class-category">
                   <h3 className="category-title">Project Based</h3>
-                  <div className="class-card premium">
+                  <div className="class-card premium" onClick={handleEnroll}>
                     <h3>ARANGETRAM</h3>
                     <div className="sticker-container">
                       <img src={stickerArangetram} alt="Arangetram" className="sticker-image" />
