@@ -1,9 +1,13 @@
 # Allow all crawlers
 User-agent: *
 Allow: /
+Allow: /favicon.ico
 
 # Sitemap location
 Sitemap: https://www.natanamfoundation.com/sitemap.xml
+
+# Host directive to specify preferred domain
+Host: www.natanamfoundation.com
 
 # Crawl-delay
 Crawl-delay: 10
@@ -23,5 +27,12 @@ Allow: /*.png$
 Allow: /*.gif$
 Allow: /*.webp$
 
-# Host directive to specify preferred domain
-Host: www.natanamfoundation.com 
+# Allow all other paths
+Allow: /*.html$
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$ 
