@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Events.css";
+import SEO from "./SEO";
 
 // Import all images
 import navarasa1 from "../assets/navarasa1.webp";
@@ -302,70 +303,76 @@ const Events = () => {
   };
 
   return (
-    <div className="events-page">
-      <div className="events-hero">
-        <h1>Achievements & Performances</h1>
-        <div className="year-selector">
-          {Object.keys(years).map((year) => (
-            <button
-              key={year}
-              className={`year-btn ${activeYear === year ? "active" : ""}`}
-              onClick={() => setActiveYear(year)}
-            >
-              {year}
-            </button>
-          ))}
+    <>
+      <SEO
+        title="Dance Events & Performances | Natanam Foundation"
+        description="Stay updated with our latest dance events, performances, workshops, and cultural programs. Join us in celebrating the art of classical dance."
+      />
+      <div className="events-page">
+        <div className="events-hero">
+          <h1>Achievements & Performances</h1>
+          <div className="year-selector">
+            {Object.keys(years).map((year) => (
+              <button
+                key={year}
+                className={`year-btn ${activeYear === year ? "active" : ""}`}
+                onClick={() => setActiveYear(year)}
+              >
+                {year}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className="events-content">
-        <section className="major-performances">
-          <h2>Major Performances & Festivals</h2>
-          <div className="horizontal-scroll-section">
-            <div className="horizontal-scroll-container">
-              <div className="scroll-content">
-                {years[activeYear].majorPerformances.map((event, index) => (
-                  <HorizontalEventCard key={index} event={event} />
-                ))}
+        <div className="events-content">
+          <section className="major-performances">
+            <h2>Major Performances & Festivals</h2>
+            <div className="horizontal-scroll-section">
+              <div className="horizontal-scroll-container">
+                <div className="scroll-content">
+                  {years[activeYear].majorPerformances.map((event, index) => (
+                    <HorizontalEventCard key={index} event={event} />
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {years[activeYear].digitalProductions && (
-          <section className="digital-productions full-width-section">
-            <h2>Digital Productions</h2>
-            <div className="sliding-events-container">
-              {years[activeYear].digitalProductions.map((production, index) => (
-                <SlidingEventCard key={index} event={production} />
-              ))}
-            </div>
           </section>
-        )}
 
-        {activeYear === "2023" && years[activeYear].workshopsTraining && (
-          <section className="workshops-training full-width-section">
-            <h2>Workshops & Training</h2>
-            <div className="sliding-events-container">
-              {years[activeYear].workshopsTraining.map((workshop, index) => (
-                <SlidingEventCard key={index} event={workshop} />
-              ))}
-            </div>
-          </section>
-        )}
+          {years[activeYear].digitalProductions && (
+            <section className="digital-productions full-width-section">
+              <h2>Digital Productions</h2>
+              <div className="sliding-events-container">
+                {years[activeYear].digitalProductions.map((production, index) => (
+                  <SlidingEventCard key={index} event={production} />
+                ))}
+              </div>
+            </section>
+          )}
 
-        {activeYear === "2023" && years[activeYear].soloCollaborative && (
-          <section className="solo-collaborative full-width-section">
-            <h2>Solo Performances</h2>
-            <div className="sliding-events-container">
-              {years[activeYear].soloCollaborative.map((performance, index) => (
-                <SlidingEventCard key={index} event={performance} />
-              ))}
-            </div>
-          </section>
-        )}
+          {activeYear === "2023" && years[activeYear].workshopsTraining && (
+            <section className="workshops-training full-width-section">
+              <h2>Workshops & Training</h2>
+              <div className="sliding-events-container">
+                {years[activeYear].workshopsTraining.map((workshop, index) => (
+                  <SlidingEventCard key={index} event={workshop} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {activeYear === "2023" && years[activeYear].soloCollaborative && (
+            <section className="solo-collaborative full-width-section">
+              <h2>Solo Performances</h2>
+              <div className="sliding-events-container">
+                {years[activeYear].soloCollaborative.map((performance, index) => (
+                  <SlidingEventCard key={index} event={performance} />
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

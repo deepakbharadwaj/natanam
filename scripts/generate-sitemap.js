@@ -14,7 +14,7 @@ const routes = [
   },
   {
     path: "/about",
-    changefreq: "weekly",
+    changefreq: "monthly",
     priority: "0.9",
     lastmod: new Date().toISOString().split("T")[0],
   },
@@ -56,8 +56,8 @@ const routes = [
   },
   {
     path: "/events",
-    changefreq: "weekly",
-    priority: "0.8",
+    changefreq: "daily",
+    priority: "0.9",
     lastmod: new Date().toISOString().split("T")[0],
   },
   {
