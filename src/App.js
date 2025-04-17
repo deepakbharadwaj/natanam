@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import WhatsAppButton from "./components/WhatsAppButton";
 import SEO from "./components/SEO";
+import favicon from "./assets/favicon.ico";
 import "./App.css";
 
 // Lazy load all other components
@@ -34,6 +35,14 @@ function App() {
     return () => {
       document.body.style.overflow = "unset";
     };
+  }, []);
+
+  useEffect(() => {
+    // Update favicon
+    const link = document.querySelector("link[rel~='icon']");
+    if (link) {
+      link.href = favicon;
+    }
   }, []);
 
   return (
