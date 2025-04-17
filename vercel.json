@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "natanamfoundation.com"
+        }
+      ],
+      "destination": "https://www.natanamfoundation.com/:path*",
+      "permanent": true
+    }
+  ]
+}

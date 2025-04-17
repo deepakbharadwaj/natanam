@@ -1,8 +1,9 @@
 import React, { useState, useEffect, Suspense } from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import WhatsAppButton from "./components/WhatsAppButton";
+import SEO from "./components/SEO";
 import "./App.css";
 
 // Lazy load all other components
@@ -37,6 +38,7 @@ function App() {
 
   return (
     <Router>
+      <SEO />
       <div className="App">
         <Navbar setCurrentSection={setCurrentSection} />
         <main className="main-content">
