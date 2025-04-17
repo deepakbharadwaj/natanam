@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SEO from "./SEO";
 import "../styles/Jewellery.css";
 
 const Jewellery = () => {
@@ -117,74 +118,80 @@ const Jewellery = () => {
   ];
 
   return (
-    <section className="jewellery-main">
-      <div className="category-showcase">
-        {categories.map((cat) => (
-          <div
-            className={`category-card ${selectedCategory === cat.id ? "active" : ""}`}
-            key={cat.id}
-            onClick={() => scrollToCategory(cat.id)}
-          >
-            <div className="category-image">
-              <img src={cat.image} alt={cat.name} />
-              <div className="category-overlay">
-                <h3>{cat.name}</h3>
+    <>
+      <SEO
+        title="Classical Dance Jewellery | Natanam Foundation Bangalore"
+        description="Explore authentic classical dance jewellery at Natanam Foundation. We offer traditional temple jewellery, bharatanatyam ornaments, and dance accessories for performances."
+      />
+      <section className="jewellery-main">
+        <div className="category-showcase">
+          {categories.map((cat) => (
+            <div
+              className={`category-card ${selectedCategory === cat.id ? "active" : ""}`}
+              key={cat.id}
+              onClick={() => scrollToCategory(cat.id)}
+            >
+              <div className="category-image">
+                <img src={cat.image} alt={cat.name} />
+                <div className="category-overlay">
+                  <h3>{cat.name}</h3>
+                </div>
               </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="jewellery-tabs">
+          <button
+            className={`tab-btn ${activeTab === "rent" ? "active" : ""}`}
+            onClick={() => setActiveTab("rent")}
+          >
+            Rent Collection
+          </button>
+          <button
+            className={`tab-btn ${activeTab === "purchase" ? "active" : ""}`}
+            onClick={() => setActiveTab("purchase")}
+          >
+            Purchase Collection
+          </button>
+        </div>
+
+        {categories.map((category) => (
+          <div className="jewellery-section" id={category.id} key={category.id}>
+            <h2 className="section-title">{category.name}</h2>
+            <div className="jewellery-grid">
+              {category.items.map((item) => (
+                <div className="jewellery-card" key={item.id}>
+                  <div className="jewellery-image">
+                    <img src={item.image} alt={item.name} />
+                    <div className="hover-info">
+                      <div className="jewellery-details">
+                        <h4>{item.name}</h4>
+                        <p className="material">{item.material}</p>
+                        <p className="description">{item.description}</p>
+                        <div className="specifications">
+                          <p>Weight: {item.weight}</p>
+                          <p>Size: {item.dimensions}</p>
+                        </div>
+                        <p className="price">
+                          {activeTab === "rent" ? item.rentPrice : item.purchasePrice}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="jewellery-info">
+                    <h3>{item.name}</h3>
+                    <p className="visible-price">
+                      {activeTab === "rent" ? item.rentPrice : item.purchasePrice}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="jewellery-tabs">
-        <button
-          className={`tab-btn ${activeTab === "rent" ? "active" : ""}`}
-          onClick={() => setActiveTab("rent")}
-        >
-          Rent Collection
-        </button>
-        <button
-          className={`tab-btn ${activeTab === "purchase" ? "active" : ""}`}
-          onClick={() => setActiveTab("purchase")}
-        >
-          Purchase Collection
-        </button>
-      </div>
-
-      {categories.map((category) => (
-        <div className="jewellery-section" id={category.id} key={category.id}>
-          <h2 className="section-title">{category.name}</h2>
-          <div className="jewellery-grid">
-            {category.items.map((item) => (
-              <div className="jewellery-card" key={item.id}>
-                <div className="jewellery-image">
-                  <img src={item.image} alt={item.name} />
-                  <div className="hover-info">
-                    <div className="jewellery-details">
-                      <h4>{item.name}</h4>
-                      <p className="material">{item.material}</p>
-                      <p className="description">{item.description}</p>
-                      <div className="specifications">
-                        <p>Weight: {item.weight}</p>
-                        <p>Size: {item.dimensions}</p>
-                      </div>
-                      <p className="price">
-                        {activeTab === "rent" ? item.rentPrice : item.purchasePrice}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="jewellery-info">
-                  <h3>{item.name}</h3>
-                  <p className="visible-price">
-                    {activeTab === "rent" ? item.rentPrice : item.purchasePrice}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </section>
+      </section>
+    </>
   );
 };
 
