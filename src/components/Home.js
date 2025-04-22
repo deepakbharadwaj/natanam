@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import "../styles/Home.css";
 
+
 // Import background and video assets
 import bharatanatyamBg from "../assets/bharatanatyam-bg.webp";
 import bharatanatyamVideo from "../assets/bharatanatyam-video.mp4";
@@ -601,6 +602,12 @@ const Home = () => {
           }
 
           @media (max-width: 768px) {
+            .background-container {
+              background: url(${solo1});
+              background-size: cover;
+              background-position: center;
+            }
+
             .video-container {
               height: 100vh;
               max-height: -webkit-fill-available;
