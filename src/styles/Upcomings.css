@@ -34,6 +34,19 @@
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
+  .coming-soon-message {
+    font-size: 2rem;
+    color: #8B4513;
+    text-align: center;
+    padding: 100px 20px;
+    font-family: "Playfair Display", serif;
+    animation: blink 2s ease-in-out infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
   
   @media (max-width: 768px) {
     .full-update-image {
