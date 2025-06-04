@@ -73,6 +73,11 @@ import founderImage from "../assets/About1.webp";
 import backgroundImage from "../assets/About3.webp";
 import kateel2025_1 from "../assets/kateel2025_1.webp";
 import kateel2025_2 from "../assets/kateel2025_2.webp";
+import bdvt1 from "../assets/bdvt1.webp";
+import bdvt2 from "../assets/bdvt2.webp";
+import bdvt3 from "../assets/bdvt3.webp";
+import bdvt4 from "../assets/bdvt4.webp";
+import bdvt5 from "../assets/bdvt5.webp";
 
 const Home = () => {
   const [activeYear, setActiveYear] = useState("2025");
@@ -169,6 +174,7 @@ const Home = () => {
   const vadakkum2023Images = [vadakkum2023_1];
   const yuvadasaraImages = [yuvadasara_1];
   const kateelImages = [kateel2025_1, kateel2025_2];
+  const bdvtImages = [bdvt1, bdvt2, bdvt3, bdvt4, bdvt5];
 
   // Milestones data
   const milestones = [
@@ -215,24 +221,17 @@ const Home = () => {
     2025: {
       majorPerformances: [
         {
-          title: "Sripuram Golden Temple Performance",
-          date: "February 22, 2025",
-          description:
-            "Team Natanam, under the guidance of Guru Vid. S. Vidya Murali, had the honour of presenting a Bharatanatyam performance at the sacred Sripuram Golden Temple, Vellore, offering devotional Nritya Seva.",
-          images: [
-            krishnajanmastami1,
-            krishnajanmastami2,
-            krishnajanmastami3,
-            krishnajanmastami4,
-            krishnajanmastami5,
-          ],
+          title: "Narasimha Jayanti Special Performance",
+          date: "May 13, 2025",
+          description: "A divine celebration through Bharatanatyam, where the powerful avatar of Lord Narasimha was brought to life through intricate movements and expressions, showcasing the perfect blend of devotion and artistry.",
+          images: bdvtImages,
         },
         {
-          title: "Tandava Season 3 & EVA International Women's Day Festival",
-          date: "March 7, 2025",
+          title: "Kateel Durgaparameshwari Temple Performance",
+          date: "April 13, 2025",
           description:
-            "Featured at the prestigious Tandava Season 3 felicitation ceremony and the EVA International Women's Day Talent Festival at DLF Cyber City, Manapakkam, showcasing exemplary performances that celebrated womanhood and artistic excellence.",
-          images: [republicday1, republicday2, republicday3, republicday4, republicday5],
+            "Guru Vid. S. Vidya Murali and Smt. Krupa Ramachandran offered a soulful Bharatanatyam performance at the Kateel Durgaparameshwari Temple, as part of the temple Jaathre celebrations.",
+          images: kateelImages,
         },
         {
           title: "IISc Cultural Evening",
@@ -242,12 +241,27 @@ const Home = () => {
           images: [solo1, solo2, solo3, solo4, solo5],
         },
         {
-          title: "Kateel Durgaparameshwari Temple Performance",
-          date: "April 13, 2025",
+          title: "Tandava Season 3 & EVA International Women's Day Festival",
+          date: "March 7, 2025",
           description:
-            "Guru Vid. S. Vidya Murali and Smt. Krupa Ramachandran offered a soulful Bharatanatyam performance at the Kateel Durgaparameshwari Temple, as part of the temple Jaathre celebrations.",
-          images: kateelImages,
+            "Featured at the prestigious Tandava Season 3 felicitation ceremony and the EVA International Women's Day Talent Festival at DLF Cyber City, Manapakkam, showcasing exemplary performances that celebrated womanhood and artistic excellence.",
+          images: [republicday1, republicday2, republicday3, republicday4, republicday5],
         },
+        {
+          title: "Sripuram Golden Temple Performance",
+          date: "February 22, 2025",
+          description: "Team Natanam, under the guidance of Guru Vid. S. Vidya Murali, had the honour of presenting a Bharatanatyam performance at the sacred Sripuram Golden Temple, Vellore, offering devotional Nritya Seva.",
+          images: [
+            krishnajanmastami1,
+            krishnajanmastami2,
+            krishnajanmastami3,
+            krishnajanmastami4,
+            krishnajanmastami5,
+          ],
+        },
+        
+        
+        
       ],
     },
     2024: {
