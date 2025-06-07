@@ -7,22 +7,26 @@
   --bg-color: rgba(255, 255, 255, 0.98);
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --accent-color: #bfa181;
+  --dark-brown: #8b4513;
 }
 
 /* --- Custom Navbar Layout --- */
 .custom-navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* Space out left and right sections */
   width: 100%;
-  height: 80px;
+  height: 70px;
   background: var(--bg-color);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  padding: 0 40px;
+  padding: 0 30px;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box; /* Crucial for responsive padding */
 }
 
 .navbar-section {
@@ -32,41 +36,44 @@
 }
 
 .navbar-left {
-  gap: 16px;
+  gap: 12px;
 }
 
 .navbar-center {
-  gap: 32px;
+  gap: 24px;
+  /* By default, desktop menu is visible */
 }
 
 .navbar-right {
-  gap: 16px;
+  gap: 12px;
 }
 
 .vertical-line {
   width: 2px;
-  height: 48px;
-  background: #bfa181;
-  margin: 0 32px;
+  height: 40px;
+  background: var(--accent-color);
+  margin: 0 24px;
   border-radius: 2px;
   opacity: 0.5;
 }
 
-/* Brand styles (reuse existing) */
+/* Brand styles */
 .navbar-brand {
   display: flex;
   align-items: center;
   cursor: pointer;
-  gap: 12px;
+  gap: 8px;
+  text-decoration: none;
 }
 
 .nav-logo {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   object-fit: cover;
   border-radius: 50%;
   background: #f5eee6;
-  border: 2px solid #bfa181;
+  border: 2px solid var(--accent-color);
+  flex-shrink: 0; /* Prevent logo from shrinking */
 }
 
 .brand-text h1,
@@ -76,43 +83,46 @@
 .navbar-menu-mobile-content button,
 .signup-btn,
 .mobile-signup-btn {
-  color: #8B4513 !important;
+  color: var(--dark-brown) !important;
 }
 
-/* Hover/active states: use gold for highlight */
+/* Hover/active states */
 .navbar-center button.active,
 .navbar-center button:hover,
 .navbar-menu-mobile-content button.active,
 .navbar-menu-mobile-content button:hover {
-  color: #bfa181 !important;
+  color: var(--accent-color) !important;
 }
 
 .signup-btn,
 .mobile-signup-btn {
-  background: #bfa181;
+  background: var(--accent-color);
+  color: white !important;
 }
 
 .signup-btn:hover,
 .mobile-signup-btn:hover {
-  background: #8B4513;
+  background: var(--dark-brown);
   color: #fff !important;
 }
 
 .brand-text h1 {
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   font-weight: 700;
   margin: 0;
   line-height: 1;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
+
 .brand-text h2 {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   margin: 0;
   line-height: 1.2;
   font-weight: 600;
 }
+
 .brand-tagline {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   margin-top: 2px;
   font-style: italic;
 }
@@ -121,290 +131,35 @@
 .navbar-center button {
   background: none;
   border: none;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 500;
-  padding: 0.5rem 1.2rem;
+  padding: 0.4rem 1rem;
   cursor: pointer;
   transition: color 0.2s;
   position: relative;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 /* Sign Up button */
 .signup-btn {
   border: none;
   border-radius: 20px;
-  padding: 0.5rem 1.5rem;
-  font-size: 1.1rem;
+  padding: 0.4rem 1.2rem;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
   box-shadow: 0 2px 8px rgba(191, 161, 129, 0.08);
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
-/* Responsive (optional, can be improved later) */
-@media (max-width: 900px) {
-  .custom-navbar {
-    padding: 0 10px;
-  }
-  .vertical-line {
-    margin: 0 10px;
-    height: 36px;
-  }
-  .navbar-center {
-    gap: 12px;
-  }
-  .navbar-section {
-    flex-wrap: wrap;
-  }
-  .hide-on-mobile {
-    display: none !important;
-  }
-  .navbar-burger {
-    display: flex;
-  }
-  .navbar-section.navbar-left {
-    justify-content: flex-start !important;
-    align-items: center;
-    width: auto;
-    margin-left: 10px;
-    margin-bottom: 0;
-    gap: 8px;
-  }
-  .navbar-brand {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 8px;
-  }
-}
+/* ------------------------------------------- */
+/* Responsive Adjustments & Mobile Menu Setup */
+/* ------------------------------------------- */
 
-@media (max-width: 600px) {
-  .custom-navbar {
-    flex-direction: column;
-    align-items: stretch;
-    height: auto;
-    padding: 8px 0 0 0;
-    min-height: unset;
-  }
-  .navbar-section {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  .navbar-section.navbar-left {
-    justify-content: flex-start !important;
-    align-items: center;
-    width: auto;
-    margin-left: 6px;
-    margin-bottom: 0;
-    gap: 6px;
-  }
-  .navbar-brand {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 6px;
-  }
-  .nav-logo {
-    width: 44px;
-    height: 44px;
-  }
-  .brand-text h1 {
-    font-size: 1.1rem;
-  }
-  .brand-text h2 {
-    font-size: 0.8rem;
-  }
-  .brand-tagline {
-    display: none;
-  }
-  .vertical-line {
-    display: none;
-  }
-  .navbar-center {
-    flex-wrap: wrap;
-    gap: 4px;
-    justify-content: center;
-    width: 100%;
-    margin: 0;
-    padding: 0 4px;
-  }
-  .navbar-center button {
-    font-size: 0.95rem;
-    padding: 0.4rem 0.7rem;
-    margin: 2px 0;
-    width: auto;
-    min-width: 70px;
-    border-radius: 8px;
-  }
-  .navbar-right {
-    justify-content: center;
-    width: 100%;
-    margin: 0 0 8px 0;
-    padding: 0;
-  }
-  .signup-btn {
-    width: 90%;
-    max-width: 220px;
-    margin: 8px auto 8px auto;
-    display: block;
-    font-size: 1rem;
-    padding: 0.6rem 0;
-    border-radius: 16px;
-  }
-}
-
-@media (max-width: 400px) {
-  .nav-logo {
-    width: 34px;
-    height: 34px;
-  }
-  .brand-text h1 {
-    font-size: 0.9rem;
-  }
-  .brand-text h2 {
-    font-size: 0.7rem;
-  }
-  .navbar-center button {
-    font-size: 0.8rem;
-    min-width: 50px;
-    padding: 0.3rem 0.4rem;
-  }
-  .signup-btn {
-    font-size: 0.9rem;
-    padding: 0.5rem 0;
-  }
-}
-
-@media (max-width: 1024px) {
-  .navbar-menu {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background: var(--bg-color);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 2rem;
-    transform: translateY(-150%);
-    opacity: 0;
-    transition: var(--transition);
-    justify-content: flex-start;
-    align-items: center;
-    z-index: 999;
-  }
-
-  .navbar.scrolled .navbar-menu {
-    top: 70px;
-    height: calc(100vh - 70px);
-  }
-
-  .navbar-menu.active {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  .navbar-menu button {
-    font-size: 1.2rem;
-    padding: 0.5rem 0;
-    opacity: 0;
-    animation: fadeIn 0.3s forwards;
-    animation-delay: calc(var(--i) * 0.1s);
-  }
-
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
-
-  .navbar-burger {
-    display: flex;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    height: 70px;
-  }
-
-  .nav-logo {
-    width: 50px;
-    height: 50px;
-  }
-
-  .brand-text h1 {
-    font-size: 1.5rem;
-  }
-
-  .brand-text h2 {
-    font-size: 1rem;
-  }
-
-  .brand-tagline {
-    font-size: 0.6rem;
-  }
-
-  .navbar.scrolled .brand-text h1 {
-    font-size: 1.3rem;
-  }
-
-  .navbar.scrolled .brand-text h2 {
-    font-size: 0.9rem;
-  }
-
-  .navbar.scrolled .brand-tagline {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar-container {
-    padding: 0 15px;
-  }
-
-  .nav-logo {
-    width: 45px;
-    height: 45px;
-  }
-
-  .brand-text h1 {
-    font-size: 1.2rem;
-  }
-
-  .brand-text h2 {
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 360px) {
-  .brand-text h1 {
-    font-size: 1.1rem;
-  }
-
-  .brand-text h2 {
-    font-size: 0.7rem;
-  }
-
-  .nav-logo {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-/* Hide nav links and signup on mobile, show burger */
-.hide-on-mobile {
-  display: flex;
-}
-
+/* Default state for burger menu - hidden on large screens */
 .navbar-burger {
-  display: none;
+  display: none; /* Hide burger by default on desktop */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -413,38 +168,45 @@
   background: none;
   border: none;
   cursor: pointer;
+  /* Always position burger absolutely in the top right for small screens */
   position: absolute;
-  top: 18px;
-  right: 18px;
-  z-index: 1201;
+  top: 15px;
+  right: 15px;
+  z-index: 1201; /* Ensure it's above everything */
   gap: 6px;
   padding: 0;
   transition: background 0.2s;
 }
+
 .navbar-burger span {
   display: block;
   width: 28px;
   height: 3px;
-  background: #7c5a36;
+  background: var(--dark-brown);
   border-radius: 2px;
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
 }
+
 .navbar-burger.active span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
+
 .navbar-burger.active span:nth-child(2) {
   opacity: 0;
+  transform: translateX(-100%); /* Move out of view */
 }
+
 .navbar-burger.active span:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
 }
 
-/* Mobile menu overlay */
+/* Mobile menu container (default hidden) */
 .navbar-menu-mobile {
-  display: none;
+  display: none; /* Hidden by default, will be shown by JS */
 }
+
 .navbar-menu-mobile.open {
-  display: flex;
+  display: flex; /* Show when 'open' class is applied */
   flex-direction: column;
   position: fixed;
   top: 0;
@@ -452,15 +214,25 @@
   width: 100vw;
   height: 100vh;
   background: rgba(255, 250, 240, 0.98);
-  z-index: 1200;
+  backdrop-filter: blur(5px);
+  z-index: 1199; /* Below the burger, above main content */
   align-items: center;
   justify-content: flex-start;
-  padding-top: 90px;
-  animation: slideDownMenu 0.3s ease;
+  padding-top: 80px; /* Space for the fixed navbar */
+  animation: slideDownMenu 0.3s ease-out forwards;
+  overflow-y: auto; /* Enable scrolling if content exceeds screen height */
+  -webkit-overflow-scrolling: touch;
 }
+
 @keyframes slideDownMenu {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .navbar-menu-mobile-content {
@@ -468,87 +240,185 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding: 20px;
   gap: 18px;
 }
 
 .navbar-menu-mobile-content button {
   background: none;
   border: none;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  padding: 0.8rem 0;
+  padding: 0.7rem 0;
   width: 80vw;
   max-width: 320px;
   border-radius: 12px;
   text-align: center;
   transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  color: var(--dark-brown);
 }
+
 .navbar-menu-mobile-content button.active,
 .navbar-menu-mobile-content button:hover {
   background: #f5eee6;
-  color: #bfa181;
+  color: var(--accent-color) !important;
 }
+
 .mobile-signup-btn {
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   font-weight: 700;
   border-radius: 20px;
-  padding: 0.9rem 0;
+  padding: 0.8rem 0;
   box-shadow: 0 2px 8px rgba(191, 161, 129, 0.08);
+  width: 80vw;
+  max-width: 320px;
 }
 
+/* ------------------------------------------- */
+/* Media Queries for Responsive Behavior */
+/* ------------------------------------------- */
+
+/* On screens 900px and smaller, hide desktop nav, show burger */
 @media (max-width: 900px) {
-  .hide-on-mobile {
+  .custom-navbar {
+    padding: 0 15px; /* Adjust padding for smaller screens */
+    height: 60px; /* Slightly reduce navbar height */
+    justify-content: space-between; /* Ensure brand is on left, burger on right */
+  }
+
+  /* Hide the desktop nav links and the signup button */
+  .navbar-center,
+  .navbar-right .signup-btn, /* Target only the signup button in right section */
+  .vertical-line {
     display: none !important;
   }
+
+  /* Display the burger icon */
   .navbar-burger {
-    display: flex;
+    display: flex; /* Make it visible */
+    /* Position is already absolute in its default state above */
   }
-  .navbar-section.navbar-left {
-    justify-content: flex-start !important;
-    align-items: center;
-    width: auto;
-    margin-left: 10px;
-    margin-bottom: 0;
-    gap: 8px;
+
+  /* Adjustments for the brand section */
+  .navbar-left {
+    margin-left: 0; /* Remove extra margin */
+    /* For smaller screens, the brand is the only element in the left section */
   }
-  .navbar-brand {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 8px;
+
+  .nav-logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  .brand-text h1 {
+    font-size: 1.1rem;
+  }
+
+  .brand-text h2 {
+    font-size: 0.8rem;
+  }
+
+  .brand-tagline {
+    display: none; /* Hide tagline on smaller screens if space is tight */
   }
 }
 
-@media (max-width: 600px) {
+/* Adjustments for typical tablet portrait, large phones */
+@media (max-width: 768px) {
+  .custom-navbar {
+    height: 60px;
+  }
+
+  .nav-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-text h1 {
+    font-size: 1.0rem;
+  }
+
+  .brand-text h2 {
+    font-size: 0.7rem;
+  }
+
   .navbar-burger {
-    top: 10px;
-    right: 10px;
+    width: 36px;
+    height: 36px;
+    top: 12px; /* Adjust burger position for smaller height */
+    right: 12px;
+  }
+
+  .navbar-burger span {
+    width: 24px;
+    height: 2px;
+  }
+
+  .navbar-burger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .navbar-burger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+/* Further adjustments for small phones */
+@media (max-width: 480px) {
+  .custom-navbar {
+    padding: 0 10px;
+    height: 55px; /* Smallest height */
+  }
+
+  .nav-logo {
     width: 36px;
     height: 36px;
   }
+
+  .brand-text h1 {
+    font-size: 0.9rem;
+  }
+
+  .brand-text h2 {
+    font-size: 0.65rem;
+  }
+
+  .navbar-burger {
+    width: 32px;
+    height: 32px;
+    top: 10px; /* Adjust burger position */
+    right: 10px;
+  }
+
+  .navbar-burger span {
+    width: 20px;
+    height: 2px;
+  }
+
+  .navbar-burger.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .navbar-burger.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
   .navbar-menu-mobile.open {
-    padding-top: 70px;
+    padding-top: 55px; /* Adjust padding for smallest navbar height */
   }
+
+  .navbar-menu-mobile-content {
+    padding: 15px; /* Reduce padding inside mobile menu */
+  }
+
   .navbar-menu-mobile-content button {
-    font-size: 1.1rem;
-    padding: 0.7rem 0;
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
   }
+
   .mobile-signup-btn {
-    font-size: 1rem;
-    padding: 0.7rem 0;
-  }
-  .navbar-section.navbar-left {
-    justify-content: flex-start !important;
-    align-items: center;
-    width: auto;
-    margin-left: 6px;
-    margin-bottom: 0;
-    gap: 6px;
-  }
-  .navbar-brand {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 6px;
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
   }
 }
