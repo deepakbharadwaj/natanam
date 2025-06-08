@@ -715,188 +715,105 @@
 
 /* Timetable Styles */
 .timetable-container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1rem;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-.timetable-header {
-  text-align: center;
-  margin-bottom: 1.5rem;
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling for smaller screens */
+  margin-top: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  max-height: 70vh; /* Limit height to prevent overflow */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .timetable-header h2 {
   color: #8b4513;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #eee;
 }
 
 .timetable-wrapper {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(139, 69, 19, 0.1);
-  overflow: hidden;
-  animation: slideUp 0.5s ease-out;
-}
-
-/* Desktop View */
-.desktop-view {
-  display: block;
-}
-
-.mobile-view {
-  display: none;
+  margin: 0 auto;
+  padding: 0.5rem; /* Decreased padding */
 }
 
 .timetable {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  background: white;
-  table-layout: fixed;
+  border-collapse: collapse;
+  margin: 0 auto;
+  min-width: 500px; /* Further decreased minimum width */
+}
+
+.timetable th,
+.timetable td {
+  border: 1px solid #e0e0e0;
+  padding: 0.5rem; /* Further decreased padding for smaller rows */
+  text-align: center;
+  font-size: 0.8rem; /* Further smaller font size */
+  vertical-align: middle;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .timetable th {
-  background: #8b4513;
-  color: white;
-  padding: 0.8rem;
-  text-align: center;
-  font-weight: 600;
-  font-size: 1rem;
+  background-color: #8b4513;
+  color: #fff;
+  font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  padding: 0.7rem 0.5rem;
+  white-space: normal;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
-.time-header {
-  background: #6b3410 !important;
+.timetable tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.timetable tbody tr:hover {
+  background-color: #fff5e6;
+  transform: scale(1.01);
+  box-shadow: 0 2px 8px rgba(139, 69, 19, 0.1);
 }
 
 .timetable td {
-  padding: 0.8rem;
-  text-align: center;
-  border: 1px solid #e0e0e0;
-  transition: all 0.3s ease;
-  height: 60px;
-  vertical-align: middle;
-  font-size: 0.9rem;
-}
-
-.schedule-row {
-  animation: fadeIn 0.5s ease-out;
-  animation-fill-mode: both;
-}
-
-.schedule-row:nth-child(1) { animation-delay: 0.1s; }
-.schedule-row:nth-child(2) { animation-delay: 0.2s; }
-.schedule-row:nth-child(3) { animation-delay: 0.3s; }
-
-.time-slot, .day-slot {
-  background: #faf6f3;
-  font-weight: 600;
-  color: #8b4513;
-  font-size: 0.9rem;
+  background-color: #fff;
+  color: #555;
 }
 
 .class-slot {
-  position: relative;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  overflow: hidden;
-  height: 100%;
-  white-space: nowrap;
-}
-
-.class-slot.online {
-  background: rgba(139, 69, 19, 0.05);
-  color: #8b4513;
-}
-
-.class-slot.offline {
-  background: rgba(139, 69, 19, 0.1);
+  font-weight: 500;
   color: #8b4513;
 }
 
 .class-slot.empty {
-  background: #faf6f3;
-  color: #999;
+  background-color: #fff5e6;
+  color: #d2691e;
   font-style: italic;
 }
 
-.class-slot:hover {
-  transform: scale(1.05);
-  z-index: 1;
-  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.15);
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Mobile View */
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-  .desktop-view {
-    display: none;
-  }
-
-  .mobile-view {
-    display: block;
-  }
-
-  .timetable-container {
-    margin: 0.5rem;
-    padding: 0.5rem;
-  }
-
-  .timetable-wrapper {
-    min-width: auto;
+  .timetable th,
+  .timetable td {
+    padding: 0.4rem; /* Even further decreased padding for very small screens */
+    font-size: 0.7rem; /* Even further smaller font size */
   }
 
   .timetable th {
-    padding: 0.6rem;
-    font-size: 0.85rem;
-  }
-
-  .timetable td {
-    padding: 0.6rem;
-    height: 50px;
-    font-size: 0.8rem;
-  }
-
-  .day-slot {
-    font-size: 0.8rem;
-    width: 25%;
+    padding: 0.6rem 0.4rem; /* Even further decreased padding */
   }
 
   .timetable-header h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem; /* Further decreased font size */
+    margin-bottom: 0.8rem;
+    padding: 0.6rem 0;
   }
 }
 
 @media (max-width: 480px) {
-  .timetable th {
-    padding: 0.5rem;
-    font-size: 0.75rem;
-  }
-
-  .timetable td {
-    padding: 0.5rem;
-    height: 45px;
-    font-size: 0.75rem;
-  }
-
-  .day-slot {
-    font-size: 0.75rem;
+  .timetable {
+    min-width: 350px; /* Ensure table is still scrollable but not too wide */
   }
 }

@@ -11,10 +11,25 @@ const Classes = () => {
 
   const handleEnroll = () => {
     window.open(
-      "https://docs.google.com/forms/d/e/1FAIpQLSdndZyB4v3spO8G3j71OurUaauuzqWtLeeDyHM6t5upixnLKg/viewform?usp=dialog",
+      "https://docs.google.com/forms/d/e/1FAIpQLSdndZyB4v3spO8G3j71OurUaauuzcWtLeeDyHM6t5upixnLKg/viewform?usp=dialog",
       "_blank"
     );
   };
+
+  const classesSchedule = [
+    { batchName: "Adya (Batch 1 - A)", classDays: "Monday & Wednesay", timings: "5:00 PM to 6:00 PM" },
+    { batchName: "Adya (Batch 1 - B)", classDays: "Tuesday & Friday", timings: "5:00 PM to 6:00 PM" },
+    { batchName: "Madhya (Batch 2-A)", classDays: "Monday & Wednesay", timings: "5:00 PM to 6:00 PM" },
+    { batchName: "Madhya (Batch 2-B)", classDays: "Tuesday & Friday", timings: "5:00 PM to 6:00 PM" },
+    { batchName: "Purna (Batch 3-A)", classDays: "Monday & Wednesay", timings: "5:00 PM to 6:00 PM" },
+    { batchName: "Purna (Batch 3-B)", classDays: "Tuesday & Friday", timings: "6:00 PM to 7:00 PM" },
+    { batchName: "First Year (Batch 4)", classDays: "Tuesday & Friday", timings: "6:00 PM to 7:00 PM" },
+    { batchName: "Second Year (Batch 5)", classDays: "Tuesday & Friday", timings: "6:00 PM to 7:00 PM" },
+    { batchName: "Seniors", classDays: "Monday & Wednesay", timings: "6:00 PM to 7:00 PM" },
+    { batchName: "Individual classes", classDays: "Tuesday & Wednesday", timings: "11:00 AM to 12:00 PM" },
+    { batchName: "Individual classes", classDays: "Tuesday and Friday", timings: "3:00 PM to 4:00 PM" },
+    { batchName: "Individual classes", classDays: "Tuesday and Friday", timings: "4:00 PM to 5:00 PM" },
+  ];
 
   return (
     <>
@@ -50,92 +65,25 @@ const Classes = () => {
           {mode === "timetable" ? (
             <div className="timetable-container">
               <div className="timetable-header">
-                <h2>Class Schedule</h2>
+                <h2>Class Schedule - Natanam Studio (Horamavu)</h2>
               </div>
-              {/* Desktop View */}
-              <div className="timetable-wrapper desktop-view">
+              <div className="timetable-wrapper">
                 <table className="timetable">
                   <thead>
                     <tr>
-                      <th className="time-header">Time</th>
-                      <th>Monday</th>
-                      <th>Tuesday</th>
-                      <th>Wednesday</th>
-                      <th>Thursday</th>
-                      <th>Friday</th>
+                      <th>Batch Name</th>
+                      <th>Class Days</th>
+                      <th>Timings</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="schedule-row">
-                      <td className="time-slot">4:00 - 5:00</td>
-                      <td className="class-slot online">Batch 1 (Online)</td>
-                      <td className="class-slot online">Batch 4 (Online)</td>
-                      <td className="class-slot online">Batch 1 (Online)</td>
-                      <td className="class-slot empty">No Class</td>
-                      <td className="class-slot online">Batch 4 (Online)</td>
-                    </tr>
-                    <tr className="schedule-row">
-                      <td className="time-slot">5:30 - 6:30</td>
-                      <td className="class-slot offline">Batch 2 (Offline)</td>
-                      <td className="class-slot offline">Batch 5 (Offline)</td>
-                      <td className="class-slot offline">Batch 2 (Offline)</td>
-                      <td className="class-slot online">Batch 7 (Online)</td>
-                      <td className="class-slot offline">Batch 5 (Offline)</td>
-                    </tr>
-                    <tr className="schedule-row">
-                      <td className="time-slot">7:00 - 8:00</td>
-                      <td className="class-slot offline">Batch 3 (Offline)</td>
-                      <td className="class-slot offline">Batch 6 (Offline)</td>
-                      <td className="class-slot offline">Batch 3 (Offline)</td>
-                      <td className="class-slot online">Batch 8 (Online)</td>
-                      <td className="class-slot offline">Batch 6 (Offline)</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              {/* Mobile View */}
-              <div className="timetable-wrapper mobile-view">
-                <table className="timetable">
-                  <thead>
-                    <tr>
-                      <th className="time-header">Day</th>
-                      <th>4:00 - 5:00</th>
-                      <th>5:30 - 6:30</th>
-                      <th>7:00 - 8:00</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="schedule-row">
-                      <td className="day-slot">Monday</td>
-                      <td className="class-slot online">Batch 1 (Online)</td>
-                      <td className="class-slot online">Batch 2 (Online)</td>
-                      <td className="class-slot offline">Batch 3 (Offline)</td>
-                    </tr>
-                    <tr className="schedule-row">
-                      <td className="day-slot">Tuesday</td>
-                      <td className="class-slot online">Batch 4 (Online)</td>
-                      <td className="class-slot online">Batch 5 (Online)</td>
-                      <td className="class-slot offline">Batch 6 (Offline)</td>
-                    </tr>
-                    <tr className="schedule-row">
-                      <td className="day-slot">Wednesday</td>
-                      <td className="class-slot online">Batch 1 (Online)</td>
-                      <td className="class-slot online">Batch 2 (Online)</td>
-                      <td className="class-slot offline">Batch 3 (Offline)</td>
-                    </tr>
-                    <tr className="schedule-row">
-                      <td className="day-slot">Thursday</td>
-                      <td className="class-slot empty">No Class</td>
-                      <td className="class-slot online">Batch 7 (Online)</td>
-                      <td className="class-slot online">Batch 8 (Online)</td>
-                    </tr>
-                    <tr className="schedule-row">
-                      <td className="day-slot">Friday</td>
-                      <td className="class-slot online">Batch 4 (Online)</td>
-                      <td className="class-slot online">Batch 5 (Online)</td>
-                      <td className="class-slot offline">Batch 6 (Offline)</td>
-                    </tr>
+                    {classesSchedule.map((item, index) => (
+                      <tr key={index}>
+                        <td>{item.batchName}</td>
+                        <td>{item.classDays}</td>
+                        <td>{item.timings}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
