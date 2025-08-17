@@ -284,7 +284,7 @@ const Costumes = () => {
       return selectedCategory === "all" || costume.category === selectedCategory.toLowerCase();
     });
     setFilteredCostumes(filtered);
-  }, [selectedCategory]);
+  }, [selectedCategory, costumes]);
 
   const handleScroll = (ageGroup, direction) => {
     const safeAgeGroup = ageGroup.replace("+", "plus");
