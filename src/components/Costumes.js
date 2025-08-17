@@ -38,8 +38,10 @@ const Costumes = () => {
   const [filteredCostumes, setFilteredCostumes] = useState([]);
   const [selectedCostume, setSelectedCostume] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isZoomed, setIsZoomed] = useState(false); // State remains the same
 
   const costumes = [
+    // ... (Your costumes array remains unchanged) ...
     // Age Group 4-10
     {
       id: 1,
@@ -346,6 +348,7 @@ const Costumes = () => {
   const closeModal = () => {
     setIsModalOpen(false);
     document.body.style.overflow = 'auto';
+    setIsZoomed(false); // Also reset zoom when modal is closed
   };
 
   const renderAgeGroup = (ageGroup, title) => (
@@ -390,7 +393,7 @@ const Costumes = () => {
       <div className="costume-banner second-banner">
         <p className="costume-text">
           A. You can visit Natanam Foundation,{" "}
-          <span className="highlight">Horamavu (Bangalore)</span> and choose your costumes.
+          <span className="highlight">Horamavu, Bengaluru</span> and choose your costumes.
         </p>
         <p className="costume-text">
           B. Send a picture of the dancer and get the costume delivered to your place
@@ -438,7 +441,11 @@ const Costumes = () => {
             <button className="close-modal" onClick={closeModal}>
               <FaTimes />
             </button>
-            <div className="modal-image-container">
+            {/* The conditional 'zoomed' class is removed. This container just opens the zoom now. */}
+            <div
+              className="modal-image-container"
+              onClick={() => setIsZoomed(true)}
+            >
               <img src={selectedCostume.image} alt={selectedCostume.name} className="modal-image" />
             </div>
             <div className="modal-details">
@@ -464,6 +471,13 @@ const Costumes = () => {
               <p className="modal-price">{selectedCostume.price}</p>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* NEW: Separate zoom overlay element, outside the modal structure */}
+      {isZoomed && selectedCostume && (
+        <div className="zoom-overlay" onClick={() => setIsZoomed(false)}>
+          <img src={selectedCostume.image} alt={selectedCostume.name} />
         </div>
       )}
     </div>
