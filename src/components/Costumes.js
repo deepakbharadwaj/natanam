@@ -26,23 +26,13 @@ import costume21 from "../assets/costume21.webp";
 import costume22 from "../assets/costume22.webp";
 import costume23 from "../assets/costume23.webp";
 
-const scrollToCategory = (category) => {
-  const element = document.getElementById(category);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-};
-
 const Costumes = () => {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [filteredCostumes, setFilteredCostumes] = useState([]);
   const [selectedCostume, setSelectedCostume] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isZoomed, setIsZoomed] = useState(false); // State remains the same
+  const [isZoomed, setIsZoomed] = useState(false);
 
   const costumes = [
-    // ... (Your costumes array remains unchanged) ...
-    // Age Group 4-10
+    // Age Group 6-10
     {
       id: 1,
       name: "Kids performance costume",
@@ -74,7 +64,6 @@ const Costumes = () => {
       id: 4,
       name: "Kids performance costume",
       image: costume14,
-      category: "traditional",
       ageGroup: "6-10",
       material: "Pure Silk",
       sizes: ["28", "30", "32"],
@@ -85,7 +74,6 @@ const Costumes = () => {
       id: 5,
       name: "Kids Performance Costume",
       image: costume20,
-      category: "traditional",
       ageGroup: "6-10",
       material: "Pure Silk",
       available: 1,
@@ -95,7 +83,6 @@ const Costumes = () => {
       id: 6,
       name: "Kids Performance Costume",
       image: costume21,
-      category: "traditional",
       ageGroup: "6-10",
       material: "Semi Kanchi",
       available: 2,
@@ -105,18 +92,16 @@ const Costumes = () => {
       id: 7,
       name: "Kids Performance Costume",
       image: costume22,
-      category: "traditional",
       ageGroup: "6-10",
       material: "China Silk",
       available: 2,
       price: "₹400/day",
     },
-    // Age Group 11-20
+    // Age Group 11-35
     {
       id: 8,
       name: "Bharatanatyam/Kuchupudi Costume",
       image: costume10,
-      category: "traditional",
       ageGroup: "11-35",
       material: "Semi Silk",
       available: 20,
@@ -126,7 +111,6 @@ const Costumes = () => {
       id: 9,
       name: "Performance with pant Costume",
       image: costume11,
-      category: "practice",
       ageGroup: "11-35",
       material: "Silk",
       available: 20,
@@ -136,7 +120,6 @@ const Costumes = () => {
       id: 10,
       name: "Navadurga Costume",
       image: costume12,
-      category: "performance",
       ageGroup: "11-35",
       material: "Devi Costumes",
       available: 1,
@@ -146,7 +129,6 @@ const Costumes = () => {
       id: 11,
       name: "Bharatantyam Costume Set",
       image: costume15,
-      category: "traditional",
       ageGroup: "11-35",
       material: "Pure Silk",
       available: 1,
@@ -156,7 +138,6 @@ const Costumes = () => {
       id: 12,
       name: "Classical Dance Set",
       image: costume1,
-      category: "performance",
       ageGroup: "11-35",
       material: "Semi Kanchi Silk",
       available: 2,
@@ -166,7 +147,6 @@ const Costumes = () => {
       id: 13,
       name: "Classical Dance Set",
       image: costume2,
-      category: "performance",
       ageGroup: "11-35",
       material: "Polyester",
       available: 6,
@@ -176,7 +156,6 @@ const Costumes = () => {
       id: 14,
       name: "Classical Dance Set",
       image: costume3,
-      category: "performance",
       ageGroup: "11-35",
       material: "Raw Silk",
       available: 8,
@@ -186,7 +165,6 @@ const Costumes = () => {
       id: 15,
       name: "Classical Dance Set",
       image: costume4,
-      category: "performance",
       ageGroup: "11-35",
       material: "Net top with georgette attachments",
       colors: ["Purple", "Pink"],
@@ -198,7 +176,6 @@ const Costumes = () => {
       id: 16,
       name: "Performance Ready Set",
       image: costume5,
-      category: "performance",
       ageGroup: "11-35",
       material: "Raw Silk Pant with brocade",
       available: 4,
@@ -208,7 +185,6 @@ const Costumes = () => {
       id: 17,
       name: "Performance Ready Set",
       image: costume6,
-      category: "performance",
       ageGroup: "11-35",
       material: "Poly Silk",
       available: 12,
@@ -218,7 +194,6 @@ const Costumes = () => {
       id: 18,
       name: "Performance Ready Set",
       image: costume16,
-      category: "performance",
       ageGroup: "11-35",
       material: "Chiffon Georgette Skirt with brocade long blouse",
       available: 8,
@@ -228,7 +203,6 @@ const Costumes = () => {
       id: 19,
       name: "Performance Ready Set",
       image: costume17,
-      category: "performance",
       ageGroup: "11-35",
       material: "Balloon pant and strech blouse with net",
       available: 4,
@@ -238,7 +212,6 @@ const Costumes = () => {
       id: 20,
       name: "Performance Ready Set",
       image: costume19,
-      category: "performance",
       ageGroup: "11-35",
       material: "Cotton Silk",
       available: 18,
@@ -248,7 +221,6 @@ const Costumes = () => {
       id: 21,
       name: "Classical Dance Set",
       image: costume18,
-      category: "performance",
       ageGroup: "11-35",
       material: "Semi Kanchi Silk",
       available: 2,
@@ -258,18 +230,16 @@ const Costumes = () => {
       id: 22,
       name: "Classical Dance Set",
       image: costume23,
-      category: "performance",
       ageGroup: "11-35",
       material: "Semi Kanchi Silk",
       available: 2,
       price: "₹600/day",
     },
-    // Age Group 20+
+    // Age Group 35+
     {
       id: 23,
       name: "Assorted Skirt costume",
       image: costume13,
-      category: "performance",
       ageGroup: "35+",
       material: "Semi Silk",
       available: 5,
@@ -280,13 +250,6 @@ const Costumes = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  useEffect(() => {
-    const filtered = costumes.filter((costume) => {
-      return selectedCategory === "all" || costume.category === selectedCategory.toLowerCase();
-    });
-    setFilteredCostumes(filtered);
-  }, [selectedCategory, costumes]);
 
   const handleScroll = (ageGroup, direction) => {
     const safeAgeGroup = ageGroup.replace("+", "plus");
@@ -307,7 +270,8 @@ const Costumes = () => {
     const container = document.querySelector(`.costumes-grid-${safeAgeGroup}`);
     if (container) {
       const hasLeftScroll = container.scrollLeft > 0;
-      const hasRightScroll = container.scrollLeft < container.scrollWidth - container.clientWidth;
+      const hasRightScroll =
+        container.scrollLeft < container.scrollWidth - container.clientWidth;
       const hasCards = container.children.length > 0;
 
       const prevArrow = container.parentElement.querySelector(".nav-arrow.prev");
@@ -324,7 +288,9 @@ const Costumes = () => {
 
     ageGroups.forEach((ageGroup) => {
       checkScroll(ageGroup);
-      const container = document.querySelector(`.costumes-grid-${ageGroup.replace("+", "plus")}`);
+      const container = document.querySelector(
+        `.costumes-grid-${ageGroup.replace("+", "plus")}`
+      );
       if (container) {
         const scrollHandler = () => checkScroll(ageGroup);
         container.addEventListener("scroll", scrollHandler);
@@ -337,18 +303,18 @@ const Costumes = () => {
         container.removeEventListener("scroll", handler);
       });
     };
-  }, [filteredCostumes]);
+  }, [costumes]); // Dependency is now the main costumes array
 
   const openModal = (costume) => {
     setSelectedCostume(costume);
     setIsModalOpen(true);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    document.body.style.overflow = 'auto';
-    setIsZoomed(false); // Also reset zoom when modal is closed
+    document.body.style.overflow = "auto";
+    setIsZoomed(false);
   };
 
   const renderAgeGroup = (ageGroup, title) => (
@@ -357,15 +323,22 @@ const Costumes = () => {
         <span>{title}</span>
       </div>
       <div className="costumes-scroll-container">
-        <div className="nav-arrow prev" onClick={() => handleScroll(ageGroup, "prev")}>
+        <div
+          className="nav-arrow prev"
+          onClick={() => handleScroll(ageGroup, "prev")}
+        >
           <FaChevronLeft />
         </div>
 
         <div className={`costumes-grid costumes-grid-${ageGroup.replace("+", "plus")}`}>
-          {filteredCostumes
+          {costumes // Using the main 'costumes' array directly
             .filter((costume) => costume.ageGroup === ageGroup)
             .map((costume) => (
-              <div className="costume-card" key={costume.id} onClick={() => openModal(costume)}>
+              <div
+                className="costume-card"
+                key={costume.id}
+                onClick={() => openModal(costume)}
+              >
                 <div className="costume-image">
                   <img src={costume.image} alt={costume.name} />
                 </div>
@@ -374,7 +347,10 @@ const Costumes = () => {
             ))}
         </div>
 
-        <div className="nav-arrow next" onClick={() => handleScroll(ageGroup, "next")}>
+        <div
+          className="nav-arrow next"
+          onClick={() => handleScroll(ageGroup, "next")}
+        >
           <FaChevronRight />
         </div>
       </div>
@@ -385,49 +361,25 @@ const Costumes = () => {
     <div className="costumes-page">
       <div className="costume-banner">
         <p className="costume-text">
-          Choose from a range of over <span className="highlight">100+</span> Bharathanatyam and
-          Semi Classical costumes & accessories for different age groups
+          Choose from a range of over <span className="highlight">100+</span>{" "}
+          Bharathanatyam and Semi Classical costumes & accessories for
+          different age groups
         </p>
       </div>
 
       <div className="costume-banner second-banner">
         <p className="costume-text">
           A. You can visit Natanam Foundation,{" "}
-          <span className="highlight">Horamavu, Bengaluru</span> and choose your costumes.
+          <span className="highlight">Horamavu, Bengaluru</span> and choose
+          your costumes.
         </p>
         <p className="costume-text">
-          B. Send a picture of the dancer and get the costume delivered to your place
+          B. Send a picture of the dancer and get the costume delivered to your
+          place
         </p>
       </div>
-
-      <div className="filter-section">
-        <div className="category-filters">
-          <button
-            className={`filter-btn ${selectedCategory === "all" ? "active" : ""}`}
-            onClick={() => setSelectedCategory("all")}
-          >
-            All
-          </button>
-          <button
-            className={`filter-btn ${selectedCategory === "traditional" ? "active" : ""}`}
-            onClick={() => setSelectedCategory("traditional")}
-          >
-            Traditional
-          </button>
-          <button
-            className={`filter-btn ${selectedCategory === "performance" ? "active" : ""}`}
-            onClick={() => setSelectedCategory("performance")}
-          >
-            Performance
-          </button>
-          <button
-            className={`filter-btn ${selectedCategory === "practice" ? "active" : ""}`}
-            onClick={() => setSelectedCategory("practice")}
-          >
-            Practice
-          </button>
-        </div>
-      </div>
+      
+      {/* The filter button section has been removed */}
 
       <div className="costumes-container">
         {renderAgeGroup("6-10", "Age 6-10 Years")}
@@ -441,19 +393,26 @@ const Costumes = () => {
             <button className="close-modal" onClick={closeModal}>
               <FaTimes />
             </button>
-            {/* The conditional 'zoomed' class is removed. This container just opens the zoom now. */}
             <div
               className="modal-image-container"
               onClick={() => setIsZoomed(true)}
             >
-              <img src={selectedCostume.image} alt={selectedCostume.name} className="modal-image" />
+              <img
+                src={selectedCostume.image}
+                alt={selectedCostume.name}
+                className="modal-image"
+              />
             </div>
             <div className="modal-details">
               <h2>{selectedCostume.name}</h2>
-              <p><strong>Material:</strong> {selectedCostume.material}</p>
+              <p>
+                <strong>Material:</strong> {selectedCostume.material}
+              </p>
               {selectedCostume.colors && (
                 <div className="modal-colors">
-                  <p><strong>Colors:</strong></p>
+                  <p>
+                    <strong>Colors:</strong>
+                  </p>
                   <div className="color-dots">
                     {selectedCostume.colors.map((color) => (
                       <span
@@ -466,15 +425,20 @@ const Costumes = () => {
                   </div>
                 </div>
               )}
-              {selectedCostume.sizes && <p><strong>Sizes:</strong> {selectedCostume.sizes.join(", ")}</p>}
-              <p><strong>Available:</strong> {selectedCostume.available} pieces</p>
+              {selectedCostume.sizes && (
+                <p>
+                  <strong>Sizes:</strong> {selectedCostume.sizes.join(", ")}
+                </p>
+              )}
+              <p>
+                <strong>Available:</strong> {selectedCostume.available} pieces
+              </p>
               <p className="modal-price">{selectedCostume.price}</p>
             </div>
           </div>
         </div>
       )}
 
-      {/* NEW: Separate zoom overlay element, outside the modal structure */}
       {isZoomed && selectedCostume && (
         <div className="zoom-overlay" onClick={() => setIsZoomed(false)}>
           <img src={selectedCostume.image} alt={selectedCostume.name} />
