@@ -1956,6 +1956,29 @@ const Home = () => {
             )}
           </div>
         </section>
+
+        {/* Location Section */}
+        <section className="location-section">
+          <div className="location-container">
+            <div className="location-header">
+              <h2>Find Us</h2>
+              <p>Visit our classical dance academy and experience the art of Bharatanatyam</p>
+            </div>
+            <div className="map-container">
+              <iframe 
+                src="https://storage.googleapis.com/maps-solutions-bpg35p9j46/locator-plus/diwz/locator-plus.html"
+                width="100%" 
+                height="450"
+                style={{border: 0}}
+                loading="lazy"
+                allowFullScreen=""
+                aria-hidden="false"
+                tabIndex="0"
+                title="Natanam Foundation Location"
+              />
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );
