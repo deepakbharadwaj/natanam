@@ -7,7 +7,6 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import "../styles/Home.css";
 
-
 // Import background and video assets
 import bharatanatyamBg from "../assets/bharatanatyam-bg.webp";
 import bharatanatyamVideo from "../assets/bharatanatyam-video.mp4";
@@ -223,7 +222,8 @@ const Home = () => {
         {
           title: "Narasimha Jayanti Special Performance",
           date: "May 13, 2025",
-          description: "A divine celebration through Bharatanatyam, where the powerful avatar of Lord Narasimha was brought to life through intricate movements and expressions, showcasing the perfect blend of devotion and artistry.",
+          description:
+            "A divine celebration through Bharatanatyam, where the powerful avatar of Lord Narasimha was brought to life through intricate movements and expressions, showcasing the perfect blend of devotion and artistry.",
           images: bdvtImages,
         },
         {
@@ -250,7 +250,8 @@ const Home = () => {
         {
           title: "Sripuram Golden Temple Performance",
           date: "February 22, 2025",
-          description: "Team Natanam, under the guidance of Guru Vid. S. Vidya Murali, had the honour of presenting a Bharatanatyam performance at the sacred Sripuram Golden Temple, Vellore, offering devotional Nritya Seva.",
+          description:
+            "Team Natanam, under the guidance of Guru Vid. S. Vidya Murali, had the honour of presenting a Bharatanatyam performance at the sacred Sripuram Golden Temple, Vellore, offering devotional Nritya Seva.",
           images: [
             krishnajanmastami1,
             krishnajanmastami2,
@@ -259,9 +260,6 @@ const Home = () => {
             krishnajanmastami5,
           ],
         },
-        
-        
-        
       ],
     },
     2024: {
@@ -1965,11 +1963,11 @@ const Home = () => {
               <p>Visit our classical dance academy and experience the art of Bharatanatyam</p>
             </div>
             <div className="map-container">
-              <iframe 
+              <iframe
                 src="https://storage.googleapis.com/maps-solutions-bpg35p9j46/locator-plus/diwz/locator-plus.html"
-                width="100%" 
+                width="100%"
                 height="450"
-                style={{border: 0}}
+                style={{ border: 0 }}
                 loading="lazy"
                 allowFullScreen=""
                 aria-hidden="false"
