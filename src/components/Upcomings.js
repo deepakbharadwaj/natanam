@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Upcomings.css";
 import SEO from "./SEO";
+import updates1 from "../assets/updates1.webp";
 
 const News = () => {
   return (
@@ -14,8 +15,8 @@ const News = () => {
           <h1>Latest Updates</h1>
         </div>
         <div className="news-content">
-          <div className="coming-soon-message">
-            Will post it ASAP!
+          <div className="news-image-container">
+            <img src={updates1} alt="Latest Updates" className="full-update-image" />
           </div>
         </div>
       </div>

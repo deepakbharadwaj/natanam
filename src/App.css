@@ -5,8 +5,8 @@
 }
 
 .main-content {
-  height: calc(100vh - 80px);
-  margin-top: 80px;
+  height: calc(100vh - 70px);
+  margin-top: 70px;
   overflow-y: auto;
   position: relative;
   width: 100%;
@@ -19,16 +19,16 @@
 }
 
 .main-content::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #FFF5E6;
 }
 
 .main-content::-webkit-scrollbar-thumb {
-  background: #c41e3a;
+  background: #8B4513;
   border-radius: 4px;
 }
 
 .main-content::-webkit-scrollbar-thumb:hover {
-  background: #a01830;
+  background: #A0522D;
 }
 
 .loading-spinner {
@@ -43,27 +43,39 @@
   width: 50px;
   height: 50px;
   border: 5px solid #f3f3f3;
-  border-top: 5px solid #3498db;
+  border-top: 5px solid #8B4513;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Media queries to match navbar height changes */
+@media (max-width: 900px) {
+  .main-content {
+    height: calc(100vh - 60px);
+    margin-top: 60px;
+  }
+}
+
 @media (max-width: 768px) {
   .main-content {
-    height: calc(100vh - 70px);
-    margin-top: 70px;
+    height: calc(100vh - 60px);
+    margin-top: 60px;
   }
 }
 
 @media (max-width: 480px) {
   .main-content {
-    height: calc(100vh - 60px);
-    margin-top: 60px;
+    height: calc(100vh - 55px);
+    margin-top: 55px;
   }
 }

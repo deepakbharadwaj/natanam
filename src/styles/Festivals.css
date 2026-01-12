@@ -73,67 +73,70 @@
 }
 
 /* Play content styles */
-.play-content {
+/* Play button styles */
+.play-button-overlay {
   position: absolute;
-  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.play-button-pill {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 25px 35px;
-  background: rgba(0, 0, 0, 0.85);
+  gap: 12px;
+  padding: 8px 24px 8px 8px;
+  /* Less padding on left for the image */
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 50px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
-  animation: float 3s ease-in-out infinite;
-  left: 50%;
-  top: 60%;
-  transform: translate(-50%, -50%);
-  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  pointer-events: auto;
+  /* Enable hover */
+  cursor: pointer;
 }
 
-.video-icon {
-  width: 64px;
-  height: 64px;
-  object-fit: cover;
+.play-icon-image {
+  width: 44px;
+  /* Slightly larger icon */
+  height: 44px;
   border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.play-me-text {
-  font-size: 1.5rem;
-  color: #ffffff;
+.play-text {
+  color: white;
   font-weight: 600;
-  letter-spacing: 1px;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.video-wrapper:hover .play-button-pill {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
-  .play-content {
-    padding: 20px 30px;
-    gap: 15px;
+  .play-button-pill {
+    padding: 6px 18px 6px 6px;
   }
 
-  .video-icon {
-    width: 48px;
-    height: 48px;
+  .play-icon-image {
+    width: 36px;
+    height: 36px;
   }
 
-  .play-me-text {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .play-content {
-    padding: 15px 25px;
-    gap: 12px;
-  }
-
-  .video-icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  .play-me-text {
-    font-size: 1rem;
+  .play-text {
+    font-size: 0.95rem;
   }
 }
 
@@ -183,15 +186,6 @@
   }
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translate(-50%, -50%);
-  }
-  50% {
-    transform: translate(-50%, calc(-50% - 10px));
-  }
-}
-
 .festival-hero {
   position: absolute;
   top: 20vh;
@@ -210,7 +204,7 @@
 }
 
 .festival-hero h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
   font-family: 'Playfair Display', serif;
 }
@@ -306,6 +300,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(calc(-100%));
   }
@@ -368,6 +363,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 0.85;
     transform: translateY(0);

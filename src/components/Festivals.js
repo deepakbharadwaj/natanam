@@ -5,6 +5,7 @@ import SEO from "./SEO";
 
 import festivalVideo from "../assets/festivalvideo.mp4";
 import iconImage from "../assets/icon.webp";
+
 import thumbnailImage from "../assets/thumbnail2.webp";
 // Import Natyanjali 2023 images
 import natyanjali2023_1 from "../assets/natyanjali2023_1.webp";
@@ -127,9 +128,11 @@ const Festivals = () => {
                     className="thumbnail-image"
                   />
                 </div>
-                <div className="play-content">
-                  <img src={iconImage} alt="Play" className="video-icon" />
-                  <span className="play-me-text">Play me</span>
+                <div className="play-button-overlay">
+                  <div className="play-button-pill">
+                    <img src={iconImage} alt="Play" className="play-icon-image" />
+                    <span className="play-text">Play me</span>
+                  </div>
                 </div>
               </>
             ) : (

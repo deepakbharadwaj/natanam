@@ -1,14 +1,17 @@
 .examinations-page {
     /* padding: 2rem;*/
     background: linear-gradient(to bottom, #FFF5E6, #FFF8DC);
-    height: calc(100vh - 80px); /* Fixed height instead of min-height */
+    height: calc(100vh - 80px);
+    /* Fixed height instead of min-height */
     width: 100%;
-    overflow-y: auto; /* Allow scrolling within the section */
+    overflow-y: auto;
+    /* Allow scrolling within the section */
     overflow-x: hidden;
     position: fixed;
     top: 80px;
     left: 0;
-    padding-bottom: 120px; /* Increased padding to ensure bottom content is visible */
+    padding-bottom: 120px;
+    /* Increased padding to ensure bottom content is visible */
 }
 
 .exam-header {
@@ -22,7 +25,7 @@
 }
 
 .exam-header h1 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -30,22 +33,30 @@
 
 .blink-text {
     color: #FFD700;
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     margin: 1.5rem 0;
     animation: blink 1.5s infinite;
 }
 
 .exam-question {
-    font-size: 1.8rem;
+    font-size: 1.1rem;
     margin-top: 2rem;
     color: #FFD700;
 }
 
 @keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .exam-intro {
@@ -57,7 +68,8 @@
     max-width: 1000px;
 }
 
-.intro-content h2, .intro-content h3 {
+.intro-content h2,
+.intro-content h3 {
     color: #8B4513;
     margin: 1rem 0;
 }
@@ -75,7 +87,7 @@
 
 .highlights-header h2 {
     color: #8B4513;
-    font-size: 2rem;
+    font-size: 1.3rem;
     margin-bottom: 2rem;
 }
 
@@ -90,7 +102,7 @@
 
 .highlights-list li {
     color: #8B4513;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -146,17 +158,21 @@
 .highlight-card p {
     padding: 1.5rem;
     color: #8B4513;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     text-align: center;
 }
 
 .contact-section {
     background: linear-gradient(45deg, #8B4513, #A0522D);
-    padding: 1.5rem; /* Reduced from 3rem */
+    padding: 1.5rem;
+    /* Reduced from 3rem */
     border-radius: 15px;
-    margin-top: 2rem; /* Reduced from 4rem */
-    margin-bottom: 2rem; /* Reduced from 4rem */
-    width: 100%; /* Added to control width */
+    margin-top: 2rem;
+    /* Reduced from 4rem */
+    margin-bottom: 2rem;
+    /* Reduced from 4rem */
+    width: 100%;
+    /* Added to control width */
     max-width: 95%;
     margin-left: auto;
     margin-right: auto;
@@ -176,7 +192,7 @@
 
 .contact-box h3 {
     color: #8B4513;
-    font-size: 1.8rem;
+    font-size: 1.25rem;
     margin-bottom: 2rem;
 }
 
@@ -190,7 +206,7 @@
 .contact-details a {
     color: #A0522D;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     transition: color 0.3s ease;
 }
 
@@ -204,7 +220,7 @@
 
 .exam-year {
     color: #8B4513;
-    font-size: 1.3rem;
+    font-size: 1rem;
     margin-bottom: 1rem;
 }
 
@@ -214,7 +230,7 @@
     border: none;
     padding: 1rem 2rem;
     border-radius: 30px;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
@@ -263,20 +279,41 @@
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 @keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0.7; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @media (max-width: 1200px) {
@@ -308,7 +345,8 @@
 @media (max-width: 768px) {
     .examinations-page {
         padding: 1rem;
-        padding-bottom: 100px; /* Ensure enough space at bottom for mobile */
+        padding-bottom: 100px;
+        /* Ensure enough space at bottom for mobile */
     }
 
     .highlight-grid {
@@ -344,23 +382,27 @@
 @media (max-width: 480px) {
     .examinations-page {
         padding: 0rem;
-        padding-bottom: 80px; /* Ensure enough space at bottom for smaller mobile */
+        padding-bottom: 80px;
+        /* Ensure enough space at bottom for smaller mobile */
         font-size: 0.8rem;
     }
+
     .exam-header h1 {
         font-size: 1.3rem;
         margin-top: 1rem;
         margin-bottom: 1rem;
     }
+
     .blink-text {
         font-size: 1.1rem;
         margin: 1rem 0;
     }
+
     .exam-question {
         font-size: 1rem;
         margin-top: 1rem;
     }
-    
+
     .exam-header {
         margin-bottom: 1rem;
     }
@@ -382,6 +424,7 @@
     .highlights-list li {
         font-size: 0.9rem;
     }
+
     .contact-section {
         padding: 0rem;
         margin: 1rem auto;
@@ -391,13 +434,16 @@
     .contact-box {
         padding: 1rem;
     }
+
     .contact-box h3 {
         font-size: 1.2rem;
         margin-bottom: 0rem;
     }
+
     .contact-details {
         gap: 0.8rem;
     }
+
     .contact-details a {
         font-size: 1rem;
     }

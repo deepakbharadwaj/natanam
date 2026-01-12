@@ -31,12 +31,14 @@
   position: relative;
   overflow: hidden;
   animation: fadeIn 1s ease-out;
-  padding: 120px 20px 20px;  /* Increased top padding */
+  padding: 120px 20px 20px;
+  /* Increased top padding */
   z-index: 1;
 }
 
 .events-hero h1 {
-  font-size: 4.5rem;  /* Increased from 3rem */
+  font-size: 3rem;
+  /* Reduced from 4.5rem for better scaling */
   font-weight: 700;
   margin-bottom: 2rem;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
@@ -210,15 +212,18 @@ h2::after {
   font-size: 0.95rem;
   line-height: 1.5;
 }
+
 @keyframes heroTitleAnimation {
   0% {
     opacity: 0;
     transform: scale(0.8) translateY(-30px);
   }
+
   50% {
     opacity: 0.5;
     transform: scale(1.1) translateY(10px);
   }
+
   100% {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -228,13 +233,15 @@ h2::after {
 /* Update responsive styles */
 @media (max-width: 768px) {
   .events-hero h1 {
-    font-size: 3.5rem;  /* Adjusted for medium screens */
+    font-size: 3.5rem;
+    /* Adjusted for medium screens */
   }
 }
 
 @media (max-width: 480px) {
   .events-hero h1 {
-    font-size: 2.8rem;  /* Adjusted for small screens */
+    font-size: 2.8rem;
+    /* Adjusted for small screens */
   }
 }
 
@@ -243,6 +250,7 @@ h2::after {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -253,6 +261,7 @@ h2::after {
     transform: translateY(-30px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -264,6 +273,7 @@ h2::after {
     transform: translateY(20px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -271,14 +281,17 @@ h2::after {
 }
 
 @keyframes slideFade {
+
   0%,
   100% {
     opacity: 0;
   }
+
   5%,
   20% {
     opacity: 1;
   }
+
   25% {
     opacity: 0;
   }
@@ -288,8 +301,10 @@ h2::after {
 .horizontal-scroll-section {
   overflow-x: auto;
   white-space: nowrap;
-  padding-bottom: 15px 0; /* Add some padding for the scrollbar */
-  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+  padding-bottom: 15px 0;
+  /* Add some padding for the scrollbar */
+  -webkit-overflow-scrolling: touch;
+  /* Enable smooth scrolling on iOS */
   padding: 15px;
   width: 100%;
 }
@@ -313,39 +328,49 @@ h2::after {
   width: calc(30% - 30px);
   min-width: calc(30% - 30px);
   min-height: 550px;
-  white-space: normal; /* Allow text to wrap */
+  white-space: normal;
+  /* Allow text to wrap */
   height: auto;
   display: inline-block;
   margin-right: 30px;
   margin-bottom: 15px;
-  flex: none; /* Prevent items from shrinking or growing */
-  animation: slideIn 0.5s ease-out; /* Added animation */
+  flex: none;
+  /* Prevent items from shrinking or growing */
+  animation: slideIn 0.5s ease-out;
+  /* Added animation */
 }
+
 /* ... existing code ... */
 
 /* Specific height adjustments for special sections */
 .horizontal-event-image:nth-child(1) {
   animation-delay: 0s;
 }
+
 .horizontal-event-image:nth-child(2) {
   animation-delay: 4s;
 }
+
 .horizontal-event-image:nth-child(3) {
   animation-delay: 8s;
 }
+
 .horizontal-event-image:nth-child(4) {
   animation-delay: 12s;
 }
 
 @keyframes imageSlide {
+
   0%,
   45% {
     opacity: 1;
   }
+
   50%,
   95% {
     opacity: 0;
   }
+
   100% {
     opacity: 0;
   }
@@ -355,10 +380,13 @@ h2::after {
 .digital-productions .horizontal-event-card,
 .workshops-training .horizontal-event-card,
 .solo-collaborative .horizontal-event-card {
-  min-height: 850px; /* Increased height */
+  min-height: 850px;
+  /* Increased height */
   background: linear-gradient(to bottom, white, #faf6f3);
-  border: 2px solid var(--skin-medium); /* Added border */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Adjusted box-shadow */
+  border: 2px solid var(--skin-medium);
+  /* Added border */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  /* Adjusted box-shadow */
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   position: relative;
 }
@@ -382,14 +410,16 @@ h2::after {
 .workshops-training .horizontal-event-card:hover,
 .solo-collaborative .horizontal-event-card:hover {
   transform: translateY(-8px) scale(1.01);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  /* Enhanced shadow on hover */
   border-color: transparent;
 }
 
 .digital-productions .horizontal-event-card:hover::before,
 .workshops-training .horizontal-event-card:hover::before,
 .solo-collaborative .horizontal-event-card:hover::before {
-  border-color: var(--skin-dark); /* Border on hover */
+  border-color: var(--skin-dark);
+  /* Border on hover */
 }
 
 /* Enhanced details section */
@@ -433,7 +463,8 @@ h2::after {
 }
 
 .horizontal-slideshow {
-  height: 300px; /* Increased height */
+  height: 300px;
+  /* Increased height */
   position: relative;
   overflow: hidden;
 }
@@ -447,11 +478,13 @@ h2::after {
   left: 0;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-  animation: slideFade 10s infinite ease-in-out; /* Continuous animation */
+  animation: slideFade 10s infinite ease-in-out;
+  /* Continuous animation */
 }
 
 .horizontal-image-placeholder {
-  height: 300px; /* Increased height */
+  height: 300px;
+  /* Increased height */
   background: linear-gradient(45deg, var(--skin-light), var(--skin-medium));
   position: relative;
   overflow: hidden;
@@ -497,14 +530,18 @@ h2::after {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-right: 20px;
-  width: 100%; /* Make it as wide as major performances */
-  min-width: 0; /* Override min-width */
-  max-width: none; /* Remove max-width */
+  width: 100%;
+  /* Make it as wide as major performances */
+  min-width: 0;
+  /* Override min-width */
+  max-width: none;
+  /* Remove max-width */
   transition: transform 0.3s ease;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  animation: slideIn 0.5s ease-out; /* Added animation */
+  animation: slideIn 0.5s ease-out;
+  /* Added animation */
 }
 
 .sliding-event-card:last-child {
@@ -517,7 +554,8 @@ h2::after {
 }
 
 .sliding-image-container {
-  height: 300px; /* Increased height */
+  height: 300px;
+  /* Increased height */
   position: relative;
   overflow: hidden;
 }
@@ -533,11 +571,13 @@ h2::after {
   height: 100%;
   object-fit: cover;
   flex-shrink: 0;
-  margin-right: 20px; /* Add space between images */
+  margin-right: 20px;
+  /* Add space between images */
 }
 
 .sliding-image:last-child {
-  margin-right: 0; /* Remove margin from the last image */
+  margin-right: 0;
+  /* Remove margin from the last image */
 }
 
 .sliding-event-details {
@@ -561,8 +601,10 @@ h2::after {
   0% {
     transform: translateX(0);
   }
+
   100% {
-    transform: translateX(-100%); /* Adjust based on the number of images */
+    transform: translateX(-100%);
+    /* Adjust based on the number of images */
   }
 }
 
@@ -571,22 +613,39 @@ h2::after {
     transform: translateX(-20px);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
   }
 }
+
 @keyframes slideFade {
-  0% { opacity: 0; }
-  5% { opacity: 1; }
-  45% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Responsive Design */
 
 @media (max-width: 1600px) {
+
   .horizontal-event-card,
   .sliding-event-card {
     width: calc(33.33% - 30px);
@@ -595,6 +654,7 @@ h2::after {
 }
 
 @media (max-width: 1200px) {
+
   .horizontal-event-card,
   .sliding-event-card {
     width: calc(40% - 30px);
@@ -635,7 +695,8 @@ h2::after {
   .digital-productions .horizontal-event-card,
   .workshops-training .horizontal-event-card,
   .solo-collaborative .horizontal-event-card {
-    min-height: 750px; /* Adjust height for smaller screens */
+    min-height: 750px;
+    /* Adjust height for smaller screens */
   }
 }
 
@@ -693,8 +754,11 @@ h2::after {
   .digital-productions .horizontal-event-card,
   .workshops-training .horizontal-event-card,
   .solo-collaborative .horizontal-event-card {
-    min-height: 650px; /* Further adjust height for even smaller screens */
-    border: 1px solid var(--skin-medium); /* Ensure border is visible */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Adjust shadow */
+    min-height: 650px;
+    /* Further adjust height for even smaller screens */
+    border: 1px solid var(--skin-medium);
+    /* Ensure border is visible */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    /* Adjust shadow */
   }
 }

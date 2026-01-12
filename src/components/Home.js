@@ -680,16 +680,15 @@ const Home = () => {
           /* Play content styles */
           .play-content {
             position: absolute;
-            z-index: 2;
+            z-index: 10;
             display: flex;
             align-items: center;
-            gap: 20px;
-            padding: 25px 35px;
+            gap: 12px;
+            padding: 15px 25px;
             background: rgba(0, 0, 0, 0.85);
             border-radius: 50px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
-            animation: float 3s ease-in-out infinite;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
@@ -697,14 +696,14 @@ const Home = () => {
           }
 
           .video-icon {
-            width: 64px;
-            height: 64px;
+            width: 40px;
+            height: 40px;
             object-fit: cover;
             border-radius: 50%;
           }
 
           .play-me-text {
-            font-size: 1.5rem;
+            font-size: 1rem;
             color: #ffffff;
             font-weight: 600;
             letter-spacing: 1px;
@@ -712,33 +711,33 @@ const Home = () => {
 
           @media (max-width: 768px) {
             .play-content {
-              padding: 20px 30px;
-              gap: 15px;
+              padding: 12px 20px;
+              gap: 10px;
             }
 
             .video-icon {
-              width: 48px;
-              height: 48px;
+              width: 36px;
+              height: 36px;
             }
 
             .play-me-text {
-              font-size: 1.2rem;
+              font-size: 0.9rem;
             }
           }
 
           @media (max-width: 480px) {
             .play-content {
-              padding: 15px 25px;
-              gap: 12px;
+              padding: 10px 18px;
+              gap: 8px;
             }
 
             .video-icon {
-              width: 40px;
-              height: 40px;
+              width: 32px;
+              height: 32px;
             }
 
             .play-me-text {
-              font-size: 1rem;
+              font-size: 0.85rem;
             }
           }
 
@@ -785,15 +784,6 @@ const Home = () => {
             .mute-button svg {
               width: 28px;
               height: 28px;
-            }
-          }
-
-          @keyframes float {
-            0%, 100% {
-              transform: translate(-50%, -50%);
-            }
-            50% {
-              transform: translate(-50%, calc(-50% - 10px));
             }
           }
 
@@ -1106,10 +1096,7 @@ const Home = () => {
             text-align: center;
           }
 
-          .milestone-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(139, 69, 19, 0.15);
-          }
+
 
           .milestone-icon {
             font-size: 2.5rem;
@@ -1856,7 +1843,7 @@ const Home = () => {
             <div className="milestone-grid">
               {milestones.map((milestone, index) => (
                 <div className="milestone-card" key={index}>
-                  <div className="milestone-icon animate-bounce">{milestone.icon}</div>
+                  <div className="milestone-icon">{milestone.icon}</div>
                   <div className="milestone-year">{milestone.year}</div>
                   <h3>{milestone.achievement}</h3>
                   <p>{milestone.description}</p>
