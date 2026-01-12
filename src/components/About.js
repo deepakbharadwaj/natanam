@@ -58,7 +58,7 @@ const About = () => {
         <div className="video-section">
           {!showVideo ? (
             <div className="video-placeholder" onClick={handleVideoClick}>
-              <img src={iconImage} alt="Play Video" className="video-icon" />
+              <img src={iconImage} alt="Play Natanam Foundation dance video" className="video-icon" />
               <div className="play-me-text">Play me</div>
             </div>
           ) : (
@@ -128,7 +128,7 @@ const About = () => {
             </p>
           </div>
           <div className="about-image">
-            <img src={aboutImage} alt="Bharatanatyam Performance" />
+            <img src={aboutImage} alt="Bharatanatyam dancers performing classical dance at Natanam Foundation Bangalore" />
           </div>
         </div>
 

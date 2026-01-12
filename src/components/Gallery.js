@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Masonry from "react-masonry-css";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import "../styles/Gallery.css"; // Create this file for styling
 import SEO from "./SEO";
 
@@ -148,10 +148,9 @@ const images = [
 ];
 
 function Gallery() {
-  const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
-    setMounted(true);
+    // Component mounted - scroll to top
+    window.scrollTo(0, 0);
   }, []);
 
   const breakpoints = {
@@ -183,7 +182,7 @@ function Gallery() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
             >
-              <img src={image} alt={`Gallery item ${index + 1}`} loading="lazy" />
+              <img src={image} alt={`Natanam Foundation classical dance performance ${index + 1}`} loading="lazy" />
             </motion.div>
           ))}
         </Masonry>

@@ -98,7 +98,7 @@ const Classes = () => {
                     <div className={`sticker-container ${mode === "online" ? "laptop-frame" : ""}`}>
                       <img
                         src={mode === "online" ? stickerSoloOnline : stickerSolo}
-                        alt="Solo Dance"
+                        alt="Solo Bharatanatyam dance training at Natanam Foundation"
                         className="sticker-image"
                       />
                     </div>
@@ -119,7 +119,7 @@ const Classes = () => {
                     <div className="class-card premium" onClick={handleEnroll}>
                       <h3>GROUP CLASSES</h3>
                       <div className="sticker-container">
-                        <img src={stickerGroup} alt="Group Dance" className="sticker-image" />
+                        <img src={stickerGroup} alt="Group Bharatanatyam classes at Natanam Foundation" className="sticker-image" />
                       </div>
                       <div className="fee-details">
                         <p className="registration">Registration Fee: ₹500</p>
@@ -135,7 +135,7 @@ const Classes = () => {
                     <div className="class-card premium" onClick={handleEnroll}>
                       <h3>ARANGETRAM</h3>
                       <div className="sticker-container">
-                        <img src={stickerArangetram} alt="Arangetram" className="sticker-image" />
+                        <img src={stickerArangetram} alt="Arangetram solo debut performance training" className="sticker-image" />
                       </div>
                       <div className="fee-details">
                         <p className="registration">Per hour : ₹600 </p>

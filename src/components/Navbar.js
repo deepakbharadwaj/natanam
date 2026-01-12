@@ -31,9 +31,9 @@ const Navbar = ({ setCurrentSection }) => {
         <div className="navbar-brand" onClick={() => handleNavClick("home")}>  
           <img src={logo} alt="Bharatanatyam Mudra" className="nav-logo" />
           <div className="brand-text">
-            <h1>NATANAM</h1>
-            <h2>FOUNDATION</h2>
-            <p className="brand-tagline">Classical Dance Academy</p>
+            <span className="brand-name">NATANAM</span>
+            <span className="brand-subtitle">FOUNDATION</span>
+            <span className="brand-tagline">Classical Dance Academy</span>
           </div>
         </div>
       </div>

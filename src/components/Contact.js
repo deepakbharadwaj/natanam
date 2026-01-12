@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/Contact.css";
 import profileImage from "../assets/krupa.webp";
 import profileImage2 from "../assets/Vidya.webp";
-import { FaInstagram, FaFacebook, FaEnvelope, FaWhatsapp } from "react-icons/fa";
+// Outline imports used
 import {
   FaInstagram as FaInstagramOutline,
   FaFacebook as FaFacebookOutline,
@@ -23,9 +23,9 @@ const Contact = () => {
           <div className="contact-container">
             <div className="profile-section">
               <div className="profile-image">
-                <img src={profileImage} alt="Krupa" />
+                <img src={profileImage} alt="Krupa Ramachandran - Bharatanatyam Instructor at Natanam Foundation" />
               </div>
-              <h1>Krupa Ramachandran</h1>
+              <h2>Krupa Ramachandran</h2>
               <p className="designation">Bharatanatyam Instructor</p>
             </div>
 
@@ -67,9 +67,9 @@ const Contact = () => {
           <div className="contact-container">
             <div className="profile-section">
               <div className="profile-image">
-                <img src={profileImage2} alt="Vidya" />
+                <img src={profileImage2} alt="Vid. S Vidya Murali - Artistic Director and Bharatanatyam Guru at Natanam Foundation" />
               </div>
-              <h1>Vidya Murali</h1>
+              <h2>Vidya Murali</h2>
               <p className="designation">Bharatanatyam Instructor</p>
             </div>
 

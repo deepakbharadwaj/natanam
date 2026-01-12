@@ -15,7 +15,8 @@
 .custom-navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Space out left and right sections */
+  justify-content: space-between;
+  /* Space out left and right sections */
   width: 100%;
   height: 70px;
   background: var(--bg-color);
@@ -26,7 +27,8 @@
   left: 0;
   z-index: 1000;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-sizing: border-box; /* Crucial for responsive padding */
+  box-sizing: border-box;
+  /* Crucial for responsive padding */
 }
 
 .navbar-section {
@@ -73,11 +75,12 @@
   border-radius: 50%;
   background: #f5eee6;
   border: 2px solid var(--accent-color);
-  flex-shrink: 0; /* Prevent logo from shrinking */
+  flex-shrink: 0;
+  /* Prevent logo from shrinking */
 }
 
-.brand-text h1,
-.brand-text h2,
+.brand-text .brand-name,
+.brand-text .brand-subtitle,
 .brand-tagline,
 .navbar-center button,
 .navbar-menu-mobile-content button,
@@ -106,25 +109,28 @@
   color: #fff !important;
 }
 
-.brand-text h1 {
+.brand-text .brand-name {
   font-size: 1.3rem;
   font-weight: 700;
   margin: 0;
   line-height: 1;
   letter-spacing: 0.5px;
+  display: block;
 }
 
-.brand-text h2 {
+.brand-text .brand-subtitle {
   font-size: 0.9rem;
   margin: 0;
   line-height: 1.2;
   font-weight: 600;
+  display: block;
 }
 
 .brand-tagline {
   font-size: 0.7rem;
   margin-top: 2px;
   font-style: italic;
+  display: block;
 }
 
 /* Center nav links */
@@ -137,7 +143,8 @@
   cursor: pointer;
   transition: color 0.2s;
   position: relative;
-  white-space: nowrap; /* Prevent text wrapping */
+  white-space: nowrap;
+  /* Prevent text wrapping */
 }
 
 /* Sign Up button */
@@ -150,7 +157,8 @@
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
   box-shadow: 0 2px 8px rgba(191, 161, 129, 0.08);
-  white-space: nowrap; /* Prevent text wrapping */
+  white-space: nowrap;
+  /* Prevent text wrapping */
 }
 
 /* ------------------------------------------- */
@@ -159,7 +167,8 @@
 
 /* Default state for burger menu - hidden on large screens */
 .navbar-burger {
-  display: none; /* Hide burger by default on desktop */
+  display: none;
+  /* Hide burger by default on desktop */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -172,7 +181,8 @@
   position: absolute;
   top: 15px;
   right: 15px;
-  z-index: 1201; /* Ensure it's above everything */
+  z-index: 1201;
+  /* Ensure it's above everything */
   gap: 6px;
   padding: 0;
   transition: background 0.2s;
@@ -193,7 +203,8 @@
 
 .navbar-burger.active span:nth-child(2) {
   opacity: 0;
-  transform: translateX(-100%); /* Move out of view */
+  transform: translateX(-100%);
+  /* Move out of view */
 }
 
 .navbar-burger.active span:nth-child(3) {
@@ -202,11 +213,13 @@
 
 /* Mobile menu container (default hidden) */
 .navbar-menu-mobile {
-  display: none; /* Hidden by default, will be shown by JS */
+  display: none;
+  /* Hidden by default, will be shown by JS */
 }
 
 .navbar-menu-mobile.open {
-  display: flex; /* Show when 'open' class is applied */
+  display: flex;
+  /* Show when 'open' class is applied */
   flex-direction: column;
   position: fixed;
   top: 0;
@@ -215,12 +228,15 @@
   height: 100vh;
   background: rgba(255, 250, 240, 0.98);
   backdrop-filter: blur(5px);
-  z-index: 1199; /* Below the burger, above main content */
+  z-index: 1199;
+  /* Below the burger, above main content */
   align-items: center;
   justify-content: flex-start;
-  padding-top: 80px; /* Space for the fixed navbar */
+  padding-top: 80px;
+  /* Space for the fixed navbar */
   animation: slideDownMenu 0.3s ease-out forwards;
-  overflow-y: auto; /* Enable scrolling if content exceeds screen height */
+  overflow-y: auto;
+  /* Enable scrolling if content exceeds screen height */
   -webkit-overflow-scrolling: touch;
 }
 
@@ -229,6 +245,7 @@
     opacity: 0;
     transform: translateY(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -282,27 +299,33 @@
 /* On screens 900px and smaller, hide desktop nav, show burger */
 @media (max-width: 900px) {
   .custom-navbar {
-    padding: 0 15px; /* Adjust padding for smaller screens */
-    height: 60px; /* Slightly reduce navbar height */
-    justify-content: space-between; /* Ensure brand is on left, burger on right */
+    padding: 0 15px;
+    /* Adjust padding for smaller screens */
+    height: 60px;
+    /* Slightly reduce navbar height */
+    justify-content: space-between;
+    /* Ensure brand is on left, burger on right */
   }
 
   /* Hide the desktop nav links and the signup button */
   .navbar-center,
-  .navbar-right .signup-btn, /* Target only the signup button in right section */
+  .navbar-right .signup-btn,
+  /* Target only the signup button in right section */
   .vertical-line {
     display: none !important;
   }
 
   /* Display the burger icon */
   .navbar-burger {
-    display: flex; /* Make it visible */
+    display: flex;
+    /* Make it visible */
     /* Position is already absolute in its default state above */
   }
 
   /* Adjustments for the brand section */
   .navbar-left {
-    margin-left: 0; /* Remove extra margin */
+    margin-left: 0;
+    /* Remove extra margin */
     /* For smaller screens, the brand is the only element in the left section */
   }
 
@@ -311,16 +334,17 @@
     height: 45px;
   }
 
-  .brand-text h1 {
+  .brand-text .brand-name {
     font-size: 1.1rem;
   }
 
-  .brand-text h2 {
+  .brand-text .brand-subtitle {
     font-size: 0.8rem;
   }
 
   .brand-tagline {
-    display: none; /* Hide tagline on smaller screens if space is tight */
+    display: none;
+    /* Hide tagline on smaller screens if space is tight */
   }
 }
 
@@ -335,18 +359,19 @@
     height: 40px;
   }
 
-  .brand-text h1 {
+  .brand-text .brand-name {
     font-size: 1.0rem;
   }
 
-  .brand-text h2 {
+  .brand-text .brand-subtitle {
     font-size: 0.7rem;
   }
 
   .navbar-burger {
     width: 36px;
     height: 36px;
-    top: 12px; /* Adjust burger position for smaller height */
+    top: 12px;
+    /* Adjust burger position for smaller height */
     right: 12px;
   }
 
@@ -368,7 +393,8 @@
 @media (max-width: 480px) {
   .custom-navbar {
     padding: 0 10px;
-    height: 55px; /* Smallest height */
+    height: 55px;
+    /* Smallest height */
   }
 
   .nav-logo {
@@ -376,18 +402,19 @@
     height: 36px;
   }
 
-  .brand-text h1 {
+  .brand-text .brand-name {
     font-size: 0.9rem;
   }
 
-  .brand-text h2 {
+  .brand-text .brand-subtitle {
     font-size: 0.65rem;
   }
 
   .navbar-burger {
     width: 32px;
     height: 32px;
-    top: 10px; /* Adjust burger position */
+    top: 10px;
+    /* Adjust burger position */
     right: 10px;
   }
 
@@ -405,11 +432,13 @@
   }
 
   .navbar-menu-mobile.open {
-    padding-top: 55px; /* Adjust padding for smallest navbar height */
+    padding-top: 55px;
+    /* Adjust padding for smallest navbar height */
   }
 
   .navbar-menu-mobile-content {
-    padding: 15px; /* Reduce padding inside mobile menu */
+    padding: 15px;
+    /* Reduce padding inside mobile menu */
   }
 
   .navbar-menu-mobile-content button {
@@ -420,5 +449,21 @@
   .mobile-signup-btn {
     font-size: 0.85rem;
     padding: 0.5rem 0;
+  }
+}
+
+/* Very small screens - prevent branding overflow */
+@media (max-width: 360px) {
+  .brand-text .brand-subtitle {
+    display: none;
+  }
+
+  .brand-text .brand-name {
+    font-size: 0.85rem;
+  }
+
+  .nav-logo {
+    width: 32px;
+    height: 32px;
   }
 }

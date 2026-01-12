@@ -57,7 +57,7 @@ const Examinations = () => {
           <div className="highlight-grid">
             <div className="highlight-card">
               <div className="card-number">1</div>
-              <img src={highlight1} alt="Highlight 1" />
+              <img src={highlight1} alt="Dance examination conducted at student's institution" />
               <p>
                 For 15 or more students appearing for exams, the judges will come to your
                 institution and conduct the exams
@@ -65,7 +65,7 @@ const Examinations = () => {
             </div>
             <div className="highlight-card">
               <div className="card-number">2</div>
-              <img src={highlight2} alt="Highlight 2" />
+              <img src={highlight2} alt="Students taking exam based on their own dance school syllabus" />
               <p>
                 The students will take up exams with a syllabus and style based on what has been
                 taught in their own dance school
@@ -73,7 +73,7 @@ const Examinations = () => {
             </div>
             <div className="highlight-card">
               <div className="card-number">3</div>
-              <img src={highlight3} alt="Highlight 3" />
+              <img src={highlight3} alt="Individual attention in small batch exam groups" />
               <p>
                 Students will be grouped into small batches of 5 and individual attention is
                 provided
@@ -81,7 +81,7 @@ const Examinations = () => {
             </div>
             <div className="highlight-card">
               <div className="card-number">4</div>
-              <img src={highlight4} alt="Highlight 4" />
+              <img src={highlight4} alt="Combined dance level examinations available" />
               <p>Students who wish to take higher levels can take combined examinations</p>
             </div>
           </div>

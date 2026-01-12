@@ -593,6 +593,12 @@
         rgba(0, 0, 0, 0.6) 50%,
         rgba(0, 0, 0, 0.8) 100%);
   }
+
+  .hero-content {
+    padding: 1.5rem;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /* Location Section Styles */

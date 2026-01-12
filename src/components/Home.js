@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import "../styles/Home.css";
@@ -69,7 +67,7 @@ import vadakkum2023_1 from "../assets/vadakkum2023_1.webp";
 import yuvadasara_1 from "../assets/yuvadasara_1.webp";
 import aboutImage from "../assets/about-image.webp";
 import founderImage from "../assets/About1.webp";
-import backgroundImage from "../assets/About3.webp";
+// About3.webp is used in inline CSS background
 import kateel2025_1 from "../assets/kateel2025_1.webp";
 import kateel2025_2 from "../assets/kateel2025_2.webp";
 import bdvt1 from "../assets/bdvt1.webp";
@@ -344,9 +342,9 @@ const Home = () => {
     },
   };
 
-  // Component for event cards
-  const EventCard = ({ event }) => {
-    return (
+  // EventCard component is available in Events.js, not using it here to avoid duplication
+  // If needed, use SlidingEventCard instead which is used in the events section
+  /* const EventCard = ({ event }) => {
       <div className="event-card">
         {event.images && event.images.length > 0 ? (
           <div className="slideshow-container">
@@ -375,7 +373,7 @@ const Home = () => {
         </div>
       </div>
     );
-  };
+  }; */
 
   // Component for horizontal scrolling event cards
   const HorizontalEventCard = ({ event }) => {
@@ -621,7 +619,7 @@ const Home = () => {
             }
 
             .video-container {
-              height: 100vh;
+              height: 50vh;
               max-height: -webkit-fill-available;
             }
           }
@@ -667,7 +665,7 @@ const Home = () => {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.5;
+            opacity: 0.75;
             transition: opacity 0.3s ease;
           }
 
@@ -858,7 +856,7 @@ const Home = () => {
             justify-content: space-around;
             flex-wrap: wrap;
             padding: 40px;
-            margin: 0 auto 80px;
+            margin: 0 auto 50px;
             max-width: 1200px;
             background: rgba(139, 69, 19, 0.05);
             border-radius: 15px;
@@ -892,6 +890,7 @@ const Home = () => {
             background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
+            min-height: 2.5rem;
           }
 
           @media (max-width: 1024px) {
@@ -910,6 +909,15 @@ const Home = () => {
             }
             .stat-item p {
               font-size: 1rem;
+            }
+          }
+
+          @media (max-width: 600px) {
+            .stats-container {
+              grid-template-columns: repeat(2, 1fr);
+              display: grid;
+              gap: 15px;
+              padding: 25px 15px;
             }
           }
 
@@ -947,7 +955,7 @@ const Home = () => {
 
         .founder-hero {
           height: 45vh;
-          background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
             url("../assets/About3.webp");
           background-size: cover;
           background-position: center 95%;
@@ -957,12 +965,25 @@ const Home = () => {
           justify-content: center;
           text-align: center;
           color: white;
+          position: relative;
+        }
+        
+        .founder-hero::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 4px;
+          background: linear-gradient(90deg, transparent, var(--skin-dark), transparent);
         }
 
-        .founder-intro h1 {
+        .founder-intro h2 {
           font-size: 4rem;
           margin-bottom: 1rem;
           animation: fadeInUp 1s ease;
+          text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
         }
 
         .founder-profile-container {
@@ -993,12 +1014,13 @@ const Home = () => {
           box-shadow: 0 15px 30px rgba(139, 69, 19, 0.2);
         }
 
-        .founder-image img {
-          width: 100%;
-          height: 600px;
-          object-fit: cover;
-          transition: transform 0.8s ease;
-        }
+          .founder-image img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+          }
 
         .founder-image:hover img {
           transform: scale(1.05);
@@ -1198,7 +1220,7 @@ const Home = () => {
             margin-bottom: 60px;
           }
 
-          .events-header h1 {
+          .events-header h2 {
             font-size: 3rem;
             font-family: "Playfair Display", serif;
             color: var(--brown-dark);
@@ -1213,7 +1235,7 @@ const Home = () => {
           }
 
           .year-btn {
-            padding: 8px 20px;
+            padding: 10px 22px;
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
@@ -1221,6 +1243,7 @@ const Home = () => {
             border: 2px solid var(--brown-light);
             background: transparent;
             color: var(--brown-light);
+            min-height: 44px;
           }
 
           .year-btn:hover {
@@ -1344,14 +1367,13 @@ const Home = () => {
             line-height: 1.5;
           }
 
-          /* Horizontal Event Cards */
           .horizontal-scroll-container {
             overflow-x: auto;
             white-space: nowrap;
             padding-bottom: 15px;
             -webkit-overflow-scrolling: touch;
             padding: 15px;
-            width: 110%;
+            width: 100%;
           }
 
           .scroll-content {
@@ -1527,7 +1549,7 @@ const Home = () => {
               height: 35vh;
             }
 
-            .founder-intro h1 {
+            .founder-intro h2 {
               font-size: 3rem;
             }
 
@@ -1535,7 +1557,7 @@ const Home = () => {
               margin-top: -50px;
             }
 
-            .events-header h1 {
+            .events-header h2 {
               font-size: 2.5rem;
             }
 
@@ -1558,7 +1580,7 @@ const Home = () => {
             }
 
             .video-container {
-              height: 30vh;
+              height: 40vh;
             }
 
             .about-content {
@@ -1577,13 +1599,14 @@ const Home = () => {
               flex: 0 0 100%;
             }
 
-            .events-header h1 {
+            .events-header h2 {
               font-size: 2rem;
             }
 
             .year-btn {
-              padding: 6px 15px;
+              padding: 10px 18px;
               font-size: 0.9rem;
+              min-height: 44px;
             }
 
             .horizontal-event-card {
@@ -1633,6 +1656,90 @@ const Home = () => {
             background: rgba(0, 0, 0, 0.7);
             transform: translate(-50%, -50%) scale(1.1);
           }
+          
+          /* Footer Styles */
+          .site-footer {
+            background: linear-gradient(135deg, var(--brown-dark), var(--brown-medium));
+            color: white;
+            padding: 60px 5% 20px;
+          }
+          
+          .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+          }
+          
+          .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--skin-light);
+          }
+          
+          .footer-section p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+          }
+          
+          .footer-section nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+          }
+          
+          .footer-section nav a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+          }
+          
+          .footer-section nav a:hover {
+            color: var(--skin-light);
+          }
+          
+          .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+          }
+          
+          .footer-section a:hover {
+            color: var(--skin-light);
+          }
+          
+          .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+          }
+          
+          .footer-bottom p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+          }
+          
+          @media (max-width: 768px) {
+            .site-footer {
+              padding: 40px 5% 15px;
+            }
+            
+            .footer-content {
+              gap: 30px;
+            }
+            
+            .footer-section h3 {
+              font-size: 1.1rem;
+            }
+          }
+          
+          @media (max-width: 480px) {
+            .footer-content {
+              grid-template-columns: 1fr;
+              gap: 25px;
+            }
+          }
         `}</style>
 
         {/* Hero Section */}
@@ -1656,7 +1763,7 @@ const Home = () => {
             {!showVideo ? (
               <div className="video-placeholder" onClick={handleVideoPlayPause}>
                 <div className="thumbnail-container">
-                  <img src={thumbnailImage} alt="Video Thumbnail" className="thumbnail-image" />
+                  <img src={thumbnailImage} alt="Watch Natanam Foundation classical dance performance video" className="thumbnail-image" />
                 </div>
                 <div className="play-content">
                   <img src={iconImage} alt="Ghibli Style Icon" className="video-icon" />
@@ -1736,7 +1843,7 @@ const Home = () => {
               </p>
             </div>
             <div className="about-image">
-              <img src={aboutImage} alt="Bharatanatyam Performance" />
+              <img src={aboutImage} alt="Bharatanatyam dancers performing classical dance at Natanam Foundation" />
             </div>
           </div>
 
@@ -1785,7 +1892,7 @@ const Home = () => {
         <section className="founder-section">
           <div className="founder-hero">
             <div className="founder-intro">
-              <h1 className="animate-fadeIn">Our Legacy</h1>
+              <h2 className="animate-fadeIn">Our Legacy</h2>
             </div>
           </div>
 
@@ -1793,7 +1900,7 @@ const Home = () => {
             <div className="founder-profile-wrapper">
               <div className="founder-image-container">
                 <div className="founder-image">
-                  <img src={founderImage} alt="Founder" />
+                  <img src={founderImage} alt="Vid. S Vidya Murali - Artistic Director and Bharatanatyam Guru at Natanam Foundation" />
                 </div>
                 <div className="founder-credentials">
                   <span>30+ Years of Service in Arts</span>
@@ -1875,7 +1982,7 @@ const Home = () => {
         {/* Events Section */}
         <section className="events-section">
           <div className="events-header">
-            <h1 className="animate-fadeIn">Achievements & Performances</h1>
+            <h2 className="animate-fadeIn">Achievements & Performances</h2>
             <div className="year-selector">
               {Object.keys(years).map((year) => (
                 <button
@@ -1964,6 +2071,33 @@ const Home = () => {
             </div>
           </div>
         </section>
+        
+        {/* Footer */}
+        <footer className="site-footer">
+          <div className="footer-content">
+            <div className="footer-section">
+              <h3>Natanam Foundation</h3>
+              <p>Premier Bharatanatyam and classical dance academy in Bangalore, established in 1994.</p>
+            </div>
+            <div className="footer-section">
+              <h3>Quick Links</h3>
+              <nav aria-label="Footer navigation">
+                <Link to="/classes">Classes</Link>
+                <Link to="/costumes">Costumes</Link>
+                <Link to="/gallery">Gallery</Link>
+                <Link to="/contact">Contact</Link>
+              </nav>
+            </div>
+            <div className="footer-section">
+              <h3>Contact</h3>
+              <p>Bangalore, India</p>
+              <a href="https://wa.me/918296292776" aria-label="WhatsApp contact">+91 82962 92776</a>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <p>&copy; {new Date().getFullYear()} Natanam Foundation. All rights reserved.</p>
+          </div>
+        </footer>
       </div>
     </>
   );

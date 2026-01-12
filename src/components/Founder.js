@@ -61,7 +61,7 @@ const Founder = () => {
           <div className="founder-profile-wrapper">
             <div className="founder-image-container">
               <div className="founder-image">
-                <img src={founderImage} alt="Founder" />
+                <img src={founderImage} alt="Vid. S Vidya Murali - Artistic Director and Founder of Natanam Foundation" />
               </div>
               <div className="founder-credentials">
                 <span>30+ Years of Service in Arts</span>

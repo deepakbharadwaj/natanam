@@ -124,7 +124,7 @@ const Festivals = () => {
                 <div className="thumbnail-container">
                   <img
                     src={thumbnailImage}
-                    alt="Festival Video Thumbnail"
+                    alt="Watch Banaswadi Natyanjali festival video"
                     className="thumbnail-image"
                   />
                 </div>

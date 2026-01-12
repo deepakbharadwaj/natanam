@@ -28,7 +28,7 @@ const LoadingSpinner = () => (
 );
 
 function App() {
-  const [currentSection, setCurrentSection] = useState("home");
+  const [, setCurrentSection] = useState("home");
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -49,7 +49,9 @@ function App() {
     <Router>
       <SEO />
       <div className="App">
-        <Navbar setCurrentSection={setCurrentSection} />
+        <header>
+          <Navbar setCurrentSection={setCurrentSection} />
+        </header>
         <main className="main-content">
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>

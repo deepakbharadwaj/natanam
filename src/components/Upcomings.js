@@ -16,7 +16,7 @@ const News = () => {
         </div>
         <div className="news-content">
           <div className="news-image-container">
-            <img src={updates1} alt="Latest Updates" className="full-update-image" />
+            <img src={updates1} alt="Latest upcoming dance events and performances at Natanam Foundation" className="full-update-image" />
           </div>
         </div>
       </div>
