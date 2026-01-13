@@ -18,6 +18,16 @@ const News = () => {
           <div className="news-image-container">
             <img src={updates1} alt="Latest upcoming dance events and performances at Natanam Foundation" className="full-update-image" />
           </div>
+          <div className="register-button-container">
+            <a 
+              href="https://events.natanamfoundation.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="register-event-button"
+            >
+              Register Now
+            </a>
+          </div>
         </div>
       </div>
     </>

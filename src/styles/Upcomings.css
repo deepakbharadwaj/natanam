@@ -56,8 +56,46 @@
   }
 }
 
+.register-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.register-event-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 16px 48px;
+  border-radius: 50px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.register-event-button:hover {
+  background: linear-gradient(135deg, #A0522D 0%, #CD853F 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.5);
+}
+
+.register-event-button:active {
+  transform: translateY(-1px);
+}
+
 @media (max-width: 768px) {
   .full-update-image {
     max-width: 400px;
+  }
+
+  .register-event-button {
+    font-size: 1.1rem;
+    padding: 14px 36px;
   }
 }
